@@ -10,7 +10,8 @@ import Card from '../components/Card.astro';
 		  <img class="myicon" src="/icon.png" alt="my icon" />
 		</div>
 		<p class="instructions">
-			<strong>Full Cycle Engineer</strong>
+			<strong>Full Cycle Engineer</strong><br />
+			<strong class="second">Guitarist / Composer</strong>
 		</p>
 		<ul role="list" class="link-card-grid">
 			<Card
@@ -77,6 +78,9 @@ import Card from '../components/Card.astro';
 	}
 	.instructions strong {
 		color: rgb(var(--accent));
+	}
+	.instructions .second {
+		color: rgb(var(--accent-second));
 	}
 	.link-card-grid {
 		display: grid;
