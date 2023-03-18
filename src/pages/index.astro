@@ -5,7 +5,10 @@ import Card from '../components/Card.astro';
 
 <Layout title="tubone24">
 	<main>
-		<h1><span class="text-gradient">Yu Otsubo</span></h1>
+	    <div class="header-container">
+		  <h1><span class="text-gradient">Yu Otsubo</span></h1>
+		  <img class="myicon" src="/icon.png" alt="my icon" />
+		</div>
 		<p class="instructions">
 			<strong>Full Cycle Engineer</strong>
 		</p>
@@ -81,4 +84,16 @@ import Card from '../components/Card.astro';
 		gap: 1rem;
 		padding: 0;
 	}
+
+	.header-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .header-container img {
+        width: 20%;
+        object-fit:cover;
+    }
 </style>
