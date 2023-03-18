@@ -1,22 +1,26 @@
 ---
+import { Icon } from 'astro-icon';
+
 export interface Props {
-	title: string;
-	body: string;
-	href: string;
+  title: string;
+  body: string;
+  href: string;
+  icon: string;
 }
 
-const { href, title, body } = Astro.props;
+const { href, title, body, icon } = Astro.props;
 ---
 
 <li class="link-card">
 	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
+        <h2>
+          <Icon class="icon" name={icon} />
+          {title}
+          <span>&rarr;</span>
+        </h2>
+        <p>
+          {body}
+        </p>
 	</a>
 </li>
 <style>
@@ -58,5 +62,8 @@ const { href, title, body } = Astro.props;
 	}
 	.link-card:is(:hover, :focus-within) h2 {
 		color: rgb(var(--accent));
+	}
+	.icon {
+	  width: 30%;
 	}
 </style>
