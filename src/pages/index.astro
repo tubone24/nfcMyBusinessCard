@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import { Modal } from 'accessible-astro-components';
 ---
 
 <Layout title="tubone24">
@@ -13,6 +14,7 @@ import Card from '../components/Card.astro';
 			<strong>Full Cycle Engineer</strong><br />
 			<strong class="second">Guitarist / Composer</strong>
 		</p>
+		<button class="cool-button" id="open-qr">Open My QR Code</button>
 		<ul role="list" class="link-card-grid">
 			<Card
 				href="https://blog.tubone-project24.xyz/"
@@ -51,6 +53,12 @@ import Card from '../components/Card.astro';
 				icon="mdi:github"
 			/>
 		</ul>
+        <Modal
+          triggerId="open-qr"
+          title="My QR Code"
+        >
+          <img class="qr" src="/qr.png" alt="QR Code" />
+        </Modal>
 	</main>
 </Layout>
 
@@ -63,6 +71,11 @@ import Card from '../components/Card.astro';
 	h1 {
 		font-size: 3rem;
 		font-weight: 800;
+		margin: 0;
+	}
+	h2 {
+		font-size: 2rem;
+		font-weight: 500;
 		margin: 0;
 	}
 	.text-gradient {
@@ -111,5 +124,24 @@ import Card from '../components/Card.astro';
     .header-container img {
         width: 20%;
         object-fit:cover;
+    }
+
+    .qr {
+      align-self: center;
+    }
+    .cool-button {
+      display: inline-block;
+      background-image: linear-gradient(45deg, rgb(var(--accent)), #6FD740 30%, rgba(var(--accent), 40%));
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .cool-button:hover {
+       background-color: rgba(var(--accent), 12%);
     }
 </style>
