@@ -1,5 +1,5 @@
 {
-  "name": "@example/basics",
+  "name": "tubone24-astro",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -7,14 +7,18 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "encrypt": "pagecrypt dist/index.html dist/index.html testtest && pagecrypt dist/eventhub/index.html dist/eventhub/index.html testtest",
+    "serve": "serve dist",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.9.0",
-    "astro-icon": "^0.8.0"
+    "astro": "2.1.5",
+    "astro-icon": "^0.8.0",
+    "accessible-astro-components": "^1.6.5"
   },
   "devDependencies": {
-    "accessible-astro-components": "^1.6.5"
+    "pagecrypt": "6.0.1",
+    "serve": "14.2.0"
   }
 }
