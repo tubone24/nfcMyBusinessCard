@@ -9,6 +9,8 @@
 
 ![header](docs/screenshot.png)
 
+NFC My Business Card is a web application that allows you to create a business card site with NFC with encrypted site.
+
 ## How to set up
 
 ```bash
