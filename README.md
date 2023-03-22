@@ -21,6 +21,8 @@ And also, you need to buy [NFC card](https://www.amazon.com/Rewritable-Business-
 
 You can write the card with [NFC Tools](https://play.google.com/store/apps/details?id=com.wakdev.wdnfc&hl=ja&gl=US) for your deployed business card site.
 
+![nfctools](docs/nfctools.png)
+
 ## Run locally
 
 ```bash
@@ -29,9 +31,17 @@ npm start
 
 ## Build and Encrypt
 
+Before build and encrypt, you need to set up the environment variables.
+
+```
+PASSWORD=yourpassword
+```
+
 ```bash
 npm run build && npm run encrypt && npm run serve
 ```
+
+And you can access http://localhost:3000#yourpassword
 
 ## Demo
 
