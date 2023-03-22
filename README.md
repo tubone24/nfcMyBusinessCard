@@ -7,7 +7,7 @@
 
 > Utilize NFC to realize a digital business card in the form of an NFC card to refer to a profile site.
 
-![header](docs/screenshot.png)
+<img src="docs/screenshot.png" width="60%"/>
 
 NFC My Business Card is a web application that allows you to create a business card site with NFC with encrypted site.
 
@@ -21,7 +21,7 @@ And also, you need to buy [NFC card](https://www.amazon.com/Rewritable-Business-
 
 You can write the card with [NFC Tools](https://play.google.com/store/apps/details?id=com.wakdev.wdnfc&hl=ja&gl=US) for your deployed business card site.
 
-![nfctools](docs/nfctools.png)
+<img src="docs/nfctools.png" width="60%"/>
 
 ## Run locally
 
@@ -53,4 +53,4 @@ Touch your NFC card to your smartphone, and you can see your business card site.
 
 If you access the site without NFC or QR code, you need to input the password to access the site.
 
-![encrypt](docs/encrypt.png)
+<img src="docs/encrypt.png" width="60%"/>
