@@ -6,4 +6,3 @@
 ![header](docs/screenshot.png)
 
 Utilize NFC to realize a digital business card in the form of an NFC card to refer to a profile site.
-
