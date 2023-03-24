@@ -18,7 +18,7 @@
     "accessible-astro-components": "^1.6.5"
   },
   "devDependencies": {
-    "pagecrypt": "6.0.1",
+    "pagecrypt": "6.1.0",
     "serve": "14.2.0"
   }
 }
