@@ -24,6 +24,18 @@ const { title } = Astro.props;
         <meta property="og:locale" content="ja_JP">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@meitante1conan">
+        <script
+          type="text/partytown"
+          src="https://www.googletagmanager.com/gtag/js?id=G-FRVDK24109">
+        </script>
+        <script type="text/partytown">
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", "G-FRVDK24109");
+        </script>
 	</head>
 	<body>
 		<slot />

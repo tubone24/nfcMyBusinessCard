@@ -13,9 +13,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/partytown": "^1.2.0",
+    "accessible-astro-components": "^1.6.5",
     "astro": "2.1.6",
-    "astro-icon": "^0.8.0",
-    "accessible-astro-components": "^1.6.5"
+    "astro-icon": "^0.8.0"
   },
   "devDependencies": {
     "pagecrypt": "6.1.0",
