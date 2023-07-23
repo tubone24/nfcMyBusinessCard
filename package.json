@@ -19,7 +19,7 @@
     "astro-icon": "^0.8.0"
   },
   "devDependencies": {
-    "pagecrypt": "6.1.0",
+    "pagecrypt": "6.1.1",
     "serve": "14.2.0"
   }
 }
