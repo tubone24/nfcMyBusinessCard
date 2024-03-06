@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "encrypt": "pagecrypt dist/index.html dist/index.html $PASSWORD && pagecrypt dist/eventhub/index.html dist/eventhub/index.html $PASSWORD",
+    "encrypt": "pagecrypt dist/index.html dist/index.html $PASSWORD",
     "serve": "serve dist",
     "preview": "astro preview",
     "astro": "astro"
