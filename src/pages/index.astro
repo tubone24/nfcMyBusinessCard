@@ -20,6 +20,7 @@ import { Icon } from 'astro-icon';
 		<div class="contact">
 		    <button class="cool-button" id="open-qr"><Icon class="icon" name="ic:sharp-qr-code-2" />Open My QR Code</button>
             <a class="cool-button2" href="/contact.vcf" download><Icon class="icon" name="ic:baseline-mail" />Download Contact</a>
+			<a class="cool-button3" href="https://www.mintrally.xyz/ja/events/380" target="_blank" rel="noopener noreferrer"><Icon class="icon" name="fluent:sparkle-16-regular" />Get My NFT</a>
 		</div>
 		<ul role="list" class="link-card-grid">
 			<Card
@@ -224,4 +225,28 @@ import { Icon } from 'astro-icon';
        margin-right: 10px;
        vertical-align: middle;
     }
+
+	.cool-button3 {
+		display: block;
+		margin: 0 10px;
+		background-image: linear-gradient(45deg, rgb(var(--accent)), #4bffde 80%, rgba(var(--accent), 20%));
+		color: #ffffff;
+		text-align: center;
+
+		text-decoration: none;
+		padding: 8px 16px;
+		border-radius: 4px;
+		transition: background-color 0.3s ease;
+		cursor: pointer;
+	}
+
+	.cool-button3:hover {
+		background-color: rgba(var(--accent), 12%);
+	}
+	.cool-button3 .icon {
+		margin-right: 10px;
+		width: 19px;
+		margin-right: 10px;
+		vertical-align: middle;
+	}
 </style>
