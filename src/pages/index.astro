@@ -3,9 +3,17 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import { Modal } from 'accessible-astro-components';
 import { Icon } from 'astro-icon';
+
+const prairieCardResponse = await fetch(
+	"https://my.prairie.cards/cards/d9dfbdf6-e6dd-435b-95ef-e31740a9f67e",
+	{credentials: 'include',});
+const statusIsOk = prairieCardResponse.status < 400;
 ---
 
 <Layout title="tubone24">
+	<!--トーストの実装-->
+	{statusIsOk && <div class="toast">Success sending history to Prairie Card!!!</div>}
+	{!statusIsOk && <div class="toast-failed">Failed sending history to Prairie Card!!!</div>}
 	<main>
 	    <div class="header-container">
 	      <h1><span class="text-gradient">Yu Otsubo</span></h1>
@@ -108,6 +116,13 @@ import { Icon } from 'astro-icon';
 		</Modal>
 	</main>
 </Layout>
+
+<script>
+	const toast = document.querySelector('.toast');
+	setTimeout(() => {
+		toast.classList.add('toast-hidden');
+	}, 3000);
+</script>
 
 <style>
 	main {
@@ -296,5 +311,60 @@ import { Icon } from 'astro-icon';
 	.business-card {
 		max-width: 200px;
 		width: 100%;
+	}
+
+	.toast {
+		position: fixed;
+		top: 0px;
+		opacity: 0;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		color: rgb(var(--accent));
+		font-weight: bold;
+		padding: 15px 30px;
+		border-radius: 10px 10px;
+		background-color: #4bffde;
+		animation-duration: 2s;
+		animation-delay: 1s;
+		animation-name: fadein;
+		animation-fill-mode: forwards;
+		box-shadow: 5px 5px 50px rgb(176, 176, 176);
+	}
+
+	.toast-failed {
+		position: fixed;
+		top: 0px;
+		opacity: 0;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		color: rgb(var(--accent));
+		font-weight: bold;
+		padding: 15px 30px;
+		border-radius: 10px 10px;
+		background-color: #ff4b4b;
+		animation-duration: 2s;
+		animation-delay: 1s;
+		animation-name: fadein;
+		animation-fill-mode: forwards;
+		box-shadow: 5px 5px 50px rgb(176, 176, 176);
+	}
+
+	@keyframes fadein {
+		0% {
+			opacity: 0;
+			top: 0px;
+		}
+		15% {
+			opacity: 1;
+			top: 10px;
+		}
+		95% {
+			opacity: 1;
+			top: 10px;
+		}
+		100% {
+			opacity: 0;
+			top: 0px;
+		}
 	}
 </style>
