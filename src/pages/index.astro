@@ -96,7 +96,7 @@ import { Icon } from 'astro-icon';
 			title="Download Contact"
 		>
 			<a class="cool-button2 download-contact" href="/contact.vcf" download><Icon class="icon" name="ic:baseline-mail" />Save VFC</a>
-			<a href="/business_card.png" download><img class="business-card" src="/business_card.png" alt="Business Card" /></a>
+			<a class="download-business-card" href="/business_card.png" download><img class="business-card" src="/business_card.png" alt="Business Card" /></a>
 
 		</Modal>
 
@@ -286,6 +286,10 @@ import { Icon } from 'astro-icon';
 	}
 
 	.download-contact {
+		align-self: center;
+	}
+
+	.download-business-card {
 		align-self: center;
 	}
 
