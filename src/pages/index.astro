@@ -95,7 +95,7 @@ import { Icon } from 'astro-icon';
 			triggerId="open-nft"
 			title="Get My NFT"
 		>
-			<a href="https://www.mintrally.xyz/ja/events/380" target="_blank" rel="noopener noreferrer"><img class="nft" src="/nft.webp" alt="QR Code" onselectstart="return false;" onmousedown="return false;" /></a>
+			<a class="nft" href="https://www.mintrally.xyz/ja/events/380" target="_blank" rel="noopener noreferrer"><img class="nft-img" src="/nft.webp" alt="QR Code" onselectstart="return false;" onmousedown="return false;" /></a>
 		</Modal>
 	</main>
 </Layout>
@@ -193,9 +193,12 @@ import { Icon } from 'astro-icon';
     }
 
 	.nft {
-		pointer-events: none;
 		align-self: center;
 		width: 100%;
+	}
+
+	.nft-img {
+		pointer-events: none;
 	}
 
     .cool-button {
