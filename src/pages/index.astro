@@ -20,7 +20,7 @@ import { Icon } from 'astro-icon';
 		<div class="contact">
 		    <button class="cool-button" id="open-qr"><Icon class="icon" name="ic:sharp-qr-code-2" />Open My QR Code</button>
             <a class="cool-button2" href="/contact.vcf" download><Icon class="icon" name="ic:baseline-mail" />Download Contact</a>
-			<a class="cool-button3" href="https://www.mintrally.xyz/ja/events/380" target="_blank" rel="noopener noreferrer"><Icon class="icon" name="fluent:sparkle-16-regular" />Get My NFT</a>
+			<button class="cool-button" id="open-nft"><Icon class="icon" name="fluent:sparkle-16-regular" />Get My NFT</button>
 		</div>
 		<ul role="list" class="link-card-grid">
 			<Card
@@ -90,6 +90,13 @@ import { Icon } from 'astro-icon';
         >
           <img class="qr" src="/qr.png" alt="QR Code" />
         </Modal>
+
+		<Modal
+			triggerId="open-nft"
+			title="Get My NFT"
+		>
+			<a href="https://www.mintrally.xyz/ja/events/380" target="_blank" rel="noopener noreferrer"><img class="nft" src="/nft.webp" alt="QR Code" onselectstart="return false;" onmousedown="return false;" /></a>
+		</Modal>
 	</main>
 </Layout>
 
@@ -173,12 +180,24 @@ import { Icon } from 'astro-icon';
         align-items: flex-start;
         justify-content: center;
         align-items: center;
+		-webkit-touch-callout:none;
+		-webkit-user-select:none;
+		-moz-touch-callout:none;
+		-moz-user-select:none;
+		user-select:none;
     }
 
     .qr {
       align-self: center;
 	  width: 100%;
     }
+
+	.nft {
+		pointer-events: none;
+		align-self: center;
+		width: 100%;
+	}
+
     .cool-button {
       display: block;
       margin: 0 10px;
