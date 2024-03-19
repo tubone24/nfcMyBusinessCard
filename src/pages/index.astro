@@ -19,7 +19,7 @@ import { Icon } from 'astro-icon';
 		</p>
 		<div class="contact">
 		    <button class="cool-button" id="open-qr"><Icon class="icon" name="ic:sharp-qr-code-2" />Open My QR Code</button>
-            <a class="cool-button2" href="/contact.vcf" download><Icon class="icon" name="ic:baseline-mail" />Download Contact</a>
+			<button class="cool-button2" id="open-contact"><Icon class="icon" name="ic:baseline-mail" />Download Contact</button>
 			<button class="cool-button3" id="open-nft"><Icon class="icon" name="fluent:sparkle-16-regular" />Get My NFT</button>
 		</div>
 		<ul role="list" class="link-card-grid">
@@ -92,10 +92,19 @@ import { Icon } from 'astro-icon';
         </Modal>
 
 		<Modal
-			triggerId="open-nft"
-			title="Get My NFT"
+			triggerId="open-contact"
+			title="Download Contact"
 		>
-			<a class="nft" href="https://www.mintrally.xyz/ja/events/380" target="_blank" rel="noopener noreferrer"><img class="nft-img" src="/nft.webp" alt="QR Code" onselectstart="return false;" onmousedown="return false;" /></a>
+			<a class="cool-button2 download-contact" href="/contact.vcf" download><Icon class="icon" name="ic:baseline-mail" />Save VFC</a>
+			<a href="/business_card.png" download><img class="business-card" src="/business_card.png" alt="Business Card" /></a>
+
+		</Modal>
+
+		<Modal
+			triggerId="open-nft"
+			title="My NFT"
+		>
+			<a class="nft" href="https://www.mintrally.xyz/ja/events/380" target="_blank" rel="noopener noreferrer"><img class="nft-img" src="/nft.webp" alt="NFT" onselectstart="return false;" onmousedown="return false;" /></a>
 		</Modal>
 	</main>
 </Layout>
@@ -274,5 +283,14 @@ import { Icon } from 'astro-icon';
 		width: 19px;
 		margin-right: 10px;
 		vertical-align: middle;
+	}
+
+	.download-contact {
+		align-self: center;
+	}
+
+	.business-card {
+		max-width: 200px;
+		width: 100%;
 	}
 </style>
