@@ -14,13 +14,13 @@ import { Icon } from 'astro-icon';
 		<p class="instructions">
 			<strong>Full Cycle Engineer</strong>@<strong class="second"><a href="https://kddi-agile.com/">KDDI Agile Development Center</a></strong><br />
 			<strong class="second">Guitarist / Composer / YouTuber</strong><br /><br />
-			<code>TEL: 080-6367-9825</code><br />
+			<code>TEL: <a href="tel:080-6367-9825">080-6367-9825</a></code><br />
 			<code>EMAIL: <a href="mailto:yu-ootsubo@kddi-agile.com">yu-ootsubo@kddi-agile.com</a> / <a href="mailto:tubo.yyyuuu@gmail.com">tubo.yyyuuu@gmail.com</a></code>
 		</p>
 		<div class="contact">
 		    <button class="cool-button" id="open-qr"><Icon class="icon" name="ic:sharp-qr-code-2" />Open My QR Code</button>
             <a class="cool-button2" href="/contact.vcf" download><Icon class="icon" name="ic:baseline-mail" />Download Contact</a>
-			<button class="cool-button" id="open-nft"><Icon class="icon" name="fluent:sparkle-16-regular" />Get My NFT</button>
+			<button class="cool-button3" id="open-nft"><Icon class="icon" name="fluent:sparkle-16-regular" />Get My NFT</button>
 		</div>
 		<ul role="list" class="link-card-grid">
 			<Card
@@ -201,6 +201,7 @@ import { Icon } from 'astro-icon';
 
 	.nft-img {
 		pointer-events: none;
+		max-width: 400px;
 		width: 100%;
 	}
 
