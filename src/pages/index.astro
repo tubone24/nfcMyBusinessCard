@@ -26,8 +26,8 @@ if (!Astro.url.href.includes('localhost')) {
 		<p class="instructions">
 			<strong>Full Cycle Engineer</strong>@<strong class="second"><a href="https://kddi-agile.com/">KDDI Agile Development Center</a></strong><br />
 			<strong class="second">Guitarist / Composer / YouTuber</strong><br /><br />
-			<code>TEL: <a href="tel:080-6367-9825">080-6367-9825</a></code><br />
-			<code>EMAIL: <a href="mailto:yu-ootsubo@kddi-agile.com">yu-ootsubo@kddi-agile.com</a> / <a href="mailto:tubo.yyyuuu@gmail.com">tubo.yyyuuu@gmail.com</a></code>
+			<code><a href="tel:080-6367-9825"><Icon class="icon" name="mdi:telephone" />080-6367-9825</a></code>
+			<code><Icon class="icon" name="ic:baseline-mail" /><a href="mailto:yu-ootsubo@kddi-agile.com">yu-ootsubo@kddi-agile.com</a>&nbsp;/&nbsp;<a href="mailto:tubo.yyyuuu@gmail.com">tubo.yyyuuu@gmail.com</a></code>
 		</p>
 		<div class="contact">
 		    <button class="cool-button" id="open-qr"><Icon class="icon" name="ic:sharp-qr-code-2" />Open My QR Code</button>
@@ -131,6 +131,18 @@ if (!Astro.url.href.includes('localhost')) {
 		padding: 1.5rem;
 		max-width: 60ch;
 	}
+	@keyframes gradientAnimation {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 10% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
 	h1 {
 		font-size: 3rem;
 		font-weight: 800;
@@ -147,6 +159,7 @@ if (!Astro.url.href.includes('localhost')) {
 		-webkit-text-fill-color: transparent;
 		background-size: 400%;
 		background-position: 0%;
+		animation: gradientAnimation 2s linear infinite;
 	}
 	.instructions {
 		line-height: 1.6;
@@ -157,13 +170,57 @@ if (!Astro.url.href.includes('localhost')) {
 		border-radius: 0.4rem;
 	}
 	.instructions code {
+		display: flex; /* Flexboxを使ってアイコンとテキストを中央揃えにする */
+		align-items: center; /* アイテムを縦方向の中央に揃える */
 		font-size: 0.875em;
 		font-weight: bold;
-		background: rgba(var(--accent), 12%);
 		color: rgb(var(--accent));
 		border-radius: 4px;
 		padding: 0.3em 0.45em;
 	}
+
+	.instructions code .icon {
+		width: 1em; /* アイコンのサイズをテキストに合わせる */
+		height: 1em; /* アイコンの高さを調整 */
+		margin-right: 5px; /* アイコンとテキストの間に適切なスペースを追加 */
+		vertical-align: middle;
+	}
+
+	@media (max-width: 768px) {
+		.instructions code {
+			font-size: 0.75em; /* テキストサイズを小さくする */
+		}
+
+		.instructions {
+			padding: 0.5rem; /* パディングを調整して余白を減らす */
+			font-size: 0.875em; /* 基本テキストのサイズを小さくする */
+		}
+
+		.instructions code a {
+			display: block; /* リンクをブロック要素にして折り返しを可能にする */
+			overflow-wrap: break-word; /* 長い単語があっても折り返しを許可する */
+		}
+	}
+
+	@keyframes phoneIconBounce {
+		0%, 100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-5px);
+		}
+	}
+
+	.instructions code .icon:hover {
+		animation: phoneIconBounce 0.5s ease-in-out;
+	}
+
+	.instructions code a {
+		color: rgb(var(--accent));
+		vertical-align: middle;
+		text-decoration: none;
+	}
+
 	.instructions strong {
 		color: rgb(var(--accent));
 	}
