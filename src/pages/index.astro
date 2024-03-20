@@ -4,10 +4,14 @@ import Card from '../components/Card.astro';
 import { Modal } from 'accessible-astro-components';
 import { Icon } from 'astro-icon';
 
-const prairieCardResponse = await fetch(
-	"https://my.prairie.cards/cards/d9dfbdf6-e6dd-435b-95ef-e31740a9f67e",
-	{credentials: 'include',});
-const statusIsOk = prairieCardResponse.status < 400;
+// localhostの場合はPrairie Cardに送信しない
+let statusIsOk = false;
+if (!Astro.url.href.includes('localhost')) {
+	const prairieCardResponse = await fetch(
+		"https://my.prairie.cards/cards/d9dfbdf6-e6dd-435b-95ef-e31740a9f67e",
+		{credentials: 'include',});
+	statusIsOk = prairieCardResponse.status < 400;
+}
 ---
 
 <Layout title="tubone24">
