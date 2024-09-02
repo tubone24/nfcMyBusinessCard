@@ -6,12 +6,10 @@ import { Icon } from 'astro-icon';
 
 // localhostの場合はPrairie Cardに送信しない
 let statusIsOk = false;
-if (!Astro.url.origin.includes('localhost')) {
-	const prairieCardResponse = await fetch(
-		"https://my.prairie.cards/cards/d9dfbdf6-e6dd-435b-95ef-e31740a9f67e",
-		{credentials: 'include',});
-	statusIsOk = prairieCardResponse.status < 400;
-}
+const prairieCardResponse = await fetch(
+	"https://my.prairie.cards/cards/d9dfbdf6-e6dd-435b-95ef-e31740a9f67e",
+	{credentials: 'include',});
+statusIsOk = prairieCardResponse.status < 400;
 ---
 
 <Layout title="tubone24">
@@ -79,6 +77,18 @@ if (!Astro.url.origin.includes('localhost')) {
 				icon="mdi:facebook"
 			/>
 			<Card
+				href="https://www.linkedin.com/in/tubone-project24/"
+				title="Linkedin"
+				body="Linkedin"
+				icon="mdi:linkedin"
+			/>
+			<Card
+				href="https://www.instagram.com/mugimugi.cutedog/"
+				title="Instagram"
+				body="My cute dog's Instagram"
+				icon="mdi:instagram"
+			/>
+			<Card
 				href="https://716.pages.dev/"
 				title="vTuber ch"
 				body="716 doremi ch"
@@ -88,12 +98,6 @@ if (!Astro.url.origin.includes('localhost')) {
 				href="https://kddi-agile.com/"
 				title="KDDI Agile Development Center"
 				body="KAG corp site"
-				icon="ic:outline-corporate-fare"
-			/>
-			<Card
-				href="https://michibiku.co.jp/"
-				title="michibiku"
-				body="michibiku corp site"
 				icon="ic:outline-corporate-fare"
 			/>
 		</ul>
