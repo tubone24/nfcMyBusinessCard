@@ -1,7 +1,15 @@
 # NFC My Business Card
+### ☁ Try it in the Cloud
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/tubone24/nfcMyBusinessCard/tree/)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/tubone24/nfcMyBusinessCard/tree/)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/tubone24/nfcMyBusinessCard/tree)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/tubone24/nfcMyBusinessCard/tree)
+[![Open in VS Code](https://img.shields.io/badge/Open%20in-VS%20Code-blue?logo=visualstudiocode)](https://vscode.dev/github/tubone24/nfcMyBusinessCard/tree)
+[![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://codespaces.new/tubone24/nfcMyBusinessCard/tree)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/tubone24/nfcMyBusinessCard/tree)
+[![Open in Repl.it](https://replit.com/badge/github/tubone24/nfcMyBusinessCard)](https://replit.com/github/tubone24/nfcMyBusinessCard/tree)
+[![Open in Glitch](https://img.shields.io/badge/Open%20in-Glitch-blue?logo=glitch)](https://glitch.com/edit/#!/import/github/tubone24/nfcMyBusinessCard/tree)
+[![Open in Codeanywhere](https://codeanywhere.com/img/open-in-codeanywhere-btn.svg)](https://app.codeanywhere.com/#https://github.com/tubone24/nfcMyBusinessCard/tree)
+
 
 ![header](public/ogp.png)
 
