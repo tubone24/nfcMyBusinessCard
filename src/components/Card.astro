@@ -1,5 +1,6 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
+
 
 export interface Props {
   title: string;
@@ -24,6 +25,9 @@ const { href, title, body, icon } = Astro.props;
 	</a>
 </li>
 <style>
+    [data-icon] {
+        font-size: 4rem;
+    }
 	.link-card {
 		list-style: none;
 		display: flex;
