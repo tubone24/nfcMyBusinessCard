@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import BookCard from '../components/BookCard.astro';
 import { Modal } from 'accessible-astro-components';
 import { Icon } from 'astro-icon/components';
 
@@ -106,6 +107,18 @@ statusIsOk = prairieCardResponse.status < 400;
 				icon="ic:outline-corporate-fare"
 			/>
 		</ul>
+			
+			<h2 class="section-title">📚 Publications</h2>
+			<ul role="list" class="book-card-grid">
+				<BookCard
+					title="KAG Tech Book -Vol1-"
+					author="KDDIアジャイル開発センター"
+					description="本書は、KDDIアジャイル開発センター株式会社（通称KAG：カグと呼ばれます）で日々、システム開発に向き合っているメンバーたちの有志によって執筆されました。それぞれが異なる現場やプロダクトに携わる中で得た経験や知見を持ち寄り、チームとしての実践や学びを一冊にまとめたものです。"
+					image="/kag-tech-book.png"
+					href="https://techbookfest.org/product/7YEcq5ZEqMrcn7syzVhcdQ?productVariantID=wF6srZpi5e0UeE47fFgKT6"
+				/>
+			</ul>
+			
         <Modal
           triggerId="open-qr"
           title="My QR Code"
@@ -243,6 +256,21 @@ statusIsOk = prairieCardResponse.status < 400;
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 1rem;
 		padding: 0;
+	}
+
+	.book-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 1rem;
+		padding: 0;
+		margin: 2rem 0;
+	}
+
+	.section-title {
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		text-align: center;
+		color: rgb(var(--accent));
 	}
 
 	.header-container {

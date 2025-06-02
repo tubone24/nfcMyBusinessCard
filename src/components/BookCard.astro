@@ -1,0 +1,116 @@
+---
+export interface Props {
+  title: string;
+  author: string;
+  description: string;
+  image: string;
+  href: string;
+}
+
+const { title, author, description, image, href } = Astro.props;
+---
+
+<li class="book-card">
+  <a href={href} target="_blank" rel="noopener noreferrer">
+    <div class="book-image-container">
+      <img src={image} alt={title} class="book-image" />
+    </div>
+    <div class="book-content">
+      <h3 class="book-title">{title}</h3>
+      <p class="book-author">{author}</p>
+      <p class="book-description">{description}</p>
+    </div>
+  </a>
+</li>
+
+<style>
+  .book-card {
+    list-style: none;
+    display: flex;
+    padding: 0.15rem;
+    background-color: white;
+    background-image: var(--accent-gradient);
+    background-size: 400%;
+    border-radius: 0.5rem;
+    background-position: 100%;
+    transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  }
+
+  .book-card > a {
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 0.35rem;
+    color: #111;
+    background-color: white;
+    opacity: 0.8;
+  }
+
+  .book-image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .book-image {
+    width: 120px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .book-content {
+    flex: 1;
+  }
+
+  .book-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #111;
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .book-author {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  .book-description {
+    margin: 0.5rem 0 0;
+    font-size: 0.875rem;
+    color: #444;
+    line-height: 1.4;
+  }
+
+  .book-card:is(:hover, :focus-within) {
+    background-position: 0;
+  }
+
+  .book-card:is(:hover, :focus-within) .book-title {
+    color: rgb(var(--accent));
+  }
+
+  @media (min-width: 768px) {
+    .book-card > a {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .book-image-container {
+      width: auto;
+      margin-bottom: 0;
+      margin-right: 1rem;
+    }
+
+    .book-image {
+      width: 100px;
+    }
+  }
+</style>
