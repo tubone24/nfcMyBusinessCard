@@ -4825,11 +4825,6 @@ mlly@^1.7.3, mlly@^1.7.4:
     pkg-types "^1.3.0"
     ufo "^1.5.4"
 
-mri@^1.1.0:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/mri/-/mri-1.2.0.tgz"
-  integrity sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==
-
 mrmime@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/mrmime/-/mrmime-1.0.1.tgz"
@@ -5034,13 +5029,10 @@ package-manager-detector@^0.2.8:
   dependencies:
     quansync "^0.2.7"
 
-pagecrypt@6.1.1:
-  version "6.1.1"
-  resolved "https://registry.npmjs.org/pagecrypt/-/pagecrypt-6.1.1.tgz"
-  integrity sha512-ai5VtSxJDWPRJrkWe8IVEPPLMd9OZM6DdmtNNwOxmq/M6Fm/XXuygdlDeSr6T0XTBAk5LQHIGGkHBjR6tfr9iQ==
-  dependencies:
-    rfc4648 "^1.5.2"
-    sade "^1.8.1"
+pagecrypt@7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/pagecrypt/-/pagecrypt-7.0.0.tgz#92fd20cd69d520a1d2a5ab14d04978db59669e43"
+  integrity sha512-TnhECOdoUMNg7hKxAqgcA4Mn6CFBlHuPqJ/1jzhv0+TXdtMXCmq5C3loSRoCLcwLuvLo2KdbIpNFzxq1H0cMuQ==
 
 parse-latin@^7.0.0:
   version "7.0.0"
@@ -5554,11 +5546,6 @@ reusify@^1.0.4:
   resolved "https://registry.npmjs.org/reusify/-/reusify-1.0.4.tgz"
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
-rfc4648@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.npmjs.org/rfc4648/-/rfc4648-1.5.2.tgz"
-  integrity sha512-tLOizhR6YGovrEBLatX1sdcuhoSCXddw3mqNVAcKxGJ+J0hFeJ+SjeWCv5UPA/WU3YzWPPuCVYgXBKZUPGpKtg==
-
 rollup-plugin-terser@^7.0.0:
   version "7.0.2"
   resolved "https://registry.npmjs.org/rollup-plugin-terser/-/rollup-plugin-terser-7.0.2.tgz"
@@ -5611,13 +5598,6 @@ run-parallel@^1.1.9:
   integrity sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==
   dependencies:
     queue-microtask "^1.2.2"
-
-sade@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.npmjs.org/sade/-/sade-1.8.1.tgz"
-  integrity sha512-xal3CZX1Xlo/k4ApwCFrHVACi9fBqJ7V+mwhBsuf/1IOKbBy098Fex+Wa/5QMubw09pSZ/u8EY8PWgevJsXp1A==
-  dependencies:
-    mri "^1.1.0"
 
 safe-array-concat@^1.1.2:
   version "1.1.2"
