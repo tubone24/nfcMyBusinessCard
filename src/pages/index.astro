@@ -184,7 +184,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			
 			// 新しい犬を作成
 			const dog = document.createElement('img');
-			dog.src = '/mugi.png';
+			// ランダムでmugi.pngまたはmugi2.pngを選択
+			const mugiImages = ['/mugi.png', '/mugi2.png'];
+			const randomIndex = Math.floor(Math.random() * mugiImages.length);
+			dog.src = mugiImages[randomIndex];
 			
 			// スタイルを直接設定
 			dog.style.position = 'absolute';
