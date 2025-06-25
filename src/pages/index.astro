@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import BookCard from '../components/BookCard.astro';
+import YouTubeCard from '../components/YouTubeCard.astro';
 import { Modal } from 'accessible-astro-components';
 import { Icon } from 'astro-icon/components';
 
@@ -19,8 +20,9 @@ statusIsOk = prairieCardResponse.status < 400;
 	<main>
 	    <div class="header-container">
 	      <h1><span class="text-gradient">Yu Otsubo</span></h1>
-		  <img class="myicon" src="/icon.png" alt="my icon" />
+		  <img class="myicon" id="myicon" src="/icon.png" alt="my icon" />
 		</div>
+		<div id="running-dog"></div>
 		<p class="instructions">
 			<strong>Full Cycle Engineer</strong>@<strong class="second"><a href="https://kddi-agile.com/">KDDI Agile Development Center</a></strong><br />
 			<strong class="second">Guitarist / Composer / YouTuber</strong><br /><br />
@@ -126,6 +128,22 @@ statusIsOk = prairieCardResponse.status < 400;
 				/>
 			</ul>
 			
+			<h2 class="section-title">📺 YouTube</h2>
+			<ul role="list" class="youtube-card-grid">
+				<YouTubeCard
+					title="【３分で分かるAI】本部長視点のAIエージェント『A-BOSS』（本部長AI）のアーキテクチャーを解説"
+					channelName="KDDIofficial"
+					description="AIが本部長の代わりに提案書をレビュー、営業活動のあらゆる場面でサポートしてくれる上司のように頼れるAIエージェントのアーキテクチャーを開発メンバーが解説いたします。"
+					videoId="eotu-iwh-qA"
+				/>
+				<YouTubeCard
+					title="【３分で分かるAI】成長するAIエージェント『A-BOSS』（本部長AI）の成長機能の仕組みを解説"
+					channelName="KDDIofficial"
+					description="使えば使うほど賢くなるAIエージェント！A-BOSS（本部長AI）の成長機能の仕組みについて開発メンバーが解説いたします。"
+					videoId="WFh4fQ95gxk"
+				/>
+			</ul>
+			
         <Modal
           triggerId="open-qr"
           title="My QR Code"
@@ -153,7 +171,55 @@ statusIsOk = prairieCardResponse.status < 400;
 </Layout>
 
 <script>
-
+document.addEventListener('DOMContentLoaded', () => {
+	const myicon = document.getElementById('myicon');
+	const runningDogContainer = document.getElementById('running-dog');
+	
+	if (myicon && runningDogContainer) {
+		myicon.addEventListener('click', () => {
+			console.log('Icon clicked!'); // デバッグ用
+			
+			// 既存の犬を削除
+			runningDogContainer.innerHTML = '';
+			
+			// 新しい犬を作成
+			const dog = document.createElement('img');
+			dog.src = '/mugi.png';
+			
+			// スタイルを直接設定
+			dog.style.position = 'absolute';
+			dog.style.width = '150px';
+			dog.style.height = '150px';
+			dog.style.left = '-200px';
+			
+			// ランダムな開始位置
+			const startY = Math.random() * (window.innerHeight - 200);
+			dog.style.top = startY + 'px';
+			
+			runningDogContainer.appendChild(dog);
+			
+			// アニメーションを少し遅れて開始
+			setTimeout(() => {
+				dog.style.animation = 'zigzagRun 4s linear forwards';
+			}, 10);
+			
+			// アニメーション終了後に削除（複数のイベント名に対応）
+			dog.addEventListener('animationend', () => {
+				dog.remove();
+			});
+			dog.addEventListener('webkitAnimationEnd', () => {
+				dog.remove();
+			});
+			
+			// 5秒後に強制的に削除（フォールバック）
+			setTimeout(() => {
+				if (dog.parentNode) {
+					dog.remove();
+				}
+			}, 5000);
+		});
+	}
+});
 </script>
 
 <style>
@@ -273,6 +339,14 @@ statusIsOk = prairieCardResponse.status < 400;
 		margin: 2rem 0;
 	}
 
+	.youtube-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 1rem;
+		padding: 0;
+		margin: 2rem 0;
+	}
+
 	.section-title {
 		margin-top: 2rem;
 		margin-bottom: 1rem;
@@ -301,6 +375,7 @@ statusIsOk = prairieCardResponse.status < 400;
     .header-container img {
         width: 20%;
         object-fit:cover;
+        cursor: pointer;
     }
 
 	.contact {
@@ -506,6 +581,72 @@ statusIsOk = prairieCardResponse.status < 400;
 		100% {
 			opacity: 0;
 			top: 0px;
+		}
+	}
+
+	#running-dog {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: 9999;
+	}
+
+	.running-dog-animation {
+		position: absolute;
+		width: 80px;
+		height: 80px;
+		left: -100px;
+		animation: runAcrossScreen 3s linear forwards;
+		-webkit-animation: runAcrossScreen 3s linear forwards;
+	}
+
+	@keyframes zigzagRun {
+		0% {
+			left: -200px;
+			transform: translateY(0);
+		}
+		10% {
+			left: 10%;
+			transform: translateY(-100px);
+		}
+		20% {
+			left: 20%;
+			transform: translateY(100px);
+		}
+		30% {
+			left: 30%;
+			transform: translateY(-80px);
+		}
+		40% {
+			left: 40%;
+			transform: translateY(80px);
+		}
+		50% {
+			left: 50%;
+			transform: translateY(-120px);
+		}
+		60% {
+			left: 60%;
+			transform: translateY(60px);
+		}
+		70% {
+			left: 70%;
+			transform: translateY(-90px);
+		}
+		80% {
+			left: 80%;
+			transform: translateY(90px);
+		}
+		90% {
+			left: 90%;
+			transform: translateY(-70px);
+		}
+		100% {
+			left: calc(100vw + 200px);
+			transform: translateY(0);
 		}
 	}
 </style>
