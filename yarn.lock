@@ -1325,9 +1325,9 @@
     "@iconify/types" "*"
 
 "@iconify-json/fluent@^1.2.20":
-  version "1.2.20"
-  resolved "https://registry.yarnpkg.com/@iconify-json/fluent/-/fluent-1.2.20.tgz#99c1c64c3fbc39e11a0c72794f5db9c515109fb5"
-  integrity sha512-CIaXiuXjv/rp+yiB8lZ0pJ7E+Q2Jz01G1AxWy3LPaEsViFSArkY78gxZLGveta2ZN7MzeEyna03YYfEyzTWxAw==
+  version "1.2.27"
+  resolved "https://registry.yarnpkg.com/@iconify-json/fluent/-/fluent-1.2.27.tgz#47ae8f46f42bb1775fd35478d4e7fe5527888e36"
+  integrity sha512-ZEjiHPloDLo0EsDEIUfjPOyPEife6PSPO33215eFPj5vn+3e2m23Y0JhjqmM2YwQNZ+0Dh78sWTwWslc4ylwlw==
   dependencies:
     "@iconify/types" "*"
 
@@ -1371,7 +1371,7 @@
 
 "@iconify/types@*", "@iconify/types@^2.0.0":
   version "2.0.0"
-  resolved "https://registry.npmjs.org/@iconify/types/-/types-2.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/@iconify/types/-/types-2.0.0.tgz#ab0e9ea681d6c8a1214f30cd741fe3a20cc57f57"
   integrity sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==
 
 "@iconify/utils@^2.1.30", "@iconify/utils@^2.3.0":
