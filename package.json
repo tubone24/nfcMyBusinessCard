@@ -26,7 +26,7 @@
     "astrojs-service-worker": "^2.0.0"
   },
   "devDependencies": {
-    "pagecrypt": "6.1.1",
+    "pagecrypt": "6.2.0",
     "serve": "14.2.0"
   }
 }
