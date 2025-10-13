@@ -1208,9 +1208,9 @@
     "@iconify/types" "*"
 
 "@iconify-json/fluent@^1.2.20":
-  version "1.2.20"
-  resolved "https://registry.yarnpkg.com/@iconify-json/fluent/-/fluent-1.2.20.tgz#99c1c64c3fbc39e11a0c72794f5db9c515109fb5"
-  integrity sha512-CIaXiuXjv/rp+yiB8lZ0pJ7E+Q2Jz01G1AxWy3LPaEsViFSArkY78gxZLGveta2ZN7MzeEyna03YYfEyzTWxAw==
+  version "1.2.33"
+  resolved "https://registry.yarnpkg.com/@iconify-json/fluent/-/fluent-1.2.33.tgz#6d2ad4530dc29e521e11ed8b63e3a8adc6ea150e"
+  integrity sha512-boteYANiRo+txCGpxv0okpGUmAkmdsze+Gy061TpXx2N+VUFeGYMnmcoimRZWPOoJt7se+QF+Wv8DY3PV0otfg==
   dependencies:
     "@iconify/types" "*"
 
