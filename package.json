@@ -27,6 +27,6 @@
   },
   "devDependencies": {
     "pagecrypt": "7.0.2",
-    "serve": "14.2.0"
+    "serve": "14.2.5"
   }
 }
