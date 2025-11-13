@@ -1850,9 +1850,9 @@ accepts@~1.3.5:
     negotiator "0.6.3"
 
 accessible-astro-components@^5.0.0:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/accessible-astro-components/-/accessible-astro-components-5.0.1.tgz#4da7ef1c966016ab7fa42886d0801a7ae9436c2e"
-  integrity sha512-+jV5py6HZdv9+ZvYnRL1JeGOOLfBB89/1FmERwU3fkA+h2YRvsXxJl8qBlNuZUsiXWEOZGjXzjcRKYGnNE2B/Q==
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/accessible-astro-components/-/accessible-astro-components-5.0.3.tgz#517cbe22d1a7c6355d907adbd2985613570ec4a2"
+  integrity sha512-RxtlI5JT5we65XMPDEsDui71sUFpgEQEcKTyuLQnc5VYSum2C3S7TXCsLI3m/TEvOcxvR4BY+s/x7ixmIVHwCQ==
 
 acorn@^8.14.0:
   version "8.14.1"
