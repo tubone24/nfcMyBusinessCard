@@ -6,17 +6,9 @@ import YouTubeCard from '../components/YouTubeCard.astro';
 import { Modal } from 'accessible-astro-components';
 import { Icon } from 'astro-icon/components';
 
-// localhostの場合はPrairie Cardに送信しない
-let statusIsOk = false;
-const prairieCardResponse = await fetch(
-	"https://my.prairie.cards/cards/d9dfbdf6-e6dd-435b-95ef-e31740a9f67e",
-	{credentials: 'include',});
-statusIsOk = prairieCardResponse.status < 400;
 ---
 
 <Layout title="tubone24">
-	{statusIsOk && <div class="toast">Success sending history to Prairie Card!!!</div>}
-	{!statusIsOk && <div class="toast-failed">Failed sending history to Prairie Card!!!</div>}
 	<main>
 	    <div class="header-container">
 	      <h1><span class="text-gradient">Yu Otsubo</span></h1>
