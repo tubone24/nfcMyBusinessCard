@@ -69,7 +69,7 @@
     unist-util-visit-parents "^6.0.1"
     vfile "^6.0.3"
 
-"@astrojs/partytown@^2.0.0":
+"@astrojs/partytown@2.1.4":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@astrojs/partytown/-/partytown-2.1.4.tgz#7eedf25a84f59602eb4392dcab16b79c2d65f560"
   integrity sha512-loUrAu0cGYFDC6dHVRiomdsBJ41VjDYXPA+B3Br51V5hENFgDSOLju86OIj1TvBACcsB22UQV7BlppODDG5gig==
@@ -1198,35 +1198,35 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.25.8.tgz#610d7ea539d2fcdbe39237b5cc175eb2c4451f9c"
   integrity sha512-cn3Yr7+OaaZq1c+2pe+8yxC8E144SReCQjN6/2ynubzYjvyqZjTXfQJpAcQpsdJq3My7XADANiYGHoFC69pLQw==
 
-"@iconify-json/fa@^1.2.1":
+"@iconify-json/fa@1.2.2":
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@iconify-json/fa/-/fa-1.2.2.tgz#6222eb0d4a2ac9eb7dff7861736e8d0e87376469"
   integrity sha512-Rw0L97uO3W0Gy2rq4cM/TH3QjzuPuRca1F2steumZ57zOeheGQdiqo50O6KHjm+WgImmV92IFPUTU6eiaJsrTw==
   dependencies:
     "@iconify/types" "*"
 
-"@iconify-json/fluent@^1.2.20":
+"@iconify-json/fluent@1.2.34":
   version "1.2.34"
   resolved "https://registry.yarnpkg.com/@iconify-json/fluent/-/fluent-1.2.34.tgz#aedb37c341bd901d2448fba2325d68836313b152"
   integrity sha512-TXiotS96YhSf6urBmMBrBPOL2OJJghiv+FhLsd3J0PePZJEq460eg/LrnfVqKqEdLc38C3AesTNJAM8iB4N5UQ==
   dependencies:
     "@iconify/types" "*"
 
-"@iconify-json/ic@^1.2.2":
+"@iconify-json/ic@1.2.4":
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/@iconify-json/ic/-/ic-1.2.4.tgz#bf7bfe6accbbf2bee6e1ba50ae2645efa41a7208"
   integrity sha512-pzPMmrZrBQuwT7nmtrYdkttun8KalRGgZPIL1Ny9KpF2zjRGIUPN+npTfuD3lrgO/OnSwAoJWuekQwBpt/Cqrw==
   dependencies:
     "@iconify/types" "*"
 
-"@iconify-json/icomoon-free@^1.2.1":
+"@iconify-json/icomoon-free@1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@iconify-json/icomoon-free/-/icomoon-free-1.2.1.tgz#19e8614eb1acb8a15d60dd9b1923cf38a2bdc6dd"
   integrity sha512-Me5L0/vH/LlhVr5R85TFah0LcJD7an6mv+5dagvXY/YnXQsOx3eB7GUioXheSoB8tObhvCuZFbvujMYKPKNWfw==
   dependencies:
     "@iconify/types" "*"
 
-"@iconify-json/mdi@^1.2.3":
+"@iconify-json/mdi@1.2.3":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.2.3.tgz#5e4ee9d8c8aaad04381c8cc6c6edbe3327f031b5"
   integrity sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==
@@ -1790,7 +1790,7 @@
   resolved "https://registry.yarnpkg.com/@zeit/schemas/-/schemas-2.36.0.tgz#7a1b53f4091e18d0b404873ea3e3c83589c765f2"
   integrity sha512-7kjMwcChYEzMKjeex9ZFXkt1AyNov9R5HZtjBKVsmVpw7pa7ZtlCGvCBC2vnnXctaYN+aRI61HjIqeetZW5ROg==
 
-accessible-astro-components@^5.0.0:
+accessible-astro-components@5.0.3:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/accessible-astro-components/-/accessible-astro-components-5.0.3.tgz#517cbe22d1a7c6355d907adbd2985613570ec4a2"
   integrity sha512-RxtlI5JT5we65XMPDEsDui71sUFpgEQEcKTyuLQnc5VYSum2C3S7TXCsLI3m/TEvOcxvR4BY+s/x7ixmIVHwCQ==
@@ -1921,7 +1921,7 @@ arraybuffer.prototype.slice@^1.0.3:
     is-array-buffer "^3.0.4"
     is-shared-array-buffer "^1.0.2"
 
-astro-icon@^1.0.0:
+astro-icon@1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/astro-icon/-/astro-icon-1.1.5.tgz#5d24a55caed5886514a6edde5ea7e623dfc22f59"
   integrity sha512-CJYS5nWOw9jz4RpGWmzNQY7D0y2ZZacH7atL2K9DeJXJVaz7/5WrxeyIxO8KASk1jCM96Q4LjRx/F3R+InjJrw==
@@ -1930,19 +1930,19 @@ astro-icon@^1.0.0:
     "@iconify/types" "^2.0.0"
     "@iconify/utils" "^2.1.30"
 
-astro-webmanifest@^1.0.0:
+astro-webmanifest@1.0.0:
   version "1.0.0"
-  resolved "https://registry.npmjs.org/astro-webmanifest/-/astro-webmanifest-1.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/astro-webmanifest/-/astro-webmanifest-1.0.0.tgz#e5736ab81a079431c5f4576839eb59fd24091b6a"
   integrity sha512-ar8SZuFf8k2XuqAYpiaiGmzgpqVufyPx0A9d8OljPup+Sgs+1trG2bpvo7JcM+m4L3figPaYEZOy1rRawCEU0w==
   dependencies:
     sharp "^0.32.5"
     valid-filename "^4.0.0"
     zod "^3.22.2"
 
-astro@5.15.6:
-  version "5.15.6"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-5.15.6.tgz#e483f0c00f04cd675fd13ac21b8be088abddeda9"
-  integrity sha512-luLcw+FGkeUHYTfbmYjIWHB4T0D+3VSjCy8DKTXglJ2O3lU40AbwmPVBcnqhRnA1SneKzP5V5pzqjsHzUZ1+Rg==
+astro@5.15.7:
+  version "5.15.7"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-5.15.7.tgz#90496435f1fa8beed9db00779cf4eb86f95cb680"
+  integrity sha512-Zmw6otInhxcjoGcEyEN+wxgdiQERQOS3VzOmAKsDdKK8Fb4x1656r+9NtaTXCRZ0/fGtHjkSvkGUhZUJLXKfxQ==
   dependencies:
     "@astrojs/compiler" "^2.13.0"
     "@astrojs/internal-helpers" "0.7.4"
@@ -2009,9 +2009,9 @@ astro@5.15.6:
   optionalDependencies:
     sharp "^0.34.0"
 
-astrojs-service-worker@^2.0.0:
+astrojs-service-worker@2.0.0:
   version "2.0.0"
-  resolved "https://registry.npmjs.org/astrojs-service-worker/-/astrojs-service-worker-2.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/astrojs-service-worker/-/astrojs-service-worker-2.0.0.tgz#a5e50ab06c1784fac4510fae659a8aec7b6c9631"
   integrity sha512-pVlWNA1H2QlV3pRH5vXkdxkkhlU3zVZ2F72j5jxWQDL5BJEM2xhp0+46GB/FTMzsHYgSr7jy8PNodvFoTn7XQg==
   dependencies:
     workbox-build "^6.5.4"
