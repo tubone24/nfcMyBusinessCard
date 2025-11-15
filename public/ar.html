@@ -78,21 +78,25 @@
 		embedded
 		arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; sourceWidth: 1280; sourceHeight: 960; displayWidth: 1280; displayHeight: 960;"
 		vr-mode-ui="enabled: false"
-		renderer="logarithmicDepthBuffer: true; precision: medium;"
+		renderer="colorManagement: true; physicallyCorrectLights: true; logarithmicDepthBuffer: true; precision: medium;"
 	>
 		<!-- カメラ (視野角を広げて広角に) -->
 		<a-entity camera="fov: 100; near: 0.1; far: 1000"></a-entity>
 
 		<!-- ARマーカー: カスタムマーカーを使用 -->
 		<a-marker type="pattern" url="/pattern-marker.patt">
-			<!-- 環境光 (全体を明るく) -->
-			<a-light type="ambient" color="#ffffff" intensity="1.5"></a-light>
+			<!-- 環境光 (全体を明るく) - 強化 -->
+			<a-light type="ambient" color="#ffffff" intensity="2.5"></a-light>
 
-			<!-- 指向性ライト (上から) -->
-			<a-light type="directional" color="#ffffff" intensity="1" position="1 1 1"></a-light>
+			<!-- 半球ライト (空と地面からの照り返し) -->
+			<a-light type="hemisphere" color="#ffffff" groundColor="#888888" intensity="1.5"></a-light>
+
+			<!-- 指向性ライト (複数方向から) -->
+			<a-light type="directional" color="#ffffff" intensity="1.2" position="1 1 1"></a-light>
+			<a-light type="directional" color="#ffffff" intensity="0.8" position="-1 0.5 -1"></a-light>
 
 			<!-- ポイントライト (マーカーの上から) -->
-			<a-light type="point" color="#ffffff" intensity="1" position="0 2 0"></a-light>
+			<a-light type="point" color="#ffffff" intensity="1.5" position="0 2 0"></a-light>
 
 			<!-- 3Dモデル (GLB) - かなり小さく表示 -->
 			<a-entity
@@ -102,6 +106,16 @@
 				gltf-model="/model.glb"
 				animation="property: rotation; to: -90 360 0; loop: true; dur: 5000; easing: linear"
 			></a-entity>
+
+			<!-- テキスト表示 -->
+			<a-text
+				value="tubone24"
+				position="0 0.3 0"
+				align="center"
+				color="#24E08E"
+				width="2"
+				font="https://cdn.aframe.io/fonts/Roboto-msdf.json"
+			></a-text>
 		</a-marker>
 	</a-scene>
 
