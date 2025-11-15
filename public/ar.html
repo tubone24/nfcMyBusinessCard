@@ -108,11 +108,12 @@
 
 			<!-- 柴犬モデル (手前で左右に走る) -->
 			<a-entity
-				position="0 -0.8 0.5"
-				rotation="-40 0 0"
+				position="-2 -0.8 0.5"
+				rotation="-40 90 0"
 				scale="0.5 0.5 0.5"
 				gltf-model="/shiba-model.glb"
-				animation="property: position; from: -2 0 0.5; to: 2 0 0.5; dur: 3000; easing: linear; loop: true; dir: alternate"
+				animation__move="property: position; from: -2 -0.8 0.5; to: 2 -0.8 0.5; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
+				animation__turn="property: rotation; from: -40 90 0; to: -40 -90 0; dur: 3000; loop: true; dir: alternate"
 			></a-entity>
 
 			<!-- テキスト表示 (上に配置) -->
