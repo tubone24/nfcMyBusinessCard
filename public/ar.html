@@ -116,6 +116,16 @@
 				animation__turn="property: rotation; from: -40 90 0; to: -40 -90 0; dur: 5000; loop: true; dir: alternate"
 			></a-entity>
 
+			<!-- MacBookモデル (奥で左右にスライド) -->
+			<a-entity
+				position="1.8 -0.5 -0.5"
+				rotation="-40 -90 0"
+				scale="0.3 0.3 0.3"
+				gltf-model="/macbook-laptop.glb"
+				animation__move="property: position; from: 1.8 -0.5 -0.5; to: -1.8 -0.5 -0.5; dur: 6000; easing: easeInOutQuad; loop: true; dir: alternate"
+				animation__turn="property: rotation; from: -40 -90 0; to: -40 90 0; dur: 6000; loop: true; dir: alternate"
+			></a-entity>
+
 			<!-- テキスト表示 (上に配置) - 浮遊&拡大縮小アニメーション -->
 			<a-text
 				value="tubone24"
