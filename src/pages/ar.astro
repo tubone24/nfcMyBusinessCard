@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>AR Experience - tubone24</title>
-	<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+	<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.5/aframe/build/aframe-ar.js"></script>
 	<style>
 		body {
 			margin: 0;
@@ -82,9 +82,8 @@
 		<!-- カメラ -->
 		<a-entity camera></a-entity>
 
-		<!-- ARマーカー: pattern-marker.pattファイルを使用 -->
-		<!-- 実際のマーカーファイルを配置したらurlを変更してください -->
-		<a-marker type="pattern" url="/pattern-marker.patt">
+		<!-- ARマーカー: デフォルトのHiroマーカーを使用 (テスト用) -->
+		<a-marker preset="hiro">
 			<!-- 例1: シンプルな箱 -->
 			<a-box
 				position="0 0.5 0"
