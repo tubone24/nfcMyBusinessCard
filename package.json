@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "dev": "astro dev --host",
+    "start": "astro dev --host",
     "build": "astro build",
     "encrypt": "pagecrypt dist/index.html dist/index.html $PASSWORD",
     "serve": "serve dist",

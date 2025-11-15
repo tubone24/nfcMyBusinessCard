@@ -23,9 +23,9 @@ import { Icon } from 'astro-icon/components';
 			<code><Icon class="icon" name="ic:baseline-mail" /><a href="mailto:tubo.yyyuuu@gmail.com">tubo.yyyuuu@gmail.com</a></code>
 		</p>
 		<div class="contact">
-		    <button class="cool-button" id="open-qr"><Icon class="icon" name="ic:sharp-qr-code-2" />Open My QR Code</button>
-			<button class="cool-button2" id="open-contact"><Icon class="icon" name="ic:baseline-mail" />Download Contact</button>
-			<button class="cool-button3" id="open-nft"><Icon class="icon" name="fluent:sparkle-16-regular" />Get My NFT</button>
+		    <button class="cool-button" id="open-qr"><Icon class="icon" name="ic:sharp-qr-code-2" />QR Code</button>
+			<button class="cool-button2" id="open-contact"><Icon class="icon" name="ic:baseline-mail" />Contact</button>
+			<button class="cool-button3" id="open-nft"><Icon class="icon" name="fluent:sparkle-16-regular" />NFT</button>
 		</div>
 		<ul role="list" class="link-card-grid">
 			<Card
@@ -147,15 +147,17 @@ import { Icon } from 'astro-icon/components';
           triggerId="open-qr"
           title="My QR Code"
         >
-          <img class="qr" src="/qr.png" alt="QR Code" />
+          <img class="qr" id="qr-image" src="/qr.png" alt="QR Code" />
+          <p id="tap-counter" style="text-align: center; color: #888; font-size: 0.8em; margin-top: 10px;"></p>
         </Modal>
 
 		<Modal
 			triggerId="open-contact"
-			title="Download Contact"
+			title="Contact"
 		>
 			<a class="cool-button2 download-contact" href="/contact.vcf" download><Icon class="icon" name="ic:baseline-mail" />Save VFC</a>
 			<a class="cool-button2 download-contact" href="mailto:tubo.yyyuuu@outlook.jp?subject=%E5%90%8D%E5%88%BA%E4%BA%A4%E6%8F%9Btubone24&body=%E4%BB%B6%E5%90%8D%E3%83%BB%E6%9C%AC%E6%96%87%E3%81%AF%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E3%81%AB%E3%81%97%E3%81%A6%E3%81%84%E3%81%9F%E3%81%A0%E3%81%8D%E3%83%A1%E3%83%BC%E3%83%AB%E3%82%92%E9%80%81%E4%BF%A1%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82"><Icon class="icon" name="fa:mail-reply" />Auto reply mail</a>
+            <a class="cool-button2 download-contact" href="https://portfolio.tubone-project24.xyz/#contact"><Icon class="icon" name="fa:wpforms" />Contact Form</a>
 			<a class="download-business-card" href="/business-card.png" download><img class="business-card" src="/business-card.png" alt="Business Card" /></a>
 
 		</Modal>
@@ -173,38 +175,38 @@ import { Icon } from 'astro-icon/components';
 document.addEventListener('DOMContentLoaded', () => {
 	const myicon = document.getElementById('myicon');
 	const runningDogContainer = document.getElementById('running-dog');
-	
+
 	if (myicon && runningDogContainer) {
 		myicon.addEventListener('click', () => {
 			console.log('Icon clicked!'); // デバッグ用
-			
+
 			// 既存の犬を削除
 			runningDogContainer.innerHTML = '';
-			
+
 			// 新しい犬を作成
 			const dog = document.createElement('img');
 			// ランダムでmugi.pngまたはmugi2.pngを選択
 			const mugiImages = ['/mugi.png', '/mugi2.png'];
 			const randomIndex = Math.floor(Math.random() * mugiImages.length);
 			dog.src = mugiImages[randomIndex];
-			
+
 			// スタイルを直接設定
 			dog.style.position = 'absolute';
 			dog.style.width = '150px';
 			dog.style.height = '150px';
 			dog.style.left = '-200px';
-			
+
 			// ランダムな開始位置
 			const startY = Math.random() * (window.innerHeight - 200);
 			dog.style.top = startY + 'px';
-			
+
 			runningDogContainer.appendChild(dog);
-			
+
 			// アニメーションを少し遅れて開始
 			setTimeout(() => {
 				dog.style.animation = 'zigzagRun 4s linear forwards';
 			}, 10);
-			
+
 			// アニメーション終了後に削除（複数のイベント名に対応）
 			dog.addEventListener('animationend', () => {
 				dog.remove();
@@ -212,13 +214,75 @@ document.addEventListener('DOMContentLoaded', () => {
 			dog.addEventListener('webkitAnimationEnd', () => {
 				dog.remove();
 			});
-			
+
 			// 5秒後に強制的に削除（フォールバック）
 			setTimeout(() => {
 				if (dog.parentNode) {
 					dog.remove();
 				}
 			}, 5000);
+		});
+	}
+
+	// QRコード/ARマーカー 5回タップで切り替える機能
+	const qrImage = document.getElementById('qr-image') as HTMLImageElement;
+	const tapCounter = document.getElementById('tap-counter');
+	let tapCount = 0;
+	let tapTimeout: number | null = null;
+	let isMarkerMode = false; // 現在ARマーカーモードかどうか
+
+	if (qrImage && tapCounter) {
+		qrImage.addEventListener('click', () => {
+			tapCount++;
+
+			if (!isMarkerMode) {
+				// QRコードモード: ARマーカーに切り替え
+				if (tapCount < 5) {
+					tapCounter.textContent = `${tapCount}/5 タップ - あと${5 - tapCount}回でARマーカーに切り替わります`;
+				}
+
+				if (tapCount >= 5) {
+					qrImage.src = '/ar-marker.png';
+					qrImage.style.cursor = 'pointer';
+					tapCounter.innerHTML = '🎯 ARマーカーに切り替わりました!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">ARカメラを起動する</a>';
+					isMarkerMode = true;
+					tapCount = 0;
+				}
+			} else {
+				// ARマーカーモード: QRコードに戻す
+				if (tapCount < 5) {
+					tapCounter.textContent = `${tapCount}/5 タップ - あと${5 - tapCount}回でQRコードに戻ります`;
+				}
+
+				if (tapCount >= 5) {
+					qrImage.src = '/qr.png';
+					qrImage.style.cursor = 'default';
+					tapCounter.textContent = '🔄 QRコードに戻りました';
+					isMarkerMode = false;
+					tapCount = 0;
+
+					// 2秒後にメッセージを消す
+					setTimeout(() => {
+						if (tapCounter) tapCounter.textContent = '';
+					}, 2000);
+				}
+			}
+
+			// 3秒間タップがなければカウントをリセット
+			if (tapTimeout !== null) {
+				clearTimeout(tapTimeout);
+			}
+			tapTimeout = window.setTimeout(() => {
+				if (tapCount < 5) {
+					tapCount = 0;
+					if (!isMarkerMode) {
+						tapCounter.textContent = '';
+					} else {
+						// マーカーモードの場合はARカメラ起動リンクを保持
+						tapCounter.innerHTML = '🎯 ARマーカーに切り替わりました!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">ARカメラを起動する</a>';
+					}
+				}
+			}, 3000);
 		});
 	}
 });

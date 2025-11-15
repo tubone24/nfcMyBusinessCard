@@ -6,6 +6,10 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
+    server: {
+        host: true,
+        port: 4321,
+    },
     integrations: [
         partytown({
             // Adds dataLayer.push as a forwarding-event.
