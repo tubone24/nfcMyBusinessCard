@@ -80,16 +80,25 @@
 		vr-mode-ui="enabled: false"
 		renderer="logarithmicDepthBuffer: true; precision: medium;"
 	>
-		<!-- カメラ (視野角を広げてズームアウト) -->
-		<a-entity camera="fov: 80"></a-entity>
+		<!-- カメラ (視野角を広げて広角に) -->
+		<a-entity camera="fov: 100; near: 0.1; far: 1000"></a-entity>
 
 		<!-- ARマーカー: カスタムマーカーを使用 -->
 		<a-marker type="pattern" url="/pattern-marker.patt">
-			<!-- 3Dモデル (GLB) -->
+			<!-- 環境光 (全体を明るく) -->
+			<a-light type="ambient" color="#ffffff" intensity="1.5"></a-light>
+
+			<!-- 指向性ライト (上から) -->
+			<a-light type="directional" color="#ffffff" intensity="1" position="1 1 1"></a-light>
+
+			<!-- ポイントライト (マーカーの上から) -->
+			<a-light type="point" color="#ffffff" intensity="1" position="0 2 0"></a-light>
+
+			<!-- 3Dモデル (GLB) - かなり小さく表示 -->
 			<a-entity
 				position="0 0 0"
 				rotation="-90 0 0"
-				scale="1 1 1"
+				scale="0.1 0.1 0.1"
 				gltf-model="/model.glb"
 				animation="property: rotation; to: -90 360 0; loop: true; dur: 5000; easing: linear"
 			></a-entity>
