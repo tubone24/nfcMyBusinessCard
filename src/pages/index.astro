@@ -224,27 +224,48 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	// QRコード5回タップでARマーカーに切り替える機能
+	// QRコード/ARマーカー 5回タップで切り替える機能
 	const qrImage = document.getElementById('qr-image') as HTMLImageElement;
 	const tapCounter = document.getElementById('tap-counter');
 	let tapCount = 0;
 	let tapTimeout: number | null = null;
+	let isMarkerMode = false; // 現在ARマーカーモードかどうか
 
 	if (qrImage && tapCounter) {
 		qrImage.addEventListener('click', () => {
 			tapCount++;
 
-			// タップ回数を表示
-			if (tapCount < 5) {
-				tapCounter.textContent = `${tapCount}/5 タップ - あと${5 - tapCount}回でARマーカーに切り替わります`;
-			}
+			if (!isMarkerMode) {
+				// QRコードモード: ARマーカーに切り替え
+				if (tapCount < 5) {
+					tapCounter.textContent = `${tapCount}/5 タップ - あと${5 - tapCount}回でARマーカーに切り替わります`;
+				}
 
-			// 5回タップでARマーカーに切り替え
-			if (tapCount >= 5) {
-				qrImage.src = '/ar-marker.png';
-				qrImage.style.cursor = 'pointer';
-				tapCounter.innerHTML = '🎯 ARマーカーに切り替わりました!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">ARカメラを起動する</a>';
-				tapCount = 0; // リセット
+				if (tapCount >= 5) {
+					qrImage.src = '/ar-marker.png';
+					qrImage.style.cursor = 'pointer';
+					tapCounter.innerHTML = '🎯 ARマーカーに切り替わりました!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">ARカメラを起動する</a>';
+					isMarkerMode = true;
+					tapCount = 0;
+				}
+			} else {
+				// ARマーカーモード: QRコードに戻す
+				if (tapCount < 5) {
+					tapCounter.textContent = `${tapCount}/5 タップ - あと${5 - tapCount}回でQRコードに戻ります`;
+				}
+
+				if (tapCount >= 5) {
+					qrImage.src = '/qr.png';
+					qrImage.style.cursor = 'default';
+					tapCounter.textContent = '🔄 QRコードに戻りました';
+					isMarkerMode = false;
+					tapCount = 0;
+
+					// 2秒後にメッセージを消す
+					setTimeout(() => {
+						if (tapCounter) tapCounter.textContent = '';
+					}, 2000);
+				}
 			}
 
 			// 3秒間タップがなければカウントをリセット
@@ -254,7 +275,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			tapTimeout = window.setTimeout(() => {
 				if (tapCount < 5) {
 					tapCount = 0;
-					tapCounter.textContent = '';
+					if (!isMarkerMode) {
+						tapCounter.textContent = '';
+					} else {
+						// マーカーモードの場合はARカメラ起動リンクを保持
+						tapCounter.innerHTML = '🎯 ARマーカーに切り替わりました!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">ARカメラを起動する</a>';
+					}
 				}
 			}, 3000);
 		});
