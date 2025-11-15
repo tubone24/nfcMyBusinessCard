@@ -65,16 +65,17 @@
 </head>
 <body>
 	<div id="ar-info">
-		<h2>🎯 ARカメラ起動中</h2>
-		<p>ARマーカーをカメラに向けてください</p>
-		<p style="font-size: 0.8em; color: #4bffde;">マーカーが認識されると3Dオブジェクトが表示されます</p>
+		<h2 id="status-title">⏳ カメラ起動準備中...</h2>
+		<p id="status-message">カメラへのアクセス許可をお願いします</p>
+		<p style="font-size: 0.8em; color: #4bffde;" id="status-detail"></p>
 	</div>
 
 	<button id="back-button" onclick="window.location.href='/'">戻る</button>
 
 	<a-scene
+		id="ar-scene"
 		embedded
-		arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+		arjs="sourceType: webcam; debugUIEnabled: true; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
 		vr-mode-ui="enabled: false"
 		renderer="logarithmicDepthBuffer: true; precision: medium;"
 	>
@@ -132,25 +133,75 @@
 	</a-scene>
 
 	<script>
+		// UI要素を取得
+		const statusTitle = document.getElementById('status-title');
+		const statusMessage = document.getElementById('status-message');
+		const statusDetail = document.getElementById('status-detail');
+		const scene = document.getElementById('ar-scene');
+
+		// カメラの起動状態を監視
+		let cameraStarted = false;
+
+		// A-Frameシーンの読み込み完了を待つ
+		if (scene) {
+			scene.addEventListener('loaded', () => {
+				console.log('A-Frameシーン読み込み完了');
+				if (statusDetail) {
+					statusDetail.textContent = 'シーン読み込み完了...';
+				}
+			});
+
+			// AR.jsの初期化完了を検出
+			scene.addEventListener('arjs-video-loaded', () => {
+				console.log('カメラ映像が読み込まれました!');
+				cameraStarted = true;
+				if (statusTitle) statusTitle.textContent = '📹 カメラ起動成功!';
+				if (statusMessage) statusMessage.textContent = 'ARマーカーをカメラに向けてください';
+				if (statusDetail) statusDetail.textContent = 'マーカーが認識されると3Dオブジェクトが表示されます';
+			});
+		}
+
+		// 5秒経ってもカメラが起動しない場合は警告を表示
+		setTimeout(() => {
+			if (!cameraStarted) {
+				console.warn('カメラの起動に時間がかかっています');
+				if (statusTitle) statusTitle.textContent = '⚠️ カメラ起動に時間がかかっています';
+				if (statusMessage) statusMessage.textContent = 'ブラウザのカメラ許可を確認してください';
+				if (statusDetail) {
+					statusDetail.innerHTML = '<br>💡 ヒント:<br>・ブラウザのアドレスバーのカメラアイコンをクリック<br>・「このサイトのカメラ使用を許可」を選択';
+				}
+			}
+		}, 5000);
+
 		// マーカーが見つかった時のイベント
 		const marker = document.querySelector('a-marker');
 		if (marker) {
 			marker.addEventListener('markerFound', () => {
 				console.log('マーカーが検出されました!');
-				const info = document.getElementById('ar-info');
-				if (info) {
-					info.innerHTML = '<h2>✅ マーカー検出成功!</h2><p>3Dオブジェクトが表示されています</p>';
-				}
+				if (statusTitle) statusTitle.textContent = '✅ マーカー検出成功!';
+				if (statusMessage) statusMessage.textContent = '3Dオブジェクトが表示されています';
+				if (statusDetail) statusDetail.textContent = '';
 			});
 
 			marker.addEventListener('markerLost', () => {
 				console.log('マーカーを見失いました');
-				const info = document.getElementById('ar-info');
-				if (info) {
-					info.innerHTML = '<h2>🎯 ARカメラ起動中</h2><p>ARマーカーをカメラに向けてください</p>';
-				}
+				if (statusTitle) statusTitle.textContent = '🎯 ARカメラ起動中';
+				if (statusMessage) statusMessage.textContent = 'ARマーカーをカメラに向けてください';
+				if (statusDetail) statusDetail.textContent = '';
 			});
 		}
+
+		// カメラアクセスエラーをキャッチ
+		window.addEventListener('error', (e) => {
+			console.error('エラーが発生しました:', e);
+			if (e.message && e.message.includes('getUserMedia')) {
+				if (statusTitle) statusTitle.textContent = '❌ カメラアクセスエラー';
+				if (statusMessage) statusMessage.textContent = 'カメラへのアクセスが拒否されました';
+				if (statusDetail) {
+					statusDetail.innerHTML = 'ブラウザの設定からカメラ許可を有効にしてください';
+				}
+			}
+		});
 	</script>
 </body>
 </html>
