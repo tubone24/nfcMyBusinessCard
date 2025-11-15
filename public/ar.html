@@ -76,50 +76,23 @@
 	<a-scene
 		id="ar-scene"
 		embedded
-		arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+		arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; sourceWidth: 1280; sourceHeight: 960; displayWidth: 1280; displayHeight: 960;"
 		vr-mode-ui="enabled: false"
 		renderer="logarithmicDepthBuffer: true; precision: medium;"
 	>
-		<!-- カメラ -->
-		<a-entity camera></a-entity>
+		<!-- カメラ (視野角を広げてズームアウト) -->
+		<a-entity camera="fov: 80"></a-entity>
 
 		<!-- ARマーカー: カスタムマーカーを使用 -->
 		<a-marker type="pattern" url="/pattern-marker.patt">
-			<!-- 例1: シンプルな箱 -->
-			<a-box
-				position="0 0.5 0"
-				rotation="0 45 0"
-				color="#24E08E"
-				scale="0.5 0.5 0.5"
-				animation="property: rotation; to: 0 405 0; loop: true; dur: 4000; easing: linear"
-			></a-box>
-
-			<!-- 例2: 球体 -->
-			<a-sphere
-				position="1 0.5 0"
-				radius="0.3"
-				color="#4bffde"
-				animation="property: position; to: 1 1 0; dir: alternate; loop: true; dur: 1000; easing: easeInOutQuad"
-			></a-sphere>
-
-			<!-- 例3: 円柱 -->
-			<a-cylinder
-				position="-1 0.5 0"
-				radius="0.2"
-				height="1"
-				color="#6FD740"
-				animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear"
-			></a-cylinder>
-
-			<!-- 例4: テキスト -->
-			<a-text
-				value="tubone24"
-				position="0 1.5 0"
-				align="center"
-				color="#ffffff"
-				width="3"
-				animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear"
-			></a-text>
+			<!-- 3Dモデル (GLB) -->
+			<a-entity
+				position="0 0 0"
+				rotation="-90 0 0"
+				scale="1 1 1"
+				gltf-model="/model.glb"
+				animation="property: rotation; to: -90 360 0; loop: true; dur: 5000; easing: linear"
+			></a-entity>
 		</a-marker>
 	</a-scene>
 
