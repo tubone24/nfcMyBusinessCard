@@ -98,6 +98,7 @@
 			<!-- ポイントライト (マーカーの上から) -->
 			<a-light type="point" color="#ffffff" intensity="1.5" position="0 2 0"></a-light>
 
+			<!-- メインモデル (中央) -->
 			<a-entity
 				position="0 0 0"
 				rotation="-40 0 0"
@@ -105,9 +106,19 @@
 				gltf-model="/model.glb"
 			></a-entity>
 
+			<!-- 柴犬モデル (手前で左右に走る) -->
+			<a-entity
+				position="0 0 1.5"
+				rotation="-90 0 0"
+				scale="2 2 2"
+				gltf-model="/shiba-model.glb"
+				animation="property: position; from: -3 0 1.5; to: 3 0 1.5; dur: 3000; easing: linear; loop: true; dir: alternate"
+			></a-entity>
+
+			<!-- テキスト表示 (奥に配置) -->
 			<a-text
 				value="tubone24"
-				position="0 10 0"
+				position="0 3 -2"
 				rotation="90 0 0"
 				align="center"
 				color="#24E08E"
