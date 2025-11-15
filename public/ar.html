@@ -135,18 +135,18 @@
 				// A-Frameシーンの読み込み完了を待つ
 				scene.addEventListener('loaded', () => {
 					console.log('A-Frameシーン読み込み完了');
-					if (statusDetail) {
-						statusDetail.textContent = 'シーン読み込み完了...カメラを起動中';
-					}
+					// if (statusDetail) {
+					// 	statusDetail.textContent = 'シーン読み込み完了...カメラを起動中';
+					// }
 				});
 
 				// AR.jsの初期化完了を検出
 				scene.addEventListener('arjs-video-loaded', () => {
 					console.log('カメラ映像が読み込まれました!');
 					cameraStarted = true;
-					if (statusTitle) statusTitle.textContent = '📹 カメラ起動成功!';
-					if (statusMessage) statusMessage.textContent = 'ARマーカーをカメラに向けてください';
-					if (statusDetail) statusDetail.textContent = 'マーカーが認識されると3Dオブジェクトが表示されます';
+					// if (statusTitle) statusTitle.textContent = '📹 カメラ起動成功!';
+					// if (statusMessage) statusMessage.textContent = 'ARマーカーをカメラに向けてください';
+					// if (statusDetail) statusDetail.textContent = 'マーカーが認識されると3Dオブジェクトが表示されます';
 				});
 
 				// マーカーが見つかった時のイベント
@@ -172,11 +172,11 @@
 			setTimeout(() => {
 				if (!cameraStarted) {
 					console.warn('カメラの起動に時間がかかっています');
-					if (statusTitle) statusTitle.textContent = '⚠️ カメラ起動に時間がかかっています';
-					if (statusMessage) statusMessage.textContent = 'エラーの可能性があります';
-					if (statusDetail) {
-						statusDetail.innerHTML = '<strong>対処方法:</strong><br>1. ページをリロード<br>2. ブラウザのカメラ許可を確認<br>3. 他のアプリがカメラを使用していないか確認';
-					}
+					// if (statusTitle) statusTitle.textContent = '⚠️ カメラ起動に時間がかかっています';
+					// if (statusMessage) statusMessage.textContent = 'エラーの可能性があります';
+					// if (statusDetail) {
+					// 	statusDetail.innerHTML = '<strong>対処方法:</strong><br>1. ページをリロード<br>2. ブラウザのカメラ許可を確認<br>3. 他のアプリがカメラを使用していないか確認';
+					// }
 				}
 			}, 10000);
 		});
