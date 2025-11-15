@@ -104,7 +104,6 @@
 				rotation="-90 0 0"
 				scale="0.1 0.1 0.1"
 				gltf-model="/model.glb"
-				animation="property: rotation; to: -90 360 0; loop: true; dur: 5000; easing: linear"
 			></a-entity>
 
 			<!-- テキスト表示 -->
@@ -155,16 +154,16 @@
 				if (marker) {
 					marker.addEventListener('markerFound', () => {
 						console.log('マーカーが検出されました!');
-						if (statusTitle) statusTitle.textContent = '✅ マーカー検出成功!';
-						if (statusMessage) statusMessage.textContent = '3Dオブジェクトが表示されています';
-						if (statusDetail) statusDetail.textContent = '';
+						// if (statusTitle) statusTitle.textContent = '✅ マーカー検出成功!';
+						// if (statusMessage) statusMessage.textContent = '3Dオブジェクトが表示されています';
+						// if (statusDetail) statusDetail.textContent = '';
 					});
 
 					marker.addEventListener('markerLost', () => {
 						console.log('マーカーを見失いました');
-						if (statusTitle) statusTitle.textContent = '🎯 ARカメラ起動中';
-						if (statusMessage) statusMessage.textContent = 'ARマーカーをカメラに向けてください';
-						if (statusDetail) statusDetail.textContent = '';
+						// if (statusTitle) statusTitle.textContent = '🎯 ARカメラ起動中';
+						// if (statusMessage) statusMessage.textContent = 'ARマーカーをカメラに向けてください';
+						// if (statusDetail) statusDetail.textContent = '';
 					});
 				}
 			}
