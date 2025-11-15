@@ -108,21 +108,21 @@
 
 			<!-- 柴犬モデル (手前で左右に走る) -->
 			<a-entity
-				position="0 0 1.5"
+				position="0 0 0.5"
 				rotation="-90 0 0"
 				scale="2 2 2"
 				gltf-model="/shiba-model.glb"
-				animation="property: position; from: -3 0 1.5; to: 3 0 1.5; dur: 3000; easing: linear; loop: true; dir: alternate"
+				animation="property: position; from: -2 0 0.5; to: 2 0 0.5; dur: 3000; easing: linear; loop: true; dir: alternate"
 			></a-entity>
 
-			<!-- テキスト表示 (奥に配置) -->
+			<!-- テキスト表示 (上に配置) -->
 			<a-text
 				value="tubone24"
-				position="0 3 -2"
-				rotation="90 0 0"
+				position="0 1.5 0"
+				rotation="0 0 0"
 				align="center"
 				color="#24E08E"
-				width="8"
+				width="4"
 				font="https://cdn.aframe.io/fonts/Roboto-msdf.json"
 			></a-text>
 		</a-marker>
@@ -140,6 +140,20 @@
 		// A-Frameシーンの準備を待つ
 		window.addEventListener('load', function() {
 			const scene = document.querySelector('a-scene');
+
+			// モデルの読み込み状況を監視
+			document.querySelectorAll('[gltf-model]').forEach((entity, index) => {
+				const modelPath = entity.getAttribute('gltf-model');
+				console.log(`モデル${index + 1}: ${modelPath} を読み込み中...`);
+
+				entity.addEventListener('model-loaded', () => {
+					console.log(`✅ モデル${index + 1}: ${modelPath} 読み込み完了!`);
+				});
+
+				entity.addEventListener('model-error', (error) => {
+					console.error(`❌ モデル${index + 1}: ${modelPath} 読み込みエラー:`, error);
+				});
+			});
 
 			if (scene) {
 				// A-Frameシーンの読み込み完了を待つ
