@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AR Experience - tubone24</title>
+	<!-- A-FrameとAR.jsのライブラリ (最新安定版) -->
+	<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.5/aframe/build/aframe-ar.js"></script>
+	<style>
+		body {
+			margin: 0;
+			overflow: hidden;
+			font-family: Arial, sans-serif;
+		}
+
+		#ar-info {
+			position: fixed;
+			top: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+			background: rgba(0, 0, 0, 0.8);
+			color: white;
+			padding: 15px 30px;
+			border-radius: 10px;
+			z-index: 1000;
+			text-align: center;
+			max-width: 90%;
+		}
+
+		#ar-info h2 {
+			margin: 0 0 10px 0;
+			font-size: 1.2em;
+		}
+
+		#ar-info p {
+			margin: 5px 0;
+			font-size: 0.9em;
+		}
+
+		#back-button {
+			position: fixed;
+			bottom: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+			background: linear-gradient(45deg, #24E08E, #6FD740);
+			color: white;
+			border: none;
+			padding: 15px 30px;
+			border-radius: 10px;
+			font-size: 1em;
+			font-weight: bold;
+			cursor: pointer;
+			z-index: 1000;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+		}
+
+		#back-button:hover {
+			background: linear-gradient(45deg, #1fc97b, #5cc535);
+		}
+
+		.a-loader-title {
+			display: none !important;
+		}
+	</style>
+</head>
+<body>
+	<div id="ar-info">
+		<h2 id="status-title">⏳ カメラ起動準備中...</h2>
+		<p id="status-message">カメラへのアクセス許可をお願いします</p>
+		<p style="font-size: 0.8em; color: #4bffde;" id="status-detail"></p>
+	</div>
+
+	<button id="back-button" onclick="window.location.href='/'">戻る</button>
+
+	<a-scene
+		id="ar-scene"
+		embedded
+		arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+		vr-mode-ui="enabled: false"
+		renderer="logarithmicDepthBuffer: true; precision: medium;"
+	>
+		<!-- カメラ -->
+		<a-entity camera></a-entity>
+
+		<!-- ARマーカー: カスタムマーカーを使用 -->
+		<a-marker type="pattern" url="/pattern-marker.patt">
+			<!-- 例1: シンプルな箱 -->
+			<a-box
+				position="0 0.5 0"
+				rotation="0 45 0"
+				color="#24E08E"
+				scale="0.5 0.5 0.5"
+				animation="property: rotation; to: 0 405 0; loop: true; dur: 4000; easing: linear"
+			></a-box>
+
+			<!-- 例2: 球体 -->
+			<a-sphere
+				position="1 0.5 0"
+				radius="0.3"
+				color="#4bffde"
+				animation="property: position; to: 1 1 0; dir: alternate; loop: true; dur: 1000; easing: easeInOutQuad"
+			></a-sphere>
+
+			<!-- 例3: 円柱 -->
+			<a-cylinder
+				position="-1 0.5 0"
+				radius="0.2"
+				height="1"
+				color="#6FD740"
+				animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear"
+			></a-cylinder>
+
+			<!-- 例4: テキスト -->
+			<a-text
+				value="tubone24"
+				position="0 1.5 0"
+				align="center"
+				color="#ffffff"
+				width="3"
+				animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear"
+			></a-text>
+		</a-marker>
+	</a-scene>
+
+	<script>
+		// UI要素を取得
+		const statusTitle = document.getElementById('status-title');
+		const statusMessage = document.getElementById('status-message');
+		const statusDetail = document.getElementById('status-detail');
+
+		// カメラの起動状態を監視
+		let cameraStarted = false;
+
+		// A-Frameシーンの準備を待つ
+		window.addEventListener('load', function() {
+			const scene = document.querySelector('a-scene');
+
+			if (scene) {
+				// A-Frameシーンの読み込み完了を待つ
+				scene.addEventListener('loaded', () => {
+					console.log('A-Frameシーン読み込み完了');
+					if (statusDetail) {
+						statusDetail.textContent = 'シーン読み込み完了...カメラを起動中';
+					}
+				});
+
+				// AR.jsの初期化完了を検出
+				scene.addEventListener('arjs-video-loaded', () => {
+					console.log('カメラ映像が読み込まれました!');
+					cameraStarted = true;
+					if (statusTitle) statusTitle.textContent = '📹 カメラ起動成功!';
+					if (statusMessage) statusMessage.textContent = 'ARマーカーをカメラに向けてください';
+					if (statusDetail) statusDetail.textContent = 'マーカーが認識されると3Dオブジェクトが表示されます';
+				});
+
+				// マーカーが見つかった時のイベント
+				const marker = document.querySelector('a-marker');
+				if (marker) {
+					marker.addEventListener('markerFound', () => {
+						console.log('マーカーが検出されました!');
+						if (statusTitle) statusTitle.textContent = '✅ マーカー検出成功!';
+						if (statusMessage) statusMessage.textContent = '3Dオブジェクトが表示されています';
+						if (statusDetail) statusDetail.textContent = '';
+					});
+
+					marker.addEventListener('markerLost', () => {
+						console.log('マーカーを見失いました');
+						if (statusTitle) statusTitle.textContent = '🎯 ARカメラ起動中';
+						if (statusMessage) statusMessage.textContent = 'ARマーカーをカメラに向けてください';
+						if (statusDetail) statusDetail.textContent = '';
+					});
+				}
+			}
+
+			// 10秒経ってもカメラが起動しない場合は詳細情報を表示
+			setTimeout(() => {
+				if (!cameraStarted) {
+					console.warn('カメラの起動に時間がかかっています');
+					if (statusTitle) statusTitle.textContent = '⚠️ カメラ起動に時間がかかっています';
+					if (statusMessage) statusMessage.textContent = 'エラーの可能性があります';
+					if (statusDetail) {
+						statusDetail.innerHTML = '<strong>対処方法:</strong><br>1. ページをリロード<br>2. ブラウザのカメラ許可を確認<br>3. 他のアプリがカメラを使用していないか確認';
+					}
+				}
+			}, 10000);
+		});
+	</script>
+</body>
+</html>
