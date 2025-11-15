@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AR Experience - tubone24</title>
+	<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+	<style>
+		body {
+			margin: 0;
+			overflow: hidden;
+			font-family: Arial, sans-serif;
+		}
+
+		#ar-info {
+			position: fixed;
+			top: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+			background: rgba(0, 0, 0, 0.8);
+			color: white;
+			padding: 15px 30px;
+			border-radius: 10px;
+			z-index: 1000;
+			text-align: center;
+			max-width: 90%;
+		}
+
+		#ar-info h2 {
+			margin: 0 0 10px 0;
+			font-size: 1.2em;
+		}
+
+		#ar-info p {
+			margin: 5px 0;
+			font-size: 0.9em;
+		}
+
+		#back-button {
+			position: fixed;
+			bottom: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+			background: linear-gradient(45deg, #24E08E, #6FD740);
+			color: white;
+			border: none;
+			padding: 15px 30px;
+			border-radius: 10px;
+			font-size: 1em;
+			font-weight: bold;
+			cursor: pointer;
+			z-index: 1000;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+		}
+
+		#back-button:hover {
+			background: linear-gradient(45deg, #1fc97b, #5cc535);
+		}
+
+		.a-loader-title {
+			display: none !important;
+		}
+	</style>
+</head>
+<body>
+	<div id="ar-info">
+		<h2>🎯 ARカメラ起動中</h2>
+		<p>ARマーカーをカメラに向けてください</p>
+		<p style="font-size: 0.8em; color: #4bffde;">マーカーが認識されると3Dオブジェクトが表示されます</p>
+	</div>
+
+	<button id="back-button" onclick="window.location.href='/'">戻る</button>
+
+	<a-scene
+		embedded
+		arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+		vr-mode-ui="enabled: false"
+		renderer="logarithmicDepthBuffer: true; precision: medium;"
+	>
+		<!-- カメラ -->
+		<a-entity camera></a-entity>
+
+		<!-- ARマーカー: pattern-marker.pattファイルを使用 -->
+		<!-- 実際のマーカーファイルを配置したらurlを変更してください -->
+		<a-marker type="pattern" url="/pattern-marker.patt">
+			<!-- 例1: シンプルな箱 -->
+			<a-box
+				position="0 0.5 0"
+				rotation="0 45 0"
+				color="#24E08E"
+				scale="0.5 0.5 0.5"
+				animation="property: rotation; to: 0 405 0; loop: true; dur: 4000; easing: linear"
+			></a-box>
+
+			<!-- 例2: 球体 -->
+			<a-sphere
+				position="1 0.5 0"
+				radius="0.3"
+				color="#4bffde"
+				animation="property: position; to: 1 1 0; dir: alternate; loop: true; dur: 1000; easing: easeInOutQuad"
+			></a-sphere>
+
+			<!-- 例3: 円柱 -->
+			<a-cylinder
+				position="-1 0.5 0"
+				radius="0.2"
+				height="1"
+				color="#6FD740"
+				animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear"
+			></a-cylinder>
+
+			<!-- 例4: テキスト -->
+			<a-text
+				value="tubone24"
+				position="0 1.5 0"
+				align="center"
+				color="#ffffff"
+				width="3"
+				animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear"
+			></a-text>
+
+			<!-- 例5: 3Dモデルを使う場合(GLBファイルを配置したら有効化) -->
+			<a-entity
+				position="0 0 0"
+				rotation="0 0 0"
+				scale="0.5 0.5 0.5"
+				gltf-model="/model.glb"
+				animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear"
+			></a-entity>
+		</a-marker>
+	</a-scene>
+
+	<script>
+		// マーカーが見つかった時のイベント
+		const marker = document.querySelector('a-marker');
+		if (marker) {
+			marker.addEventListener('markerFound', () => {
+				console.log('マーカーが検出されました!');
+				const info = document.getElementById('ar-info');
+				if (info) {
+					info.innerHTML = '<h2>✅ マーカー検出成功!</h2><p>3Dオブジェクトが表示されています</p>';
+				}
+			});
+
+			marker.addEventListener('markerLost', () => {
+				console.log('マーカーを見失いました');
+				const info = document.getElementById('ar-info');
+				if (info) {
+					info.innerHTML = '<h2>🎯 ARカメラ起動中</h2><p>ARマーカーをカメラに向けてください</p>';
+				}
+			});
+		}
+	</script>
+</body>
+</html>
