@@ -141,13 +141,82 @@
 
 		// カメラの起動状態を監視
 		let cameraStarted = false;
+		let errorDetails = [];
+
+		// プロトコルを確認
+		const protocol = window.location.protocol;
+		console.log('現在のプロトコル:', protocol);
+		if (protocol === 'http:' && window.location.hostname !== 'localhost') {
+			errorDetails.push('⚠️ HTTP接続です。HTTPS接続が必要です。');
+			if (statusDetail) {
+				statusDetail.innerHTML = '⚠️ <strong>HTTP接続が検出されました</strong><br>カメラを使用するにはHTTPS接続が必要です<br><br>解決方法:<br>1. ngrokを使用: <code>npx ngrok http 4321</code><br>2. 生成されたHTTPS URLでアクセス';
+			}
+		}
+
+		// getUserMediaのサポートを確認
+		if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+			errorDetails.push('❌ このブラウザはカメラアクセスをサポートしていません');
+			if (statusTitle) statusTitle.textContent = '❌ ブラウザ非対応';
+			if (statusMessage) statusMessage.textContent = 'このブラウザはカメラアクセスをサポートしていません';
+		} else {
+			console.log('getUserMedia サポート確認: OK');
+			errorDetails.push('✅ getUserMedia サポート: OK');
+		}
+
+		// カメラ許可を手動で要求してテスト
+		async function testCameraAccess() {
+			try {
+				console.log('カメラアクセスをテスト中...');
+				const stream = await navigator.mediaDevices.getUserMedia({
+					video: { facingMode: 'environment' }
+				});
+				console.log('✅ カメラアクセス成功!', stream);
+				errorDetails.push('✅ カメラアクセステスト: 成功');
+
+				// テスト後すぐに停止
+				stream.getTracks().forEach(track => track.stop());
+
+				if (statusDetail) {
+					statusDetail.innerHTML = '✅ カメラアクセス成功!<br>AR.jsの初期化を待っています...';
+				}
+			} catch (error) {
+				console.error('❌ カメラアクセスエラー:', error);
+				errorDetails.push(`❌ カメラアクセスエラー: ${error.name} - ${error.message}`);
+
+				if (statusTitle) statusTitle.textContent = '❌ カメラアクセスエラー';
+				if (statusMessage) statusMessage.textContent = error.name + ': ' + error.message;
+
+				let helpText = '';
+				if (error.name === 'NotAllowedError') {
+					helpText = '📱 カメラ許可が拒否されました<br><br>解決方法:<br>1. ブラウザの設定でカメラ許可を有効にする<br>2. ページをリロードする';
+				} else if (error.name === 'NotFoundError') {
+					helpText = '📱 カメラが見つかりません<br><br>デバイスにカメラが搭載されているか確認してください';
+				} else if (error.name === 'NotReadableError') {
+					helpText = '📱 カメラが使用中です<br><br>他のアプリでカメラを使用していないか確認してください';
+				} else if (error.name === 'OverconstrainedError') {
+					helpText = '📱 カメラ設定エラー<br><br>リアカメラが利用できない可能性があります';
+				} else {
+					helpText = `📱 エラー詳細:<br>${error.name}<br>${error.message}`;
+				}
+
+				if (statusDetail) {
+					statusDetail.innerHTML = helpText + '<br><br>デバッグ情報:<br>' + errorDetails.join('<br>');
+				}
+			}
+		}
+
+		// カメラアクセステストを実行
+		setTimeout(() => {
+			testCameraAccess();
+		}, 1000);
 
 		// A-Frameシーンの読み込み完了を待つ
 		if (scene) {
 			scene.addEventListener('loaded', () => {
 				console.log('A-Frameシーン読み込み完了');
+				errorDetails.push('✅ A-Frameシーン読み込み完了');
 				if (statusDetail) {
-					statusDetail.textContent = 'シーン読み込み完了...';
+					statusDetail.innerHTML = 'シーン読み込み完了...<br>' + errorDetails.join('<br>');
 				}
 			});
 
@@ -161,17 +230,17 @@
 			});
 		}
 
-		// 5秒経ってもカメラが起動しない場合は警告を表示
+		// 10秒経ってもカメラが起動しない場合は詳細情報を表示
 		setTimeout(() => {
 			if (!cameraStarted) {
 				console.warn('カメラの起動に時間がかかっています');
 				if (statusTitle) statusTitle.textContent = '⚠️ カメラ起動に時間がかかっています';
-				if (statusMessage) statusMessage.textContent = 'ブラウザのカメラ許可を確認してください';
+				if (statusMessage) statusMessage.textContent = 'エラーの可能性があります';
 				if (statusDetail) {
-					statusDetail.innerHTML = '<br>💡 ヒント:<br>・ブラウザのアドレスバーのカメラアイコンをクリック<br>・「このサイトのカメラ使用を許可」を選択';
+					statusDetail.innerHTML = '<strong>デバッグ情報:</strong><br>' + errorDetails.join('<br>') + '<br><br>💡 <strong>よくある原因:</strong><br>1. HTTP接続 (HTTPS必須)<br>2. カメラ許可が拒否されている<br>3. 他のアプリがカメラを使用中<br>4. ブラウザがカメラアクセスをサポートしていない';
 				}
 			}
-		}, 5000);
+		}, 10000);
 
 		// マーカーが見つかった時のイベント
 		const marker = document.querySelector('a-marker');
