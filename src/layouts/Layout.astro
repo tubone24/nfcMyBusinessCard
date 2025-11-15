@@ -49,12 +49,30 @@ const { title } = Astro.props;
 		--accent-second: 24, 158, 137;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #6FD740 30%, white 60%);
         --accent-text-over: var(--gray-999);
+		--background-color: #F6F6F6;
+		--text-color: #333333;
+		--card-background: #ffffff;
+		--border-color: rgba(124, 58, 237, 0.25);
 	}
+
+	/* ダークモード用のカラー設定 */
+	:root.dark-mode {
+		--gray-999: #1a1a1a;
+		--background-color: #1a1a1a;
+		--text-color: #e0e0e0;
+		--card-background: #2a2a2a;
+		--border-color: rgba(124, 58, 237, 0.5);
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #6FD740 30%, #1a1a1a 60%);
+	}
+
 	html {
 		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
+		background-color: var(--background-color);
+		color: var(--text-color);
 		overflow-x: hidden;
+		transition: background-color 0.3s ease, color 0.3s ease;
 	}
+
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;

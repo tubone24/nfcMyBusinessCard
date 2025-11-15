@@ -28,7 +28,7 @@ const { title, author, description, image, href } = Astro.props;
     list-style: none;
     display: flex;
     padding: 0.15rem;
-    background-color: white;
+    background-color: var(--card-background);
     background-image: var(--accent-gradient);
     background-size: 400%;
     border-radius: 0.5rem;
@@ -44,8 +44,8 @@ const { title, author, description, image, href } = Astro.props;
     flex-direction: column;
     padding: 1rem;
     border-radius: 0.35rem;
-    color: #111;
-    background-color: white;
+    color: var(--text-color);
+    background-color: var(--card-background);
     opacity: 0.8;
   }
 
@@ -72,21 +72,25 @@ const { title, author, description, image, href } = Astro.props;
     margin: 0;
     font-size: 1.1rem;
     font-weight: bold;
-    color: #111;
+    color: var(--text-color);
     transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .book-author {
     margin: 0.25rem 0;
     font-size: 0.9rem;
-    color: #666;
+    color: var(--text-color);
+    opacity: 0.7;
+    transition: color 0.3s ease;
   }
 
   .book-description {
     margin: 0.5rem 0 0;
     font-size: 0.875rem;
-    color: #444;
+    color: var(--text-color);
+    opacity: 0.8;
     line-height: 1.4;
+    transition: color 0.3s ease;
   }
 
   .book-card:is(:hover, :focus-within) {

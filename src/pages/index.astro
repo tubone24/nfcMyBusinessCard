@@ -10,6 +10,10 @@ import { Icon } from 'astro-icon/components';
 
 <Layout title="tubone24">
 	<main>
+		<button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="ダークモード切り替え">
+			<Icon class="sun-icon" name="mdi:weather-sunny" />
+			<Icon class="moon-icon" name="mdi:weather-night" />
+		</button>
 	    <div class="header-container">
 	      <h1><span class="text-gradient">Yu Otsubo</span></h1>
 		  <img class="myicon" id="myicon" src="/icon.png" alt="my icon" />
@@ -173,6 +177,30 @@ import { Icon } from 'astro-icon/components';
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+	// ダークモード切り替え機能
+	const darkModeToggle = document.getElementById('dark-mode-toggle');
+	const htmlElement = document.documentElement;
+
+	// LocalStorageから設定を読み込む
+	const savedTheme = localStorage.getItem('theme');
+	if (savedTheme === 'dark') {
+		htmlElement.classList.add('dark-mode');
+	}
+
+	// ダークモード切り替えボタンのクリックイベント
+	if (darkModeToggle) {
+		darkModeToggle.addEventListener('click', () => {
+			htmlElement.classList.toggle('dark-mode');
+
+			// LocalStorageに設定を保存
+			if (htmlElement.classList.contains('dark-mode')) {
+				localStorage.setItem('theme', 'dark');
+			} else {
+				localStorage.setItem('theme', 'light');
+			}
+		});
+	}
+
 	const myicon = document.getElementById('myicon');
 	const runningDogContainer = document.getElementById('running-dog');
 
@@ -327,10 +355,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	.instructions {
 		line-height: 1.6;
 		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
+		border: 1px solid var(--border-color);
+		background-color: var(--card-background);
 		padding: 1rem;
 		border-radius: 0.4rem;
+		transition: background-color 0.3s ease, border-color 0.3s ease;
 	}
 	.instructions code {
 		display: flex; /* Flexboxを使ってアイコンとテキストを中央揃えにする */
@@ -382,13 +411,40 @@ document.addEventListener('DOMContentLoaded', () => {
 		color: rgb(var(--accent));
 		vertical-align: middle;
 		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	:root.dark-mode .instructions code a {
+		color: #a78bfa;
 	}
 
 	.instructions strong {
 		color: rgb(var(--accent));
+		transition: color 0.3s ease;
 	}
+
+	:root.dark-mode .instructions strong {
+		color: #a78bfa;
+	}
+
 	.instructions .second {
 		color: rgb(var(--accent-second));
+		transition: color 0.3s ease;
+	}
+
+	:root.dark-mode .instructions .second {
+		color: #4ade80;
+	}
+
+	.instructions .second a {
+		color: #1976d2;
+		text-decoration: underline;
+		transition: color 0.3s ease;
+	}
+
+	:root.dark-mode .instructions .second a {
+		color: #60a5fa;
+		text-decoration: underline;
 	}
 	.link-card-grid {
 		display: grid;
@@ -418,6 +474,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		margin-bottom: 1rem;
 		text-align: center;
 		color: rgb(var(--accent));
+		transition: color 0.3s ease;
+	}
+
+	:root.dark-mode .section-title {
+		color: #a78bfa;
 	}
 
 	.header-container {
@@ -714,5 +775,62 @@ document.addEventListener('DOMContentLoaded', () => {
 			left: calc(100vw + 200px);
 			transform: translateY(0);
 		}
+	}
+
+	/* ダークモード切り替えボタン */
+	.dark-mode-toggle {
+		position: fixed;
+		bottom: 20px;
+		left: 20px;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		border: 1.5px solid rgba(255, 255, 255, 0.3);
+		background: rgba(255, 255, 255, 0.03);
+		-webkit-backdrop-filter: blur(4px);
+		backdrop-filter: blur(4px);
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.3s ease;
+		z-index: 1000;
+		box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15),
+		            inset 0 1px 0 rgba(255, 255, 255, 0.4);
+	}
+
+	:root.dark-mode .dark-mode-toggle {
+		background: rgba(30, 30, 30, 0.08);
+		border-color: rgba(255, 255, 255, 0.15);
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+		            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+	}
+
+	.dark-mode-toggle:hover {
+		transform: scale(1.1);
+		box-shadow: 0 6px 24px rgba(124, 58, 237, 0.4);
+	}
+
+	.dark-mode-toggle .sun-icon,
+	.dark-mode-toggle .moon-icon {
+		width: 24px;
+		height: 24px;
+		color: rgb(var(--accent));
+	}
+
+	.dark-mode-toggle .sun-icon {
+		display: block;
+	}
+
+	.dark-mode-toggle .moon-icon {
+		display: none;
+	}
+
+	:root.dark-mode .dark-mode-toggle .sun-icon {
+		display: none;
+	}
+
+	:root.dark-mode .dark-mode-toggle .moon-icon {
+		display: block;
 	}
 </style>
