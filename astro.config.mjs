@@ -20,7 +20,7 @@ export default defineConfig({
         icon({
             include: {
                 // プロジェクトで使用しているアイコンを指定
-                mdi: ["telephone", "account", "github", "twitter", "facebook", "linkedin", "resume", "radio-fm", "presentation", "instagram", "youtube"],
+                mdi: ["telephone", "account", "github", "twitter", "facebook", "linkedin", "resume", "radio-fm", "presentation", "instagram", "youtube", "weather-sunny", "weather-night"],
                 ic: ["baseline-mail", "sharp-qr-code-2", "outline-corporate-fare"],
                 fluent: ["sparkle-16-regular"],
                 "icomoon-free": ["blog"]

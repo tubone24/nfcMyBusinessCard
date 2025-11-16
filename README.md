@@ -57,6 +57,12 @@ Touch your NFC card to your smartphone, and you can see your business card site.
 
 ![demo](docs/demo.gif)
 
+### AR.js
+
+AR.js is used to display 3D models on the profile site on your camera.
+
+![demo-ar](docs/demo-ar.gif)
+
 ## Encrypt with Pagecrypt
 
 If you access the site without NFC or QR code, you need to input the password to access the site.
