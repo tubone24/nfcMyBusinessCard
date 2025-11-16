@@ -118,12 +118,12 @@
 
 			<!-- MacBookモデル (控えめに左右にスライド) -->
 			<a-entity
-				position="0.8 -0.7 0"
-				rotation="-40 90 0"
+				position="0 -0.7 0.8"
+				rotation="-40 0 0"
 				scale="0.35 0.35 0.35"
 				gltf-model="/macbook-laptop.glb"
-				animation__move="property: position; from: -0.8 -0.7 0; to: 0.8 -0.7 0; dur: 8000; easing: easeInOutQuad; loop: true; dir: alternate"
-				animation__turn="property: rotation; from: -40 90 0; to: -40 -90 0; dur: 8000; loop: true; dir: alternate"
+				animation__move="property: position; from: 0 -0.7 -0.8; to: 0 -0.7 0.8; dur: 8000; easing: easeInOutQuad; loop: true; dir: alternate"
+				animation__turn="property: rotation; from: -40 0 0; to: -40 180 0; dur: 8000; loop: true; dir: alternate"
 			></a-entity>
 
 			<!-- テキスト表示 (上に配置) - 浮遊&拡大縮小アニメーション -->
