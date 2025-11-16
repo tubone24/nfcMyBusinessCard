@@ -116,36 +116,81 @@
 				animation__turn="property: rotation; from: -40 90 0; to: -40 -90 0; dur: 5000; loop: true; dir: alternate"
 			></a-entity>
 
-			<!-- MacBookモデル (奥で左右にスライド) -->
+			<!-- MacBookモデル (柴犬と同じ高さで左右にスライド) -->
 			<a-entity
-				position="1.5 -0.6 -0.3"
-				rotation="-40 90 0"
-				scale="0.4 0.4 0.4"
+				position="1.8 -0.8 0.5"
+				rotation="-40 -90 0"
+				scale="0.5 0.5 0.5"
 				gltf-model="/macbook-laptop.glb"
-				animation__move="property: position; from: -1.5 -0.6 -0.3; to: 1.5 -0.6 -0.3; dur: 7000; easing: easeInOutQuad; loop: true; dir: alternate"
-				animation__turn="property: rotation; from: -40 90 0; to: -40 -90 0; dur: 7000; loop: true; dir: alternate"
+				animation__move="property: position; from: 1.8 -0.8 0.5; to: -1.8 -0.8 0.5; dur: 7000; easing: easeInOutQuad; loop: true; dir: alternate"
+				animation__turn="property: rotation; from: -40 -90 0; to: -40 90 0; dur: 7000; loop: true; dir: alternate"
 			></a-entity>
 
 			<!-- テキスト表示 (上に配置) - 浮遊&拡大縮小アニメーション -->
-			<!-- 影レイヤー (黒) -->
+			<!-- 影レイヤー5 (一番奥) -->
 			<a-text
 				value="tubone24"
-				position="0.02 1.48 -0.02"
+				position="0.1 1.4 -0.1"
 				rotation="0 0 0"
 				align="center"
 				color="#000000"
+				opacity="0.4"
+				width="6"
+				font="/Condiment-Regular-msdf.json"
+				shader="msdf"
+				negate="false"
+				animation__float="property: position; from: 0.1 1.2 -0.1; to: 0.1 1.6 -0.1; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
+				animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
+			></a-text>
+			<!-- 影レイヤー4 -->
+			<a-text
+				value="tubone24"
+				position="0.08 1.42 -0.08"
+				rotation="0 0 0"
+				align="center"
+				color="#0a0a0a"
+				opacity="0.5"
+				width="6"
+				font="/Condiment-Regular-msdf.json"
+				shader="msdf"
+				negate="false"
+				animation__float="property: position; from: 0.08 1.22 -0.08; to: 0.08 1.62 -0.08; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
+				animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
+			></a-text>
+			<!-- 影レイヤー3 -->
+			<a-text
+				value="tubone24"
+				position="0.06 1.44 -0.06"
+				rotation="0 0 0"
+				align="center"
+				color="#1a1a1a"
 				opacity="0.6"
 				width="6"
 				font="/Condiment-Regular-msdf.json"
 				shader="msdf"
 				negate="false"
-				animation__float="property: position; from: 0.02 1.28 -0.02; to: 0.02 1.68 -0.02; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
+				animation__float="property: position; from: 0.06 1.24 -0.06; to: 0.06 1.64 -0.06; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
 				animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
 			></a-text>
-			<!-- アウトライン (暗い緑) -->
+			<!-- アウトライン2 (暗い緑) -->
 			<a-text
 				value="tubone24"
-				position="0.01 1.49 -0.01"
+				position="0.04 1.46 -0.04"
+				rotation="0 0 0"
+				align="center"
+				color="#145040"
+				opacity="0.8"
+				width="6"
+				font="/Condiment-Regular-msdf.json"
+				shader="msdf"
+				negate="false"
+				animation__float="property: position; from: 0.04 1.26 -0.04; to: 0.04 1.66 -0.04; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
+				animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
+			></a-text>
+			<!-- アウトライン1 (やや暗い緑) -->
+			<a-text
+				value="tubone24"
+				position="0.02 1.48 -0.02"
 				rotation="0 0 0"
 				align="center"
 				color="#1a7050"
@@ -153,7 +198,7 @@
 				font="/Condiment-Regular-msdf.json"
 				shader="msdf"
 				negate="false"
-                animation__float="property: position; from: 0.02 1.28 -0.02; to: 0.02 1.68 -0.02; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
+				animation__float="property: position; from: 0.02 1.28 -0.02; to: 0.02 1.68 -0.02; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
 				animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
 			></a-text>
 			<!-- メインテキスト (明るい緑) -->
