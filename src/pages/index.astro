@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import BookCard from '../components/BookCard.astro';
 import YouTubeCard from '../components/YouTubeCard.astro';
+import SpotifyCard from '../components/SpotifyCard.astro';
 import { Modal } from 'accessible-astro-components';
 import { Icon } from 'astro-icon/components';
 
@@ -57,12 +58,6 @@ import { Icon } from 'astro-icon/components';
 				icon="mdi:presentation"
 			/>
 			<Card
-				href="https://tubone24.github.io/boyakifm/"
-				title="BOYAKI FM"
-				body="This is a radio site about technology and music"
-				icon="mdi:radio-fm"
-			/>
-			<Card
 				href="https://twitter.com/tubone24"
 				title="Twitter"
 				body="Not tweeting much useful stuff"
@@ -98,15 +93,9 @@ import { Icon } from 'astro-icon/components';
 				body="716 doremi ch"
 				icon="mdi:youtube"
 			/>
-			<Card
-				href="https://kddi-agile.com/"
-				title="KDDI Agile Development Center"
-				body="KAG corp site"
-				icon="ic:outline-corporate-fare"
-			/>
 		</ul>
 			
-			<h2 class="section-title">📚 Publications</h2>
+			<h2 class="section-title">Publications</h2>
 			<ul role="list" class="book-card-grid">
 				<BookCard
 					title="やさしいMCP入門"
@@ -131,7 +120,7 @@ import { Icon } from 'astro-icon/components';
 				/>
 			</ul>
 			
-			<h2 class="section-title">📺 YouTube</h2>
+			<h2 class="section-title">Media</h2>
 			<ul role="list" class="youtube-card-grid">
 				<YouTubeCard
 					title="【３分で分かるAI】本部長視点のAIエージェント『A-BOSS』（本部長AI）のアーキテクチャーを解説"
@@ -145,8 +134,14 @@ import { Icon } from 'astro-icon/components';
 					description="使えば使うほど賢くなるAIエージェント！A-BOSS（本部長AI）の成長機能の仕組みについて開発メンバーが解説いたします。"
 					videoId="WFh4fQ95gxk"
 				/>
+				<SpotifyCard
+					title="#370 書籍執筆にも至る、ものづくりとアウトプットの流儀（ゲスト：大坪さん）"
+					showName="ひまじんプログラマーの週末エンジニアリングレッスン"
+					description="「かいちの勤務先のすごい人呼んでみたシリーズ(仮)」の第四弾として、KDDIアジャイル開発センター株式会社で勤務しており、「やさしいMCP入門」の著者の大坪さんをゲストに迎え、価値観や普段のインプットとアウトプットについてお話しました。技術書展の執筆、登壇、書籍執筆、本業の開発等々をすべてやってしまう大坪さんが普段どのようなことを考え、何をしているのか？を聞くことでな"
+					episodeId="2SIdnEJxFzm7LAVHVZs6sI"
+				/>
 			</ul>
-			
+
         <Modal
           triggerId="open-qr"
           title="My QR Code"
@@ -264,39 +259,39 @@ document.addEventListener('DOMContentLoaded', () => {
 			tapCount++;
 
 			if (!isMarkerMode) {
-				// QRコードモード: ARマーカーに切り替え
+				// QR Code Mode: Switch to AR Marker
 				if (tapCount < 5) {
-					tapCounter.textContent = `${tapCount}/5 タップ - あと${5 - tapCount}回でARマーカーに切り替わります`;
+					tapCounter.textContent = `${tapCount}/5 taps - ${5 - tapCount} more to switch to AR marker`;
 				}
 
 				if (tapCount >= 5) {
 					qrImage.src = '/ar-marker.png';
 					qrImage.style.cursor = 'pointer';
-					tapCounter.innerHTML = '🎯 ARマーカーに切り替わりました!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">ARカメラを起動する</a>';
+					tapCounter.innerHTML = 'Switched to AR marker!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">Launch AR Camera</a>';
 					isMarkerMode = true;
 					tapCount = 0;
 				}
 			} else {
-				// ARマーカーモード: QRコードに戻す
+				// AR Marker Mode: Back to QR Code
 				if (tapCount < 5) {
-					tapCounter.textContent = `${tapCount}/5 タップ - あと${5 - tapCount}回でQRコードに戻ります`;
+					tapCounter.textContent = `${tapCount}/5 taps - ${5 - tapCount} more to return to QR code`;
 				}
 
 				if (tapCount >= 5) {
 					qrImage.src = '/qr.png';
 					qrImage.style.cursor = 'default';
-					tapCounter.textContent = '🔄 QRコードに戻りました';
+					tapCounter.textContent = 'Returned to QR code';
 					isMarkerMode = false;
 					tapCount = 0;
 
-					// 2秒後にメッセージを消す
+					// Clear message after 2 seconds
 					setTimeout(() => {
 						if (tapCounter) tapCounter.textContent = '';
 					}, 2000);
 				}
 			}
 
-			// 3秒間タップがなければカウントをリセット
+			// Reset count if no taps for 3 seconds
 			if (tapTimeout !== null) {
 				clearTimeout(tapTimeout);
 			}
@@ -306,8 +301,8 @@ document.addEventListener('DOMContentLoaded', () => {
 					if (!isMarkerMode) {
 						tapCounter.textContent = '';
 					} else {
-						// マーカーモードの場合はARカメラ起動リンクを保持
-						tapCounter.innerHTML = '🎯 ARマーカーに切り替わりました!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">ARカメラを起動する</a>';
+						// Keep AR camera launch link in marker mode
+						tapCounter.innerHTML = 'Switched to AR marker!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">Launch AR Camera</a>';
 					}
 				}
 			}, 3000);
