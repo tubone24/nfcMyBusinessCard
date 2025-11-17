@@ -37,6 +37,60 @@ You can write the card with [NFC Tools](https://play.google.com/store/apps/detai
 npm start
 ```
 
+## Development Tools
+
+### Testing
+
+This project includes comprehensive testing setup:
+
+#### Unit Tests (Vitest)
+
+Run unit tests:
+
+```bash
+npm test                # Run tests in watch mode
+npm run test:run        # Run tests once
+npm run test:ui         # Run tests with UI
+```
+
+#### E2E Tests (Playwright)
+
+Run end-to-end tests:
+
+```bash
+npm run test:e2e        # Run E2E tests
+npm run test:e2e:ui     # Run E2E tests with UI
+```
+
+### Linting and Formatting
+
+#### ESLint
+
+Check code quality:
+
+```bash
+npm run lint            # Check for linting errors
+npm run lint:fix        # Auto-fix linting errors
+```
+
+#### Prettier
+
+Format code:
+
+```bash
+npm run format          # Format all files
+npm run format:check    # Check formatting
+```
+
+### Storybook
+
+View and develop components in isolation:
+
+```bash
+npm run storybook       # Start Storybook dev server
+npm run build-storybook # Build Storybook for production
+```
+
 ## Build and Encrypt
 
 Before build and encrypt, you need to set up the environment variables.
