@@ -1,9 +1,9 @@
 ---
 export interface Props {
-	title: string;
-	showName: string;
-	description: string;
-	episodeId: string;
+  title: string;
+  showName: string;
+  description: string;
+  episodeId: string;
 }
 
 const { title, showName, description, episodeId } = Astro.props;
@@ -12,95 +12,98 @@ const embedUrl = `https://open.spotify.com/embed/episode/${episodeId}?utm_source
 ---
 
 <li class="spotify-card">
-	<a href={href} target="_blank" rel="noopener noreferrer">
-		<div class="card-content">
-			<h3>{title}</h3>
-			<p class="show-name">{showName}</p>
-			<p class="description">{description}</p>
-		</div>
-		<div class="spotify-player">
-			<iframe
-				src={embedUrl}
-				width="100%"
-				height="180"
-				frameborder="0"
-				allowfullscreen=""
-				allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-				loading="lazy"
-			></iframe>
-		</div>
-	</a>
+  <a href={href} target="_blank" rel="noopener noreferrer">
+    <div class="card-content">
+      <h3>{title}</h3>
+      <p class="show-name">{showName}</p>
+      <p class="description">{description}</p>
+    </div>
+    <div class="spotify-player">
+      <iframe
+        title={`Spotify podcast: ${title}`}
+        src={embedUrl}
+        width="100%"
+        height="180"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+    </div>
+  </a>
 </li>
 
 <style>
-	.spotify-card {
-		list-style: none;
-		display: flex;
-		background-color: var(--card-background);
-		border: 1px solid var(--border-color);
-		border-radius: 8px;
-		overflow: hidden;
-		transition: all 0.2s, background-color 0.3s ease, border-color 0.3s ease;
-	}
+  .spotify-card {
+    list-style: none;
+    display: flex;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition:
+      all 0.2s,
+      background-color 0.3s ease,
+      border-color 0.3s ease;
+  }
 
-	.spotify-card:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-	}
+  .spotify-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
 
-	.spotify-card a {
-		text-decoration: none;
-		color: inherit;
-		display: block;
-		width: 100%;
-	}
+  .spotify-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+  }
 
-	.card-content {
-		padding: 1rem;
-	}
+  .card-content {
+    padding: 1rem;
+  }
 
-	.card-content h3 {
-		margin: 0 0 0.5rem 0;
-		font-size: 1.1rem;
-		font-weight: 600;
-		color: var(--text-color);
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-		transition: color 0.3s ease;
-	}
+  .card-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.3s ease;
+  }
 
-	.show-name {
-		margin: 0 0 0.5rem 0;
-		color: var(--text-color);
-		opacity: 0.7;
-		font-size: 0.9rem;
-		transition: color 0.3s ease;
-	}
+  .show-name {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
 
-	.description {
-		margin: 0 0 1rem 0;
-		color: var(--text-color);
-		opacity: 0.8;
-		font-size: 0.875rem;
-		line-height: 1.4;
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-		transition: color 0.3s ease;
-	}
+  .description {
+    margin: 0 0 1rem 0;
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.3s ease;
+  }
 
-	.spotify-player {
-		width: 100%;
-		padding: 0 1rem 1rem 1rem;
-		box-sizing: border-box;
-	}
+  .spotify-player {
+    width: 100%;
+    padding: 0 1rem 1rem 1rem;
+    box-sizing: border-box;
+  }
 
-	.spotify-player iframe {
-		border-radius: 8px;
-		max-width: 100%;
-		display: block;
-	}
+  .spotify-player iframe {
+    border-radius: 8px;
+    max-width: 100%;
+    display: block;
+  }
 </style>

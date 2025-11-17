@@ -1,4 +1,7 @@
 # NFC My Business Card
+
+[![CI](https://github.com/tubone24/nfcMyBusinessCard/actions/workflows/ci.yml/badge.svg)](https://github.com/tubone24/nfcMyBusinessCard/actions/workflows/ci.yml)
+
 ### ☁ Try it in the Cloud
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/tubone24/nfcMyBusinessCard/tree)
@@ -9,7 +12,6 @@
 [![Open in Repl.it](https://replit.com/badge/github/tubone24/nfcMyBusinessCard)](https://replit.com/github/tubone24/nfcMyBusinessCard/tree)
 [![Open in Glitch](https://img.shields.io/badge/Open%20in-Glitch-blue?logo=glitch)](https://glitch.com/edit/#!/import/github/tubone24/nfcMyBusinessCard/tree)
 [![Open in Codeanywhere](https://codeanywhere.com/img/open-in-codeanywhere-btn.svg)](https://app.codeanywhere.com/#https://github.com/tubone24/nfcMyBusinessCard/tree)
-
 
 ![header](public/ogp.png)
 
@@ -35,6 +37,77 @@ You can write the card with [NFC Tools](https://play.google.com/store/apps/detai
 
 ```bash
 npm start
+```
+
+## Development Tools
+
+### Continuous Integration
+
+This project uses GitHub Actions for CI/CD. On every push and pull request, the following checks are automatically run:
+
+- **Linting** - ESLint checks for code quality issues
+- **Formatting** - Prettier ensures consistent code style
+- **Type Checking** - TypeScript compiler validates types
+- **Unit Tests** - Vitest runs all unit tests
+- **E2E Tests** - Playwright runs end-to-end tests
+- **Build** - Verifies the project builds successfully
+
+You can run all CI checks locally with:
+
+```bash
+npm run ci    # Run all checks (lint, format, typecheck, test, build)
+```
+
+### Testing
+
+This project includes comprehensive testing setup:
+
+#### Unit Tests (Vitest)
+
+Run unit tests:
+
+```bash
+npm test                # Run tests in watch mode
+npm run test:run        # Run tests once
+npm run test:ui         # Run tests with UI
+```
+
+#### E2E Tests (Playwright)
+
+Run end-to-end tests:
+
+```bash
+npm run test:e2e        # Run E2E tests
+npm run test:e2e:ui     # Run E2E tests with UI
+```
+
+### Linting and Formatting
+
+#### ESLint
+
+Check code quality:
+
+```bash
+npm run lint            # Check for linting errors
+npm run lint:fix        # Auto-fix linting errors
+```
+
+#### Prettier
+
+Format code:
+
+```bash
+npm run format          # Format all files
+npm run format:check    # Check formatting
+```
+
+### Storybook
+
+View and develop components in isolation:
+
+```bash
+npm run storybook       # Start Storybook dev server
+npm run build-storybook # Build Storybook for production
 ```
 
 ## Build and Encrypt
