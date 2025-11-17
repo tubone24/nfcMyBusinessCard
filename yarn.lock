@@ -1939,10 +1939,10 @@ astro-webmanifest@1.0.0:
     valid-filename "^4.0.0"
     zod "^3.22.2"
 
-astro@5.15.7:
-  version "5.15.7"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-5.15.7.tgz#90496435f1fa8beed9db00779cf4eb86f95cb680"
-  integrity sha512-Zmw6otInhxcjoGcEyEN+wxgdiQERQOS3VzOmAKsDdKK8Fb4x1656r+9NtaTXCRZ0/fGtHjkSvkGUhZUJLXKfxQ==
+astro@5.15.8:
+  version "5.15.8"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-5.15.8.tgz#4261554a36f0c2e8f14c56311f158d0ae44d8329"
+  integrity sha512-QiiRnNPdxCcAGO2UlO07o+QeGgRfEC5Dlm0x35WPB/ixFK1T2bsNB6KaXri70cVkYY1GYgoRtrWv3HCR26o9aw==
   dependencies:
     "@astrojs/compiler" "^2.13.0"
     "@astrojs/internal-helpers" "0.7.4"
