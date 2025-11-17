@@ -2,5 +2,6 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "types": ["vitest/globals", "@playwright/test"]
-  }
+  },
+  "exclude": ["node_modules", "dist", ".astro", "src/stories", ".storybook"]
 }

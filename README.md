@@ -13,7 +13,6 @@
 [![Open in Glitch](https://img.shields.io/badge/Open%20in-Glitch-blue?logo=glitch)](https://glitch.com/edit/#!/import/github/tubone24/nfcMyBusinessCard/tree)
 [![Open in Codeanywhere](https://codeanywhere.com/img/open-in-codeanywhere-btn.svg)](https://app.codeanywhere.com/#https://github.com/tubone24/nfcMyBusinessCard/tree)
 
-
 ![header](public/ogp.png)
 
 > Utilize NFC to realize a digital business card in the form of an NFC card to refer to a profile site.

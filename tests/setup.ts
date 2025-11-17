@@ -1,7 +1,2 @@
-import { expect, afterEach } from 'vitest';
-import { cleanup } from '@testing-library/react';
-
-// Cleanup after each test
-afterEach(() => {
-  cleanup();
-});
+// Vitest setup file
+// Add global test configuration here if needed

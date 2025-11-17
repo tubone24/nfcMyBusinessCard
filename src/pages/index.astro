@@ -6,826 +6,887 @@ import YouTubeCard from '../components/YouTubeCard.astro';
 import SpotifyCard from '../components/SpotifyCard.astro';
 import { Modal } from 'accessible-astro-components';
 import { Icon } from 'astro-icon/components';
-
 ---
 
 <Layout title="tubone24">
-	<main>
-		<button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="ダークモード切り替え">
-			<Icon class="sun-icon" name="mdi:weather-sunny" />
-			<Icon class="moon-icon" name="mdi:weather-night" />
-		</button>
-	    <div class="header-container">
-	      <h1><span class="text-gradient">Yu Otsubo</span></h1>
-		  <img class="myicon" id="myicon" src="/icon.png" alt="my icon" />
-		</div>
-		<div id="running-dog"></div>
-		<p class="instructions">
-			<strong>Full Cycle Engineer</strong>@<strong class="second"><a href="https://kddi-agile.com/">KDDI Agile Development Center</a></strong><br />
-			<strong class="second">Guitarist / Composer / YouTuber</strong><br /><br />
-			<code><a href="tel:080-6367-9825"><Icon class="icon" name="mdi:telephone" />080-6367-9825</a></code>
-			<code><Icon class="icon" name="ic:baseline-mail" /><a href="mailto:yu-ootsubo@kddi-agdc.com">yu-ootsubo@kddi-agdc.com</a></code>
-			<code><Icon class="icon" name="ic:baseline-mail" /><a href="mailto:tubo.yyyuuu@gmail.com">tubo.yyyuuu@gmail.com</a></code>
-		</p>
-		<div class="contact">
-		    <button class="cool-button" id="open-qr"><Icon class="icon" name="ic:sharp-qr-code-2" />QR Code</button>
-			<button class="cool-button2" id="open-contact"><Icon class="icon" name="ic:baseline-mail" />Contact</button>
-			<button class="cool-button3" id="open-nft"><Icon class="icon" name="fluent:sparkle-16-regular" />NFT</button>
-		</div>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://tubone-project24.xyz/"
-				title="tubone BOYAKI"
-				body="A blog that provides information on IT technology"
-				icon="icomoon-free:blog"
-			/>
-			<Card
-				href="https://portfolio.tubone-project24.xyz/"
-				title="My Portfolio"
-				body="My Portfolio site"
-				icon="mdi:account"
-			/>
-			<Card
-				href="https://tubone24.github.io/resume/"
-				title="CV (Resume)"
-				body="This is a resume (CV) summarizing my background"
-				icon="mdi:resume"
-			/>
-			<Card
-				href="https://slide-tubone24.pages.dev/"
-				title="Slides"
-				body="Slides from LT and presentations"
-				icon="mdi:presentation"
-			/>
-			<Card
-				href="https://twitter.com/tubone24"
-				title="Twitter"
-				body="Not tweeting much useful stuff"
-				icon="mdi:twitter"
-			/>
-			<Card
-				href="https://github.com/tubone24"
-				title="GitHub"
-				body="My GitHub"
-				icon="mdi:github"
-			/>
-			<Card
-				href="https://www.facebook.com/yu.otsubo/"
-				title="Facebook"
-				body="Facebook"
-				icon="mdi:facebook"
-			/>
-			<Card
-				href="https://www.linkedin.com/in/tubone-project24/"
-				title="Linkedin"
-				body="Linkedin"
-				icon="mdi:linkedin"
-			/>
-			<Card
-				href="https://www.instagram.com/mugimugi.cutedog/"
-				title="Instagram"
-				body="My cute dog's Instagram"
-				icon="mdi:instagram"
-			/>
-			<Card
-				href="https://716.pages.dev/"
-				title="vTuber ch"
-				body="716 doremi ch"
-				icon="mdi:youtube"
-			/>
-		</ul>
-			
-			<h2 class="section-title">Publications</h2>
-			<ul role="list" class="book-card-grid">
-				<BookCard
-					title="やさしいMCP入門"
-					author="御田稔, 大坪悠"
-					description="AIエージェント時代の標準規格MCP(モデル コンテキスト プロトコル)の入門書。大バズりしたスライド「やさしいMCP入門」の著者が新技術の基礎をやさしく解説。"
-					image="/yasasii-mcp.jpg"
-					href="https://www.amazon.co.jp/%E3%82%84%E3%81%95%E3%81%97%E3%81%84MCP%E5%85%A5%E9%96%80-%E5%BE%A1%E7%94%B0%E7%A8%94/dp/4798075736"
-				/>
-				<BookCard
-					title="AIエージェント開発 / 運用入門 [生成AI深掘りガイド]"
-					author="御田 稔 (著), 大坪 悠 (著), 塚田 真規 (著)"
-					description="「AIエージェント」の基本・作り方・活用方法が、この一冊でぜんぶ学べる！昨今話題の「AIエージェント」について、基礎の基礎から１つずつ丁寧に、しっかりと解説した本格入門書です。基礎知識はもとより、AIエージェントの作り方や実際の活用事例、さらにはAIエージェントを語るうえで欠かせないLLMについても解説しています。"
-					image="/ai-agent.png"
-					href="https://amzn.asia/d/3fYHwu3"
-				/>
-				<BookCard
-					title="KAG Tech Book -Vol1-"
-					author="Tomoya Kitaura / Masayoshi Kishida / Kazunori Morita / Yu Otsubo / Makoto Shinohara / Tomohiro Nakajima"
-					description="本書は、KDDIアジャイル開発センター株式会社（通称KAG：カグと呼ばれます）で日々、システム開発に向き合っているメンバーたちの有志によって執筆されました。それぞれが異なる現場やプロダクトに携わる中で得た経験や知見を持ち寄り、チームとしての実践や学びを一冊にまとめたものです。"
-					image="/kag-tech-book.png"
-					href="https://techbookfest.org/product/7YEcq5ZEqMrcn7syzVhcdQ?productVariantID=wF6srZpi5e0UeE47fFgKT6"
-				/>
-			</ul>
-			
-			<h2 class="section-title">Media</h2>
-			<ul role="list" class="youtube-card-grid">
-				<YouTubeCard
-					title="【３分で分かるAI】本部長視点のAIエージェント『A-BOSS』（本部長AI）のアーキテクチャーを解説"
-					channelName="KDDIofficial"
-					description="AIが本部長の代わりに提案書をレビュー、営業活動のあらゆる場面でサポートしてくれる上司のように頼れるAIエージェントのアーキテクチャーを開発メンバーが解説いたします。"
-					videoId="eotu-iwh-qA"
-				/>
-				<YouTubeCard
-					title="【３分で分かるAI】成長するAIエージェント『A-BOSS』（本部長AI）の成長機能の仕組みを解説"
-					channelName="KDDIofficial"
-					description="使えば使うほど賢くなるAIエージェント！A-BOSS（本部長AI）の成長機能の仕組みについて開発メンバーが解説いたします。"
-					videoId="WFh4fQ95gxk"
-				/>
-				<SpotifyCard
-					title="#370 書籍執筆にも至る、ものづくりとアウトプットの流儀（ゲスト：大坪さん）"
-					showName="ひまじんプログラマーの週末エンジニアリングレッスン"
-					description="「かいちの勤務先のすごい人呼んでみたシリーズ(仮)」の第四弾として、KDDIアジャイル開発センター株式会社で勤務しており、「やさしいMCP入門」の著者の大坪さんをゲストに迎え、価値観や普段のインプットとアウトプットについてお話しました。技術書展の執筆、登壇、書籍執筆、本業の開発等々をすべてやってしまう大坪さんが普段どのようなことを考え、何をしているのか？を聞くことでな"
-					episodeId="2SIdnEJxFzm7LAVHVZs6sI"
-				/>
-			</ul>
+  <main>
+    <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="ダークモード切り替え">
+      <Icon class="sun-icon" name="mdi:weather-sunny" />
+      <Icon class="moon-icon" name="mdi:weather-night" />
+    </button>
+    <div class="header-container">
+      <h1><span class="text-gradient">Yu Otsubo</span></h1>
+      <img class="myicon" id="myicon" src="/icon.png" alt="my icon" />
+    </div>
+    <div id="running-dog"></div>
+    <p class="instructions">
+      <strong>Full Cycle Engineer</strong>@<strong class="second"
+        ><a href="https://kddi-agile.com/">KDDI Agile Development Center</a></strong
+      ><br />
+      <strong class="second">Guitarist / Composer / YouTuber</strong><br /><br />
+      <code
+        ><a href="tel:080-6367-9825"><Icon class="icon" name="mdi:telephone" />080-6367-9825</a
+        ></code
+      >
+      <code
+        ><Icon class="icon" name="ic:baseline-mail" /><a href="mailto:yu-ootsubo@kddi-agdc.com"
+          >yu-ootsubo@kddi-agdc.com</a
+        ></code
+      >
+      <code
+        ><Icon class="icon" name="ic:baseline-mail" /><a href="mailto:tubo.yyyuuu@gmail.com"
+          >tubo.yyyuuu@gmail.com</a
+        ></code
+      >
+    </p>
+    <div class="contact">
+      <button class="cool-button" id="open-qr"
+        ><Icon class="icon" name="ic:sharp-qr-code-2" />QR Code</button
+      >
+      <button class="cool-button2" id="open-contact"
+        ><Icon class="icon" name="ic:baseline-mail" />Contact</button
+      >
+      <button class="cool-button3" id="open-nft"
+        ><Icon class="icon" name="fluent:sparkle-16-regular" />NFT</button
+      >
+    </div>
+    <ul class="link-card-grid">
+      <Card
+        href="https://tubone-project24.xyz/"
+        title="tubone BOYAKI"
+        body="A blog that provides information on IT technology"
+        icon="icomoon-free:blog"
+      />
+      <Card
+        href="https://portfolio.tubone-project24.xyz/"
+        title="My Portfolio"
+        body="My Portfolio site"
+        icon="mdi:account"
+      />
+      <Card
+        href="https://tubone24.github.io/resume/"
+        title="CV (Resume)"
+        body="This is a resume (CV) summarizing my background"
+        icon="mdi:resume"
+      />
+      <Card
+        href="https://slide-tubone24.pages.dev/"
+        title="Slides"
+        body="Slides from LT and presentations"
+        icon="mdi:presentation"
+      />
+      <Card
+        href="https://twitter.com/tubone24"
+        title="Twitter"
+        body="Not tweeting much useful stuff"
+        icon="mdi:twitter"
+      />
+      <Card href="https://github.com/tubone24" title="GitHub" body="My GitHub" icon="mdi:github" />
+      <Card
+        href="https://www.facebook.com/yu.otsubo/"
+        title="Facebook"
+        body="Facebook"
+        icon="mdi:facebook"
+      />
+      <Card
+        href="https://www.linkedin.com/in/tubone-project24/"
+        title="Linkedin"
+        body="Linkedin"
+        icon="mdi:linkedin"
+      />
+      <Card
+        href="https://www.instagram.com/mugimugi.cutedog/"
+        title="Instagram"
+        body="My cute dog's Instagram"
+        icon="mdi:instagram"
+      />
+      <Card
+        href="https://716.pages.dev/"
+        title="vTuber ch"
+        body="716 doremi ch"
+        icon="mdi:youtube"
+      />
+    </ul>
 
-        <Modal
-          triggerId="open-qr"
-          title="My QR Code"
-        >
-          <img class="qr" id="qr-image" src="/qr.png" alt="QR Code" />
-          <p id="tap-counter" style="text-align: center; color: #888; font-size: 0.8em; margin-top: 10px;"></p>
-        </Modal>
+    <h2 class="section-title">Publications</h2>
+    <ul class="book-card-grid">
+      <BookCard
+        title="やさしいMCP入門"
+        author="御田稔, 大坪悠"
+        description="AIエージェント時代の標準規格MCP(モデル コンテキスト プロトコル)の入門書。大バズりしたスライド「やさしいMCP入門」の著者が新技術の基礎をやさしく解説。"
+        image="/yasasii-mcp.jpg"
+        href="https://www.amazon.co.jp/%E3%82%84%E3%81%95%E3%81%97%E3%81%84MCP%E5%85%A5%E9%96%80-%E5%BE%A1%E7%94%B0%E7%A8%94/dp/4798075736"
+      />
+      <BookCard
+        title="AIエージェント開発 / 運用入門 [生成AI深掘りガイド]"
+        author="御田 稔 (著), 大坪 悠 (著), 塚田 真規 (著)"
+        description="「AIエージェント」の基本・作り方・活用方法が、この一冊でぜんぶ学べる！昨今話題の「AIエージェント」について、基礎の基礎から１つずつ丁寧に、しっかりと解説した本格入門書です。基礎知識はもとより、AIエージェントの作り方や実際の活用事例、さらにはAIエージェントを語るうえで欠かせないLLMについても解説しています。"
+        image="/ai-agent.png"
+        href="https://amzn.asia/d/3fYHwu3"
+      />
+      <BookCard
+        title="KAG Tech Book -Vol1-"
+        author="Tomoya Kitaura / Masayoshi Kishida / Kazunori Morita / Yu Otsubo / Makoto Shinohara / Tomohiro Nakajima"
+        description="本書は、KDDIアジャイル開発センター株式会社（通称KAG：カグと呼ばれます）で日々、システム開発に向き合っているメンバーたちの有志によって執筆されました。それぞれが異なる現場やプロダクトに携わる中で得た経験や知見を持ち寄り、チームとしての実践や学びを一冊にまとめたものです。"
+        image="/kag-tech-book.png"
+        href="https://techbookfest.org/product/7YEcq5ZEqMrcn7syzVhcdQ?productVariantID=wF6srZpi5e0UeE47fFgKT6"
+      />
+    </ul>
 
-		<Modal
-			triggerId="open-contact"
-			title="Contact"
-		>
-			<a class="cool-button2 download-contact" href="/contact.vcf" download><Icon class="icon" name="ic:baseline-mail" />Save VFC</a>
-			<a class="cool-button2 download-contact" href="mailto:tubo.yyyuuu@outlook.jp?subject=%E5%90%8D%E5%88%BA%E4%BA%A4%E6%8F%9Btubone24&body=%E4%BB%B6%E5%90%8D%E3%83%BB%E6%9C%AC%E6%96%87%E3%81%AF%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E3%81%AB%E3%81%97%E3%81%A6%E3%81%84%E3%81%9F%E3%81%A0%E3%81%8D%E3%83%A1%E3%83%BC%E3%83%AB%E3%82%92%E9%80%81%E4%BF%A1%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82"><Icon class="icon" name="fa:mail-reply" />Auto reply mail</a>
-            <a class="cool-button2 download-contact" href="https://portfolio.tubone-project24.xyz/#contact"><Icon class="icon" name="fa:wpforms" />Contact Form</a>
-			<a class="download-business-card" href="/business-card.png" download><img class="business-card" src="/business-card.png" alt="Business Card" /></a>
+    <h2 class="section-title">Media</h2>
+    <ul class="youtube-card-grid">
+      <YouTubeCard
+        title="【３分で分かるAI】本部長視点のAIエージェント『A-BOSS』（本部長AI）のアーキテクチャーを解説"
+        channelName="KDDIofficial"
+        description="AIが本部長の代わりに提案書をレビュー、営業活動のあらゆる場面でサポートしてくれる上司のように頼れるAIエージェントのアーキテクチャーを開発メンバーが解説いたします。"
+        videoId="eotu-iwh-qA"
+      />
+      <YouTubeCard
+        title="【３分で分かるAI】成長するAIエージェント『A-BOSS』（本部長AI）の成長機能の仕組みを解説"
+        channelName="KDDIofficial"
+        description="使えば使うほど賢くなるAIエージェント！A-BOSS（本部長AI）の成長機能の仕組みについて開発メンバーが解説いたします。"
+        videoId="WFh4fQ95gxk"
+      />
+      <SpotifyCard
+        title="#370 書籍執筆にも至る、ものづくりとアウトプットの流儀（ゲスト：大坪さん）"
+        showName="ひまじんプログラマーの週末エンジニアリングレッスン"
+        description="「かいちの勤務先のすごい人呼んでみたシリーズ(仮)」の第四弾として、KDDIアジャイル開発センター株式会社で勤務しており、「やさしいMCP入門」の著者の大坪さんをゲストに迎え、価値観や普段のインプットとアウトプットについてお話しました。技術書展の執筆、登壇、書籍執筆、本業の開発等々をすべてやってしまう大坪さんが普段どのようなことを考え、何をしているのか？を聞くことでな"
+        episodeId="2SIdnEJxFzm7LAVHVZs6sI"
+      />
+    </ul>
 
-		</Modal>
+    <Modal triggerId="open-qr" title="My QR Code">
+      <img class="qr" id="qr-image" src="/qr.png" alt="QR Code" />
+      <p
+        id="tap-counter"
+        style="text-align: center; color: #888; font-size: 0.8em; margin-top: 10px;"
+      >
+      </p>
+    </Modal>
 
-		<Modal
-			triggerId="open-nft"
-			title="My NFT"
-		>
-			<a class="nft" href="https://www.mintrally.xyz/ja/events/380" target="_blank" rel="noopener noreferrer"><img class="nft-img" src="/nft.webp" alt="NFT" onselectstart="return false;" onmousedown="return false;" /></a>
-		</Modal>
-	</main>
+    <Modal triggerId="open-contact" title="Contact">
+      <a class="cool-button2 download-contact" href="/contact.vcf" download
+        ><Icon class="icon" name="ic:baseline-mail" />Save VFC</a
+      >
+      <a
+        class="cool-button2 download-contact"
+        href="mailto:tubo.yyyuuu@outlook.jp?subject=%E5%90%8D%E5%88%BA%E4%BA%A4%E6%8F%9Btubone24&body=%E4%BB%B6%E5%90%8D%E3%83%BB%E6%9C%AC%E6%96%87%E3%81%AF%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E3%81%AB%E3%81%97%E3%81%A6%E3%81%84%E3%81%9F%E3%81%A0%E3%81%8D%E3%83%A1%E3%83%BC%E3%83%AB%E3%82%92%E9%80%81%E4%BF%A1%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82"
+        ><Icon class="icon" name="fa:mail-reply" />Auto reply mail</a
+      >
+      <a
+        class="cool-button2 download-contact"
+        href="https://portfolio.tubone-project24.xyz/#contact"
+        ><Icon class="icon" name="fa:wpforms" />Contact Form</a
+      >
+      <a class="download-business-card" href="/business-card.png" download
+        ><img class="business-card" src="/business-card.png" alt="Business Card" /></a
+      >
+    </Modal>
+
+    <Modal triggerId="open-nft" title="My NFT">
+      <a
+        class="nft"
+        href="https://www.mintrally.xyz/ja/events/380"
+        target="_blank"
+        rel="noopener noreferrer"><img class="nft-img" src="/nft.webp" alt="NFT" /></a
+      >
+    </Modal>
+  </main>
 </Layout>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-	// ダークモード切り替え機能
-	const darkModeToggle = document.getElementById('dark-mode-toggle');
-	const htmlElement = document.documentElement;
+  document.addEventListener('DOMContentLoaded', () => {
+    // ダークモード切り替え機能
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const htmlElement = document.documentElement;
 
-	// LocalStorageから設定を読み込む
-	const savedTheme = localStorage.getItem('theme');
-	if (savedTheme === 'dark') {
-		htmlElement.classList.add('dark-mode');
-	}
+    // LocalStorageから設定を読み込む
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      htmlElement.classList.add('dark-mode');
+    }
 
-	// ダークモード切り替えボタンのクリックイベント
-	if (darkModeToggle) {
-		darkModeToggle.addEventListener('click', () => {
-			htmlElement.classList.toggle('dark-mode');
+    // ダークモード切り替えボタンのクリックイベント
+    if (darkModeToggle) {
+      darkModeToggle.addEventListener('click', () => {
+        htmlElement.classList.toggle('dark-mode');
 
-			// LocalStorageに設定を保存
-			if (htmlElement.classList.contains('dark-mode')) {
-				localStorage.setItem('theme', 'dark');
-			} else {
-				localStorage.setItem('theme', 'light');
-			}
-		});
-	}
+        // LocalStorageに設定を保存
+        if (htmlElement.classList.contains('dark-mode')) {
+          localStorage.setItem('theme', 'dark');
+        } else {
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    }
 
-	const myicon = document.getElementById('myicon');
-	const runningDogContainer = document.getElementById('running-dog');
+    const myicon = document.getElementById('myicon');
+    const runningDogContainer = document.getElementById('running-dog');
 
-	if (myicon && runningDogContainer) {
-		myicon.addEventListener('click', () => {
-			console.log('Icon clicked!'); // デバッグ用
+    if (myicon && runningDogContainer) {
+      myicon.addEventListener('click', () => {
+        console.log('Icon clicked!'); // デバッグ用
 
-			// 既存の犬を削除
-			runningDogContainer.innerHTML = '';
+        // 既存の犬を削除
+        runningDogContainer.innerHTML = '';
 
-			// 新しい犬を作成
-			const dog = document.createElement('img');
-			// ランダムでmugi.pngまたはmugi2.pngを選択
-			const mugiImages = ['/mugi.png', '/mugi2.png'];
-			const randomIndex = Math.floor(Math.random() * mugiImages.length);
-			dog.src = mugiImages[randomIndex];
+        // 新しい犬を作成
+        const dog = document.createElement('img');
+        // ランダムでmugi.pngまたはmugi2.pngを選択
+        const mugiImages = ['/mugi.png', '/mugi2.png'];
+        const randomIndex = Math.floor(Math.random() * mugiImages.length);
+        dog.src = mugiImages[randomIndex];
 
-			// スタイルを直接設定
-			dog.style.position = 'absolute';
-			dog.style.width = '150px';
-			dog.style.height = '150px';
-			dog.style.left = '-200px';
+        // スタイルを直接設定
+        dog.style.position = 'absolute';
+        dog.style.width = '150px';
+        dog.style.height = '150px';
+        dog.style.left = '-200px';
 
-			// ランダムな開始位置
-			const startY = Math.random() * (window.innerHeight - 200);
-			dog.style.top = startY + 'px';
+        // ランダムな開始位置
+        const startY = Math.random() * (window.innerHeight - 200);
+        dog.style.top = startY + 'px';
 
-			runningDogContainer.appendChild(dog);
+        runningDogContainer.appendChild(dog);
 
-			// アニメーションを少し遅れて開始
-			setTimeout(() => {
-				dog.style.animation = 'zigzagRun 4s linear forwards';
-			}, 10);
+        // アニメーションを少し遅れて開始
+        setTimeout(() => {
+          dog.style.animation = 'zigzagRun 4s linear forwards';
+        }, 10);
 
-			// アニメーション終了後に削除（複数のイベント名に対応）
-			dog.addEventListener('animationend', () => {
-				dog.remove();
-			});
-			dog.addEventListener('webkitAnimationEnd', () => {
-				dog.remove();
-			});
+        // アニメーション終了後に削除（複数のイベント名に対応）
+        dog.addEventListener('animationend', () => {
+          dog.remove();
+        });
+        dog.addEventListener('webkitAnimationEnd', () => {
+          dog.remove();
+        });
 
-			// 5秒後に強制的に削除（フォールバック）
-			setTimeout(() => {
-				if (dog.parentNode) {
-					dog.remove();
-				}
-			}, 5000);
-		});
-	}
+        // 5秒後に強制的に削除（フォールバック）
+        setTimeout(() => {
+          if (dog.parentNode) {
+            dog.remove();
+          }
+        }, 5000);
+      });
+    }
 
-	// QRコード/ARマーカー 5回タップで切り替える機能
-	const qrImage = document.getElementById('qr-image') as HTMLImageElement;
-	const tapCounter = document.getElementById('tap-counter');
-	let tapCount = 0;
-	let tapTimeout: number | null = null;
-	let isMarkerMode = false; // 現在ARマーカーモードかどうか
+    // QRコード/ARマーカー 5回タップで切り替える機能
+    const qrImage = document.getElementById('qr-image') as HTMLImageElement;
+    const tapCounter = document.getElementById('tap-counter');
+    let tapCount = 0;
+    let tapTimeout: number | null = null;
+    let isMarkerMode = false; // 現在ARマーカーモードかどうか
 
-	if (qrImage && tapCounter) {
-		qrImage.addEventListener('click', () => {
-			tapCount++;
+    if (qrImage && tapCounter) {
+      qrImage.addEventListener('click', () => {
+        tapCount++;
 
-			if (!isMarkerMode) {
-				// QR Code Mode: Switch to AR Marker
-				if (tapCount < 5) {
-					tapCounter.textContent = `${tapCount}/5 taps - ${5 - tapCount} more to switch to AR marker`;
-				}
+        if (!isMarkerMode) {
+          // QR Code Mode: Switch to AR Marker
+          if (tapCount < 5) {
+            tapCounter.textContent = `${tapCount}/5 taps - ${5 - tapCount} more to switch to AR marker`;
+          }
 
-				if (tapCount >= 5) {
-					qrImage.src = '/ar-marker.png';
-					qrImage.style.cursor = 'pointer';
-					tapCounter.innerHTML = 'Switched to AR marker!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">Launch AR Camera</a>';
-					isMarkerMode = true;
-					tapCount = 0;
-				}
-			} else {
-				// AR Marker Mode: Back to QR Code
-				if (tapCount < 5) {
-					tapCounter.textContent = `${tapCount}/5 taps - ${5 - tapCount} more to return to QR code`;
-				}
+          if (tapCount >= 5) {
+            qrImage.src = '/ar-marker.png';
+            qrImage.style.cursor = 'pointer';
+            tapCounter.innerHTML =
+              'Switched to AR marker!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">Launch AR Camera</a>';
+            isMarkerMode = true;
+            tapCount = 0;
+          }
+        } else {
+          // AR Marker Mode: Back to QR Code
+          if (tapCount < 5) {
+            tapCounter.textContent = `${tapCount}/5 taps - ${5 - tapCount} more to return to QR code`;
+          }
 
-				if (tapCount >= 5) {
-					qrImage.src = '/qr.png';
-					qrImage.style.cursor = 'default';
-					tapCounter.textContent = 'Returned to QR code';
-					isMarkerMode = false;
-					tapCount = 0;
+          if (tapCount >= 5) {
+            qrImage.src = '/qr.png';
+            qrImage.style.cursor = 'default';
+            tapCounter.textContent = 'Returned to QR code';
+            isMarkerMode = false;
+            tapCount = 0;
 
-					// Clear message after 2 seconds
-					setTimeout(() => {
-						if (tapCounter) tapCounter.textContent = '';
-					}, 2000);
-				}
-			}
+            // Clear message after 2 seconds
+            setTimeout(() => {
+              if (tapCounter) tapCounter.textContent = '';
+            }, 2000);
+          }
+        }
 
-			// Reset count if no taps for 3 seconds
-			if (tapTimeout !== null) {
-				clearTimeout(tapTimeout);
-			}
-			tapTimeout = window.setTimeout(() => {
-				if (tapCount < 5) {
-					tapCount = 0;
-					if (!isMarkerMode) {
-						tapCounter.textContent = '';
-					} else {
-						// Keep AR camera launch link in marker mode
-						tapCounter.innerHTML = 'Switched to AR marker!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">Launch AR Camera</a>';
-					}
-				}
-			}, 3000);
-		});
-	}
-});
+        // Reset count if no taps for 3 seconds
+        if (tapTimeout !== null) {
+          clearTimeout(tapTimeout);
+        }
+        tapTimeout = window.setTimeout(() => {
+          if (tapCount < 5) {
+            tapCount = 0;
+            if (!isMarkerMode) {
+              tapCounter.textContent = '';
+            } else {
+              // Keep AR camera launch link in marker mode
+              tapCounter.innerHTML =
+                'Switched to AR marker!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">Launch AR Camera</a>';
+            }
+          }
+        }, 3000);
+      });
+    }
+  });
 </script>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	@keyframes gradientAnimation {
-		0% {
-			background-position: 0% 50%;
-		}
-		50% {
-			background-position: 10% 50%;
-		}
-		100% {
-			background-position: 0% 50%;
-		}
-	}
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 10% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	h2 {
-		font-size: 2rem;
-		font-weight: 500;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-		animation: gradientAnimation 2s linear infinite;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid var(--border-color);
-		background-color: var(--card-background);
-		padding: 1rem;
-		border-radius: 0.4rem;
-		transition: background-color 0.3s ease, border-color 0.3s ease;
-	}
-	.instructions code {
-		display: flex; /* Flexboxを使ってアイコンとテキストを中央揃えにする */
-		align-items: center; /* アイテムを縦方向の中央に揃える */
-		font-size: 0.875em;
-		font-weight: bold;
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+    animation: gradientAnimation 2s linear infinite;
+  }
+  .instructions {
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-background);
+    padding: 1rem;
+    border-radius: 0.4rem;
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease;
+  }
+  .instructions code {
+    display: flex; /* Flexboxを使ってアイコンとテキストを中央揃えにする */
+    align-items: center; /* アイテムを縦方向の中央に揃える */
+    font-size: 0.875em;
+    font-weight: bold;
+    color: rgb(var(--accent));
+    border-radius: 4px;
+    padding: 0.3em 0.45em;
+  }
 
-	.instructions code .icon {
-		width: 1em; /* アイコンのサイズをテキストに合わせる */
-		height: 1em; /* アイコンの高さを調整 */
-		margin-right: 5px; /* アイコンとテキストの間に適切なスペースを追加 */
-		vertical-align: middle;
-	}
+  .instructions code .icon {
+    width: 1em; /* アイコンのサイズをテキストに合わせる */
+    height: 1em; /* アイコンの高さを調整 */
+    margin-right: 5px; /* アイコンとテキストの間に適切なスペースを追加 */
+    vertical-align: middle;
+  }
 
-	@media (max-width: 768px) {
-		.instructions code {
-			font-size: 0.75em; /* テキストサイズを小さくする */
-		}
-
-		.instructions {
-			padding: 0.5rem; /* パディングを調整して余白を減らす */
-			font-size: 0.875em; /* 基本テキストのサイズを小さくする */
-		}
-
-		.instructions code a {
-			display: block; /* リンクをブロック要素にして折り返しを可能にする */
-			overflow-wrap: break-word; /* 長い単語があっても折り返しを許可する */
-		}
-	}
-
-	@keyframes phoneIconBounce {
-		0%, 100% {
-			transform: translateY(0);
-		}
-		50% {
-			transform: translateY(-5px);
-		}
-	}
-
-	.instructions code .icon:hover {
-		animation: phoneIconBounce 0.5s ease-in-out;
-	}
-
-	.instructions code a {
-		color: rgb(var(--accent));
-		vertical-align: middle;
-		text-decoration: none;
-		transition: color 0.3s ease;
-	}
-
-	:root.dark-mode .instructions code a {
-		color: #a78bfa;
-	}
-
-	.instructions strong {
-		color: rgb(var(--accent));
-		transition: color 0.3s ease;
-	}
-
-	:root.dark-mode .instructions strong {
-		color: #a78bfa;
-	}
-
-	.instructions .second {
-		color: rgb(var(--accent-second));
-		transition: color 0.3s ease;
-	}
-
-	:root.dark-mode .instructions .second {
-		color: #4ade80;
-	}
-
-	.instructions .second a {
-		color: #1976d2;
-		text-decoration: underline;
-		transition: color 0.3s ease;
-	}
-
-	:root.dark-mode .instructions .second a {
-		color: #60a5fa;
-		text-decoration: underline;
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-
-	.book-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 1rem;
-		padding: 0;
-		margin: 2rem 0;
-	}
-
-	.youtube-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 1rem;
-		padding: 0;
-		margin: 2rem 0;
-	}
-
-	.section-title {
-		margin-top: 2rem;
-		margin-bottom: 1rem;
-		text-align: center;
-		color: rgb(var(--accent));
-		transition: color 0.3s ease;
-	}
-
-	:root.dark-mode .section-title {
-		color: #a78bfa;
-	}
-
-	.header-container {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-around;
-        align-items: center;
+  @media (max-width: 768px) {
+    .instructions code {
+      font-size: 0.75em; /* テキストサイズを小さくする */
     }
 
-    .header-container .icon {
-       margin-right: 10px;
-       width: 19px;
-       margin-right: 10px;
-       vertical-align: middle;
+    .instructions {
+      padding: 0.5rem; /* パディングを調整して余白を減らす */
+      font-size: 0.875em; /* 基本テキストのサイズを小さくする */
     }
 
-    .header-container a {
-      margin-left: 10px;
+    .instructions code a {
+      display: block; /* リンクをブロック要素にして折り返しを可能にする */
+      overflow-wrap: break-word; /* 長い単語があっても折り返しを許可する */
     }
+  }
 
-    .header-container img {
-        width: 20%;
-        object-fit:cover;
-        cursor: pointer;
+  @keyframes phoneIconBounce {
+    0%,
+    100% {
+      transform: translateY(0);
     }
-
-	.contact {
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        align-items: center;
-		-webkit-touch-callout:none;
-		-webkit-user-select:none;
-		-moz-touch-callout:none;
-		-moz-user-select:none;
-		user-select:none;
+    50% {
+      transform: translateY(-5px);
     }
+  }
 
-    .qr {
-      align-self: center;
-	  max-width: 400px;
-	  width: 100%;
+  .instructions code .icon:hover {
+    animation: phoneIconBounce 0.5s ease-in-out;
+  }
+
+  .instructions code a {
+    color: rgb(var(--accent));
+    vertical-align: middle;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  :root.dark-mode .instructions code a {
+    color: #a78bfa;
+  }
+
+  .instructions strong {
+    color: rgb(var(--accent));
+    transition: color 0.3s ease;
+  }
+
+  :root.dark-mode .instructions strong {
+    color: #a78bfa;
+  }
+
+  .instructions .second {
+    color: rgb(var(--accent-second));
+    transition: color 0.3s ease;
+  }
+
+  :root.dark-mode .instructions .second {
+    color: #4ade80;
+  }
+
+  .instructions .second a {
+    color: #1976d2;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+
+  :root.dark-mode .instructions .second a {
+    color: #60a5fa;
+    text-decoration: underline;
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .book-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 0;
+    margin: 2rem 0;
+  }
+
+  .youtube-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 0;
+    margin: 2rem 0;
+  }
+
+  .section-title {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: rgb(var(--accent));
+    transition: color 0.3s ease;
+  }
+
+  :root.dark-mode .section-title {
+    color: #a78bfa;
+  }
+
+  .header-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .header-container .icon {
+    margin-right: 10px;
+    width: 19px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  .header-container a {
+    margin-left: 10px;
+  }
+
+  .header-container img {
+    width: 20%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .contact {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-touch-callout: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  .qr {
+    align-self: center;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .nft {
+    align-self: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .nft-img {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  @keyframes sparkle {
+    0% {
+      background-position: 0% 50%;
     }
-
-	.nft {
-		align-self: center;
-		text-align: center;
-		width: 100%;
-	}
-
-	.nft-img {
-		pointer-events: none;
-		max-width: 400px;
-		width: 100%;
-	}
-
-	@keyframes sparkle {
-		0% {
-			background-position: 0% 50%;
-		}
-		50% {
-			background-position: 100% 50%;
-		}
-		100% {
-			background-position: 0% 50%;
-		}
-	}
-
-	.cool-button, .cool-button2, .cool-button3 {
-		position: relative;
-		overflow: hidden;
-		z-index: 1;
-	}
-
-	.cool-button::before, .cool-button2::before, .cool-button3::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(36, 224, 142, 0.8) 50%, rgba(255,255,255,0) 100%);
-		z-index: -1;
-		opacity: 0;
-		transition: opacity 0.5s;
-		background-size: 200% auto;
-	}
-
-	.cool-button:hover::before, .cool-button2:hover::before, .cool-button3:hover::before {
-		opacity: 1;
-		animation: sparkle 1.5s linear infinite;
-	}
-
-    .cool-button {
-      display: block;
-      margin: 0 10px;
-      background-image: linear-gradient(45deg, rgb(var(--accent)), #6FD740 30%, rgba(var(--accent), 40%));
-      color: #fff;
-      text-align: center;
-
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-      cursor: pointer;
+    50% {
+      background-position: 100% 50%;
     }
-
-    .cool-button:hover {
-       background-color: rgba(var(--accent), 12%);
+    100% {
+      background-position: 0% 50%;
     }
-    .cool-button .icon {
-       margin-right: 10px;
-       width: 19px;
-       margin-right: 10px;
-       vertical-align: middle;
+  }
+
+  .cool-button,
+  .cool-button2,
+  .cool-button3 {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .cool-button::before,
+  .cool-button2::before,
+  .cool-button3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(36, 224, 142, 0.8) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s;
+    background-size: 200% auto;
+  }
+
+  .cool-button:hover::before,
+  .cool-button2:hover::before,
+  .cool-button3:hover::before {
+    opacity: 1;
+    animation: sparkle 1.5s linear infinite;
+  }
+
+  .cool-button {
+    display: block;
+    margin: 0 10px;
+    background-image: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      #6fd740 30%,
+      rgba(var(--accent), 40%)
+    );
+    color: #fff;
+    text-align: center;
+
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .cool-button:hover {
+    background-color: rgba(var(--accent), 12%);
+  }
+  .cool-button .icon {
+    margin-right: 10px;
+    width: 19px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  .cool-button2 {
+    display: block;
+    margin: 0 10px;
+    background-image: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      #6fd740 80%,
+      rgba(var(--accent), 20%)
+    );
+    color: #fff;
+    text-align: center;
+
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .cool-button2:hover {
+    background-color: rgba(var(--accent), 12%);
+  }
+  .cool-button2 .icon {
+    margin-right: 10px;
+    width: 19px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  .cool-button3 {
+    display: block;
+    margin: 0 10px;
+    background-image: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      #4bffde 80%,
+      rgba(var(--accent), 20%)
+    );
+    color: #ffffff;
+    text-align: center;
+
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .cool-button3:hover {
+    background-color: rgba(var(--accent), 12%);
+  }
+  .cool-button3 .icon {
+    margin-right: 10px;
+    width: 19px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  .download-contact {
+    align-self: center;
+  }
+
+  .download-business-card {
+    align-self: center;
+  }
+
+  .business-card {
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .toast {
+    position: fixed;
+    top: 0px;
+    opacity: 0;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(var(--accent));
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 10px 10px;
+    background-color: #4bffde;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-name: fadein;
+    animation-fill-mode: forwards;
+    box-shadow: 5px 5px 50px rgb(176, 176, 176);
+  }
+
+  .toast-failed {
+    position: fixed;
+    top: 0px;
+    opacity: 0;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(var(--accent));
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 10px 10px;
+    background-color: #ff4b4b;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-name: fadein;
+    animation-fill-mode: forwards;
+    box-shadow: 5px 5px 50px rgb(176, 176, 176);
+  }
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+      top: 0px;
     }
-    .cool-button2 {
-      display: block;
-      margin: 0 10px;
-      background-image: linear-gradient(45deg, rgb(var(--accent)), #6FD740 80%, rgba(var(--accent), 20%));
-      color: #fff;
-      text-align: center;
-
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-      cursor: pointer;
+    15% {
+      opacity: 1;
+      top: 10px;
     }
-
-    .cool-button2:hover {
-       background-color: rgba(var(--accent), 12%);
+    95% {
+      opacity: 1;
+      top: 10px;
     }
-    .cool-button2 .icon {
-       margin-right: 10px;
-       width: 19px;
-       margin-right: 10px;
-       vertical-align: middle;
+    100% {
+      opacity: 0;
+      top: 0px;
     }
+  }
 
-	.cool-button3 {
-		display: block;
-		margin: 0 10px;
-		background-image: linear-gradient(45deg, rgb(var(--accent)), #4bffde 80%, rgba(var(--accent), 20%));
-		color: #ffffff;
-		text-align: center;
+  #running-dog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+  }
 
-		text-decoration: none;
-		padding: 8px 16px;
-		border-radius: 4px;
-		transition: background-color 0.3s ease;
-		cursor: pointer;
-	}
+  .running-dog-animation {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: -100px;
+    animation: runAcrossScreen 3s linear forwards;
+    -webkit-animation: runAcrossScreen 3s linear forwards;
+  }
 
-	.cool-button3:hover {
-		background-color: rgba(var(--accent), 12%);
-	}
-	.cool-button3 .icon {
-		margin-right: 10px;
-		width: 19px;
-		margin-right: 10px;
-		vertical-align: middle;
-	}
+  @keyframes zigzagRun {
+    0% {
+      left: -200px;
+      transform: translateY(0);
+    }
+    10% {
+      left: 10%;
+      transform: translateY(-100px);
+    }
+    20% {
+      left: 20%;
+      transform: translateY(100px);
+    }
+    30% {
+      left: 30%;
+      transform: translateY(-80px);
+    }
+    40% {
+      left: 40%;
+      transform: translateY(80px);
+    }
+    50% {
+      left: 50%;
+      transform: translateY(-120px);
+    }
+    60% {
+      left: 60%;
+      transform: translateY(60px);
+    }
+    70% {
+      left: 70%;
+      transform: translateY(-90px);
+    }
+    80% {
+      left: 80%;
+      transform: translateY(90px);
+    }
+    90% {
+      left: 90%;
+      transform: translateY(-70px);
+    }
+    100% {
+      left: calc(100vw + 200px);
+      transform: translateY(0);
+    }
+  }
 
-	.download-contact {
-		align-self: center;
-	}
+  /* ダークモード切り替えボタン */
+  .dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.03);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow:
+      0 8px 32px rgba(31, 38, 135, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
 
-	.download-business-card {
-		align-self: center;
-	}
+  :root.dark-mode .dark-mode-toggle {
+    background: rgba(30, 30, 30, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
 
-	.business-card {
-		max-width: 400px;
-		width: 100%;
-	}
+  .dark-mode-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 24px rgba(124, 58, 237, 0.4);
+  }
 
-	.toast {
-		position: fixed;
-		top: 0px;
-		opacity: 0;
-		text-align: center;
-		font-family: Arial, Helvetica, sans-serif;
-		color: rgb(var(--accent));
-		font-weight: bold;
-		padding: 15px 30px;
-		border-radius: 10px 10px;
-		background-color: #4bffde;
-		animation-duration: 2s;
-		animation-delay: 1s;
-		animation-name: fadein;
-		animation-fill-mode: forwards;
-		box-shadow: 5px 5px 50px rgb(176, 176, 176);
-	}
+  .dark-mode-toggle .sun-icon,
+  .dark-mode-toggle .moon-icon {
+    width: 24px;
+    height: 24px;
+    color: rgb(var(--accent));
+  }
 
-	.toast-failed {
-		position: fixed;
-		top: 0px;
-		opacity: 0;
-		text-align: center;
-		font-family: Arial, Helvetica, sans-serif;
-		color: rgb(var(--accent));
-		font-weight: bold;
-		padding: 15px 30px;
-		border-radius: 10px 10px;
-		background-color: #ff4b4b;
-		animation-duration: 2s;
-		animation-delay: 1s;
-		animation-name: fadein;
-		animation-fill-mode: forwards;
-		box-shadow: 5px 5px 50px rgb(176, 176, 176);
-	}
+  .dark-mode-toggle .sun-icon {
+    display: block;
+  }
 
-	@keyframes fadein {
-		0% {
-			opacity: 0;
-			top: 0px;
-		}
-		15% {
-			opacity: 1;
-			top: 10px;
-		}
-		95% {
-			opacity: 1;
-			top: 10px;
-		}
-		100% {
-			opacity: 0;
-			top: 0px;
-		}
-	}
+  .dark-mode-toggle .moon-icon {
+    display: none;
+  }
 
-	#running-dog {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		pointer-events: none;
-		z-index: 9999;
-	}
+  :root.dark-mode .dark-mode-toggle .sun-icon {
+    display: none;
+  }
 
-	.running-dog-animation {
-		position: absolute;
-		width: 80px;
-		height: 80px;
-		left: -100px;
-		animation: runAcrossScreen 3s linear forwards;
-		-webkit-animation: runAcrossScreen 3s linear forwards;
-	}
-
-	@keyframes zigzagRun {
-		0% {
-			left: -200px;
-			transform: translateY(0);
-		}
-		10% {
-			left: 10%;
-			transform: translateY(-100px);
-		}
-		20% {
-			left: 20%;
-			transform: translateY(100px);
-		}
-		30% {
-			left: 30%;
-			transform: translateY(-80px);
-		}
-		40% {
-			left: 40%;
-			transform: translateY(80px);
-		}
-		50% {
-			left: 50%;
-			transform: translateY(-120px);
-		}
-		60% {
-			left: 60%;
-			transform: translateY(60px);
-		}
-		70% {
-			left: 70%;
-			transform: translateY(-90px);
-		}
-		80% {
-			left: 80%;
-			transform: translateY(90px);
-		}
-		90% {
-			left: 90%;
-			transform: translateY(-70px);
-		}
-		100% {
-			left: calc(100vw + 200px);
-			transform: translateY(0);
-		}
-	}
-
-	/* ダークモード切り替えボタン */
-	.dark-mode-toggle {
-		position: fixed;
-		bottom: 20px;
-		left: 20px;
-		width: 50px;
-		height: 50px;
-		border-radius: 50%;
-		border: 1.5px solid rgba(255, 255, 255, 0.3);
-		background: rgba(255, 255, 255, 0.03);
-		-webkit-backdrop-filter: blur(4px);
-		backdrop-filter: blur(4px);
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		transition: all 0.3s ease;
-		z-index: 1000;
-		box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15),
-		            inset 0 1px 0 rgba(255, 255, 255, 0.4);
-	}
-
-	:root.dark-mode .dark-mode-toggle {
-		background: rgba(30, 30, 30, 0.08);
-		border-color: rgba(255, 255, 255, 0.15);
-		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-		            inset 0 1px 0 rgba(255, 255, 255, 0.1);
-	}
-
-	.dark-mode-toggle:hover {
-		transform: scale(1.1);
-		box-shadow: 0 6px 24px rgba(124, 58, 237, 0.4);
-	}
-
-	.dark-mode-toggle .sun-icon,
-	.dark-mode-toggle .moon-icon {
-		width: 24px;
-		height: 24px;
-		color: rgb(var(--accent));
-	}
-
-	.dark-mode-toggle .sun-icon {
-		display: block;
-	}
-
-	.dark-mode-toggle .moon-icon {
-		display: none;
-	}
-
-	:root.dark-mode .dark-mode-toggle .sun-icon {
-		display: none;
-	}
-
-	:root.dark-mode .dark-mode-toggle .moon-icon {
-		display: block;
-	}
+  :root.dark-mode .dark-mode-toggle .moon-icon {
+    display: block;
+  }
 </style>

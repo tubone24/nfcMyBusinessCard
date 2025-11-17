@@ -1,289 +1,289 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>AR Experience - tubone24</title>
-	<!-- A-FrameとAR.jsのライブラリ (最新安定版) -->
-	<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.5/aframe/build/aframe-ar.js"></script>
-	<style>
-		body {
-			margin: 0;
-			overflow: hidden;
-			font-family: Arial, sans-serif;
-		}
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AR Experience - tubone24</title>
+    <!-- A-FrameとAR.jsのライブラリ (最新安定版) -->
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.5/aframe/build/aframe-ar.js"></script>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+      }
 
-		#ar-info {
-			position: fixed;
-			top: 10px;
-			left: 50%;
-			transform: translateX(-50%);
-			background: rgba(0, 0, 0, 0.8);
-			color: white;
-			padding: 15px 30px;
-			border-radius: 10px;
-			z-index: 1000;
-			text-align: center;
-			max-width: 90%;
-		}
+      #ar-info {
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 15px 30px;
+        border-radius: 10px;
+        z-index: 1000;
+        text-align: center;
+        max-width: 90%;
+      }
 
-		#ar-info h2 {
-			margin: 0 0 10px 0;
-			font-size: 1.2em;
-		}
+      #ar-info h2 {
+        margin: 0 0 10px 0;
+        font-size: 1.2em;
+      }
 
-		#ar-info p {
-			margin: 5px 0;
-			font-size: 0.9em;
-		}
+      #ar-info p {
+        margin: 5px 0;
+        font-size: 0.9em;
+      }
 
-		#back-button {
-			position: fixed;
-			bottom: 20px;
-			left: 50%;
-			transform: translateX(-50%);
-			background: linear-gradient(45deg, #24E08E, #6FD740);
-			color: white;
-			border: none;
-			padding: 15px 30px;
-			border-radius: 10px;
-			font-size: 1em;
-			font-weight: bold;
-			cursor: pointer;
-			z-index: 1000;
-			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-		}
+      #back-button {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(45deg, #24e08e, #6fd740);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 10px;
+        font-size: 1em;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
 
-		#back-button:hover {
-			background: linear-gradient(45deg, #1fc97b, #5cc535);
-		}
+      #back-button:hover {
+        background: linear-gradient(45deg, #1fc97b, #5cc535);
+      }
 
-		.a-loader-title {
-			display: none !important;
-		}
-	</style>
-</head>
-<body>
-<!--	<div id="ar-info">-->
-<!--		<h2 id="status-title">⏳ カメラ起動準備中...</h2>-->
-<!--		<p id="status-message">カメラへのアクセス許可をお願いします</p>-->
-<!--		<p style="font-size: 0.8em; color: #4bffde;" id="status-detail"></p>-->
-<!--	</div>-->
+      .a-loader-title {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!--	<div id="ar-info">-->
+    <!--		<h2 id="status-title">⏳ カメラ起動準備中...</h2>-->
+    <!--		<p id="status-message">カメラへのアクセス許可をお願いします</p>-->
+    <!--		<p style="font-size: 0.8em; color: #4bffde;" id="status-detail"></p>-->
+    <!--	</div>-->
 
-	<button id="back-button" onclick="window.location.href='/'">戻る</button>
+    <button id="back-button" onclick="window.location.href='/'">戻る</button>
 
-	<a-scene
-		id="ar-scene"
-		embedded
-		arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; sourceWidth: 1280; sourceHeight: 960; displayWidth: 1280; displayHeight: 960;"
-		vr-mode-ui="enabled: false"
-		renderer="colorManagement: true; physicallyCorrectLights: true; logarithmicDepthBuffer: true; precision: medium;"
-	>
-		<!-- カメラ (視野角を広げて広角に) -->
-		<a-entity camera="fov: 100; near: 0.1; far: 1000"></a-entity>
+    <a-scene
+      id="ar-scene"
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; sourceWidth: 1280; sourceHeight: 960; displayWidth: 1280; displayHeight: 960;"
+      vr-mode-ui="enabled: false"
+      renderer="colorManagement: true; physicallyCorrectLights: true; logarithmicDepthBuffer: true; precision: medium;"
+    >
+      <!-- カメラ (視野角を広げて広角に) -->
+      <a-entity camera="fov: 100; near: 0.1; far: 1000"></a-entity>
 
-		<!-- ARマーカー: カスタムマーカーを使用 -->
-		<a-marker type="pattern" url="/pattern-marker.patt">
-			<!-- 環境光 (全体を明るく) - 強化 -->
-			<a-light type="ambient" color="#ffffff" intensity="2.5"></a-light>
+      <!-- ARマーカー: カスタムマーカーを使用 -->
+      <a-marker type="pattern" url="/pattern-marker.patt">
+        <!-- 環境光 (全体を明るく) - 強化 -->
+        <a-light type="ambient" color="#ffffff" intensity="2.5"></a-light>
 
-			<!-- 半球ライト (空と地面からの照り返し) -->
-			<a-light type="hemisphere" color="#ffffff" groundColor="#888888" intensity="1.5"></a-light>
+        <!-- 半球ライト (空と地面からの照り返し) -->
+        <a-light type="hemisphere" color="#ffffff" groundColor="#888888" intensity="1.5"></a-light>
 
-			<!-- 指向性ライト (複数方向から) -->
-			<a-light type="directional" color="#ffffff" intensity="1.2" position="1 1 1"></a-light>
-			<a-light type="directional" color="#ffffff" intensity="0.8" position="-1 0.5 -1"></a-light>
+        <!-- 指向性ライト (複数方向から) -->
+        <a-light type="directional" color="#ffffff" intensity="1.2" position="1 1 1"></a-light>
+        <a-light type="directional" color="#ffffff" intensity="0.8" position="-1 0.5 -1"></a-light>
 
-			<!-- ポイントライト (マーカーの上から) -->
-			<a-light type="point" color="#ffffff" intensity="1.5" position="0 2 0"></a-light>
+        <!-- ポイントライト (マーカーの上から) -->
+        <a-light type="point" color="#ffffff" intensity="1.5" position="0 2 0"></a-light>
 
-			<!-- メインモデル (中央) -->
-			<a-entity
-				position="0 0 0"
-				rotation="-40 0 0"
-				scale="0.09 0.09 0.09"
-				gltf-model="/model.glb"
-			></a-entity>
+        <!-- メインモデル (中央) -->
+        <a-entity
+          position="0 0 0"
+          rotation="-40 0 0"
+          scale="0.09 0.09 0.09"
+          gltf-model="/model.glb"
+        ></a-entity>
 
-			<!-- 柴犬モデル (手前で左右に走る) -->
-			<a-entity
-				position="-2 -0.8 0.5"
-				rotation="-40 90 0"
-				scale="0.65 0.65 0.65"
-				gltf-model="/shiba-model.glb"
-				animation__move="property: position; from: -1.7 -0.8 0.5; to: 1.7 -0.8 0.4; dur: 5000; easing: easeInOutQuad; loop: true; dir: alternate"
-				animation__turn="property: rotation; from: -40 90 0; to: -40 -90 0; dur: 5000; loop: true; dir: alternate"
-			></a-entity>
+        <!-- 柴犬モデル (手前で左右に走る) -->
+        <a-entity
+          position="-2 -0.8 0.5"
+          rotation="-40 90 0"
+          scale="0.65 0.65 0.65"
+          gltf-model="/shiba-model.glb"
+          animation__move="property: position; from: -1.7 -0.8 0.5; to: 1.7 -0.8 0.4; dur: 5000; easing: easeInOutQuad; loop: true; dir: alternate"
+          animation__turn="property: rotation; from: -40 90 0; to: -40 -90 0; dur: 5000; loop: true; dir: alternate"
+        ></a-entity>
 
-			<!-- テキスト表示 (上に配置) - 浮遊&拡大縮小アニメーション -->
-			<!-- 影レイヤー5 (一番奥) -->
-			<a-text
-				value="tubone24"
-				position="0.1 1.4 -0.1"
-				rotation="0 0 0"
-				align="center"
-				color="#000000"
-				opacity="0.4"
-				width="6"
-				font="/Condiment-Regular-msdf.json"
-				shader="msdf"
-				negate="false"
-				animation__float="property: position; from: 0.1 1.2 -0.1; to: 0.1 1.6 -0.1; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
-				animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
-			></a-text>
-			<!-- 影レイヤー4 -->
-			<a-text
-				value="tubone24"
-				position="0.08 1.42 -0.08"
-				rotation="0 0 0"
-				align="center"
-				color="#0a0a0a"
-				opacity="0.5"
-				width="6"
-				font="/Condiment-Regular-msdf.json"
-				shader="msdf"
-				negate="false"
-				animation__float="property: position; from: 0.08 1.22 -0.08; to: 0.08 1.62 -0.08; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
-				animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
-			></a-text>
-			<!-- 影レイヤー3 -->
-			<a-text
-				value="tubone24"
-				position="0.06 1.44 -0.06"
-				rotation="0 0 0"
-				align="center"
-				color="#1a1a1a"
-				opacity="0.6"
-				width="6"
-				font="/Condiment-Regular-msdf.json"
-				shader="msdf"
-				negate="false"
-				animation__float="property: position; from: 0.06 1.24 -0.06; to: 0.06 1.64 -0.06; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
-				animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
-			></a-text>
-			<!-- アウトライン2 (暗い緑) -->
-			<a-text
-				value="tubone24"
-				position="0.04 1.46 -0.04"
-				rotation="0 0 0"
-				align="center"
-				color="#145040"
-				opacity="0.8"
-				width="6"
-				font="/Condiment-Regular-msdf.json"
-				shader="msdf"
-				negate="false"
-				animation__float="property: position; from: 0.04 1.26 -0.04; to: 0.04 1.66 -0.04; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
-				animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
-			></a-text>
-			<!-- アウトライン1 (やや暗い緑) -->
-			<a-text
-				value="tubone24"
-				position="0.02 1.48 -0.02"
-				rotation="0 0 0"
-				align="center"
-				color="#1a7050"
-				width="6"
-				font="/Condiment-Regular-msdf.json"
-				shader="msdf"
-				negate="false"
-				animation__float="property: position; from: 0.02 1.28 -0.02; to: 0.02 1.68 -0.02; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
-				animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
-			></a-text>
-			<!-- メインテキスト (明るい緑) -->
-			<a-text
-				value="tubone24"
-				position="0 1.5 0"
-				rotation="0 0 0"
-				align="center"
-				color="#24E08E"
-				width="6"
-				font="/Condiment-Regular-msdf.json"
-				shader="msdf"
-				negate="false"
-				animation__float="property: position; from: 0 1.3 0; to: 0 1.7 0; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
-				animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
-			></a-text>
-		</a-marker>
-	</a-scene>
+        <!-- テキスト表示 (上に配置) - 浮遊&拡大縮小アニメーション -->
+        <!-- 影レイヤー5 (一番奥) -->
+        <a-text
+          value="tubone24"
+          position="0.1 1.4 -0.1"
+          rotation="0 0 0"
+          align="center"
+          color="#000000"
+          opacity="0.4"
+          width="6"
+          font="/Condiment-Regular-msdf.json"
+          shader="msdf"
+          negate="false"
+          animation__float="property: position; from: 0.1 1.2 -0.1; to: 0.1 1.6 -0.1; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
+          animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
+        ></a-text>
+        <!-- 影レイヤー4 -->
+        <a-text
+          value="tubone24"
+          position="0.08 1.42 -0.08"
+          rotation="0 0 0"
+          align="center"
+          color="#0a0a0a"
+          opacity="0.5"
+          width="6"
+          font="/Condiment-Regular-msdf.json"
+          shader="msdf"
+          negate="false"
+          animation__float="property: position; from: 0.08 1.22 -0.08; to: 0.08 1.62 -0.08; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
+          animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
+        ></a-text>
+        <!-- 影レイヤー3 -->
+        <a-text
+          value="tubone24"
+          position="0.06 1.44 -0.06"
+          rotation="0 0 0"
+          align="center"
+          color="#1a1a1a"
+          opacity="0.6"
+          width="6"
+          font="/Condiment-Regular-msdf.json"
+          shader="msdf"
+          negate="false"
+          animation__float="property: position; from: 0.06 1.24 -0.06; to: 0.06 1.64 -0.06; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
+          animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
+        ></a-text>
+        <!-- アウトライン2 (暗い緑) -->
+        <a-text
+          value="tubone24"
+          position="0.04 1.46 -0.04"
+          rotation="0 0 0"
+          align="center"
+          color="#145040"
+          opacity="0.8"
+          width="6"
+          font="/Condiment-Regular-msdf.json"
+          shader="msdf"
+          negate="false"
+          animation__float="property: position; from: 0.04 1.26 -0.04; to: 0.04 1.66 -0.04; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
+          animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
+        ></a-text>
+        <!-- アウトライン1 (やや暗い緑) -->
+        <a-text
+          value="tubone24"
+          position="0.02 1.48 -0.02"
+          rotation="0 0 0"
+          align="center"
+          color="#1a7050"
+          width="6"
+          font="/Condiment-Regular-msdf.json"
+          shader="msdf"
+          negate="false"
+          animation__float="property: position; from: 0.02 1.28 -0.02; to: 0.02 1.68 -0.02; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
+          animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
+        ></a-text>
+        <!-- メインテキスト (明るい緑) -->
+        <a-text
+          value="tubone24"
+          position="0 1.5 0"
+          rotation="0 0 0"
+          align="center"
+          color="#24E08E"
+          width="6"
+          font="/Condiment-Regular-msdf.json"
+          shader="msdf"
+          negate="false"
+          animation__float="property: position; from: 0 1.3 0; to: 0 1.7 0; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate"
+          animation__scale="property: scale; from: 0.9 0.9 0.9; to: 1.1 1.1 1.1; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
+        ></a-text>
+      </a-marker>
+    </a-scene>
 
-	<script>
-		// UI要素を取得
-		const statusTitle = document.getElementById('status-title');
-		const statusMessage = document.getElementById('status-message');
-		const statusDetail = document.getElementById('status-detail');
+    <script>
+      // UI要素を取得
+      const statusTitle = document.getElementById('status-title');
+      const statusMessage = document.getElementById('status-message');
+      const statusDetail = document.getElementById('status-detail');
 
-		// カメラの起動状態を監視
-		let cameraStarted = false;
+      // カメラの起動状態を監視
+      let cameraStarted = false;
 
-		// A-Frameシーンの準備を待つ
-		window.addEventListener('load', function() {
-			const scene = document.querySelector('a-scene');
+      // A-Frameシーンの準備を待つ
+      window.addEventListener('load', function () {
+        const scene = document.querySelector('a-scene');
 
-			// モデルの読み込み状況を監視
-			document.querySelectorAll('[gltf-model]').forEach((entity, index) => {
-				const modelPath = entity.getAttribute('gltf-model');
-				console.log(`モデル${index + 1}: ${modelPath} を読み込み中...`);
+        // モデルの読み込み状況を監視
+        document.querySelectorAll('[gltf-model]').forEach((entity, index) => {
+          const modelPath = entity.getAttribute('gltf-model');
+          console.log(`モデル${index + 1}: ${modelPath} を読み込み中...`);
 
-				entity.addEventListener('model-loaded', () => {
-					console.log(`✅ モデル${index + 1}: ${modelPath} 読み込み完了!`);
-				});
+          entity.addEventListener('model-loaded', () => {
+            console.log(`✅ モデル${index + 1}: ${modelPath} 読み込み完了!`);
+          });
 
-				entity.addEventListener('model-error', (error) => {
-					console.error(`❌ モデル${index + 1}: ${modelPath} 読み込みエラー:`, error);
-				});
-			});
+          entity.addEventListener('model-error', (error) => {
+            console.error(`❌ モデル${index + 1}: ${modelPath} 読み込みエラー:`, error);
+          });
+        });
 
-			if (scene) {
-				// A-Frameシーンの読み込み完了を待つ
-				scene.addEventListener('loaded', () => {
-					console.log('A-Frameシーン読み込み完了');
-					// if (statusDetail) {
-					// 	statusDetail.textContent = 'シーン読み込み完了...カメラを起動中';
-					// }
-				});
+        if (scene) {
+          // A-Frameシーンの読み込み完了を待つ
+          scene.addEventListener('loaded', () => {
+            console.log('A-Frameシーン読み込み完了');
+            // if (statusDetail) {
+            // 	statusDetail.textContent = 'シーン読み込み完了...カメラを起動中';
+            // }
+          });
 
-				// AR.jsの初期化完了を検出
-				scene.addEventListener('arjs-video-loaded', () => {
-					console.log('カメラ映像が読み込まれました!');
-					cameraStarted = true;
-					// if (statusTitle) statusTitle.textContent = '📹 カメラ起動成功!';
-					// if (statusMessage) statusMessage.textContent = 'ARマーカーをカメラに向けてください';
-					// if (statusDetail) statusDetail.textContent = 'マーカーが認識されると3Dオブジェクトが表示されます';
-				});
+          // AR.jsの初期化完了を検出
+          scene.addEventListener('arjs-video-loaded', () => {
+            console.log('カメラ映像が読み込まれました!');
+            cameraStarted = true;
+            // if (statusTitle) statusTitle.textContent = '📹 カメラ起動成功!';
+            // if (statusMessage) statusMessage.textContent = 'ARマーカーをカメラに向けてください';
+            // if (statusDetail) statusDetail.textContent = 'マーカーが認識されると3Dオブジェクトが表示されます';
+          });
 
-				// マーカーが見つかった時のイベント
-				const marker = document.querySelector('a-marker');
-				if (marker) {
-					marker.addEventListener('markerFound', () => {
-						console.log('マーカーが検出されました!');
-						// if (statusTitle) statusTitle.textContent = '✅ マーカー検出成功!';
-						// if (statusMessage) statusMessage.textContent = '3Dオブジェクトが表示されています';
-						// if (statusDetail) statusDetail.textContent = '';
-					});
+          // マーカーが見つかった時のイベント
+          const marker = document.querySelector('a-marker');
+          if (marker) {
+            marker.addEventListener('markerFound', () => {
+              console.log('マーカーが検出されました!');
+              // if (statusTitle) statusTitle.textContent = '✅ マーカー検出成功!';
+              // if (statusMessage) statusMessage.textContent = '3Dオブジェクトが表示されています';
+              // if (statusDetail) statusDetail.textContent = '';
+            });
 
-					marker.addEventListener('markerLost', () => {
-						console.log('マーカーを見失いました');
-						// if (statusTitle) statusTitle.textContent = '🎯 ARカメラ起動中';
-						// if (statusMessage) statusMessage.textContent = 'ARマーカーをカメラに向けてください';
-						// if (statusDetail) statusDetail.textContent = '';
-					});
-				}
-			}
+            marker.addEventListener('markerLost', () => {
+              console.log('マーカーを見失いました');
+              // if (statusTitle) statusTitle.textContent = '🎯 ARカメラ起動中';
+              // if (statusMessage) statusMessage.textContent = 'ARマーカーをカメラに向けてください';
+              // if (statusDetail) statusDetail.textContent = '';
+            });
+          }
+        }
 
-			// 10秒経ってもカメラが起動しない場合は詳細情報を表示
-			setTimeout(() => {
-				if (!cameraStarted) {
-					console.warn('カメラの起動に時間がかかっています');
-					// if (statusTitle) statusTitle.textContent = '⚠️ カメラ起動に時間がかかっています';
-					// if (statusMessage) statusMessage.textContent = 'エラーの可能性があります';
-					// if (statusDetail) {
-					// 	statusDetail.innerHTML = '<strong>対処方法:</strong><br>1. ページをリロード<br>2. ブラウザのカメラ許可を確認<br>3. 他のアプリがカメラを使用していないか確認';
-					// }
-				}
-			}, 10000);
-		});
-	</script>
-</body>
+        // 10秒経ってもカメラが起動しない場合は詳細情報を表示
+        setTimeout(() => {
+          if (!cameraStarted) {
+            console.warn('カメラの起動に時間がかかっています');
+            // if (statusTitle) statusTitle.textContent = '⚠️ カメラ起動に時間がかかっています';
+            // if (statusMessage) statusMessage.textContent = 'エラーの可能性があります';
+            // if (statusDetail) {
+            // 	statusDetail.innerHTML = '<strong>対処方法:</strong><br>1. ページをリロード<br>2. ブラウザのカメラ許可を確認<br>3. 他のアプリがカメラを使用していないか確認';
+            // }
+          }
+        }, 10000);
+      });
+    </script>
+  </body>
 </html>
