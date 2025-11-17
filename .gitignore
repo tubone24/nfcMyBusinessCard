@@ -1,6 +1,7 @@
 # build output
 dist/
 .output/
+storybook-static/
 
 # dependencies
 node_modules/
@@ -11,6 +12,13 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# test coverage
+coverage/
+
+# test results
+test-results/
+playwright-report/
+playwright/.cache/
 
 # environment variables
 .env

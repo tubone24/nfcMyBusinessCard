@@ -1,4 +1,7 @@
 # NFC My Business Card
+
+[![CI](https://github.com/tubone24/nfcMyBusinessCard/actions/workflows/ci.yml/badge.svg)](https://github.com/tubone24/nfcMyBusinessCard/actions/workflows/ci.yml)
+
 ### ☁ Try it in the Cloud
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/tubone24/nfcMyBusinessCard/tree)
@@ -38,6 +41,23 @@ npm start
 ```
 
 ## Development Tools
+
+### Continuous Integration
+
+This project uses GitHub Actions for CI/CD. On every push and pull request, the following checks are automatically run:
+
+- **Linting** - ESLint checks for code quality issues
+- **Formatting** - Prettier ensures consistent code style
+- **Type Checking** - TypeScript compiler validates types
+- **Unit Tests** - Vitest runs all unit tests
+- **E2E Tests** - Playwright runs end-to-end tests
+- **Build** - Verifies the project builds successfully
+
+You can run all CI checks locally with:
+
+```bash
+npm run ci    # Run all checks (lint, format, typecheck, test, build)
+```
 
 ### Testing
 
