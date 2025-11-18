@@ -9,14 +9,27 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <Layout title="tubone24">
-  <main>
-    <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="ダークモード切り替え">
-      <Icon class="sun-icon" name="mdi:weather-sunny" />
-      <Icon class="moon-icon" name="mdi:weather-night" />
+  <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+  <main id="main-content">
+    <button
+      id="dark-mode-toggle"
+      class="dark-mode-toggle"
+      aria-label="ダークモード切り替え"
+      aria-pressed="false"
+    >
+      <Icon class="sun-icon" name="mdi:weather-sunny" aria-hidden="true" />
+      <Icon class="moon-icon" name="mdi:weather-night" aria-hidden="true" />
     </button>
     <div class="header-container">
       <h1><span class="text-gradient">Yu Otsubo</span></h1>
-      <img class="myicon" id="myicon" src="/icon.png" alt="my icon" />
+      <button
+        class="myicon-button"
+        id="myicon"
+        aria-label="犬のアニメーションを再生"
+        type="button"
+      >
+        <img src="/icon.png" alt="" role="presentation" />
+      </button>
     </div>
     <div id="running-dog"></div>
     <p class="instructions">
@@ -25,32 +38,33 @@ import { Icon } from 'astro-icon/components';
       ><br />
       <strong class="second">Guitarist / Composer / YouTuber</strong><br /><br />
       <code
-        ><a href="tel:080-6367-9825"><Icon class="icon" name="mdi:telephone" />080-6367-9825</a
+        ><a href="tel:080-6367-9825"
+          ><Icon class="icon" name="mdi:telephone" aria-hidden="true" />080-6367-9825</a
         ></code
       >
       <code
-        ><Icon class="icon" name="ic:baseline-mail" /><a href="mailto:yu-ootsubo@kddi-agdc.com"
-          >yu-ootsubo@kddi-agdc.com</a
+        ><Icon class="icon" name="ic:baseline-mail" aria-hidden="true" /><a
+          href="mailto:yu-ootsubo@kddi-agdc.com">yu-ootsubo@kddi-agdc.com</a
         ></code
       >
       <code
-        ><Icon class="icon" name="ic:baseline-mail" /><a href="mailto:tubo.yyyuuu@gmail.com"
-          >tubo.yyyuuu@gmail.com</a
+        ><Icon class="icon" name="ic:baseline-mail" aria-hidden="true" /><a
+          href="mailto:tubo.yyyuuu@gmail.com">tubo.yyyuuu@gmail.com</a
         ></code
       >
     </p>
     <div class="contact">
       <button class="cool-button" id="open-qr"
-        ><Icon class="icon" name="ic:sharp-qr-code-2" />QR Code</button
+        ><Icon class="icon" name="ic:sharp-qr-code-2" aria-hidden="true" />QR Code</button
       >
       <button class="cool-button2" id="open-contact"
-        ><Icon class="icon" name="ic:baseline-mail" />Contact</button
+        ><Icon class="icon" name="ic:baseline-mail" aria-hidden="true" />Contact</button
       >
       <button class="cool-button3" id="open-nft"
-        ><Icon class="icon" name="fluent:sparkle-16-regular" />NFT</button
+        ><Icon class="icon" name="fluent:sparkle-16-regular" aria-hidden="true" />NFT</button
       >
     </div>
-    <ul class="link-card-grid">
+    <ul class="link-card-grid" aria-label="ソーシャルメディアとポートフォリオリンク">
       <Card
         href="https://tubone-project24.xyz/"
         title="tubone BOYAKI"
@@ -108,8 +122,9 @@ import { Icon } from 'astro-icon/components';
       />
     </ul>
 
-    <h2 class="section-title">Publications</h2>
-    <ul class="book-card-grid">
+    <section aria-labelledby="publications-heading">
+      <h2 id="publications-heading" class="section-title">Publications</h2>
+      <ul class="book-card-grid" aria-label="出版物一覧">
       <BookCard
         title="やさしいMCP入門"
         author="御田稔, 大坪悠"
@@ -132,9 +147,11 @@ import { Icon } from 'astro-icon/components';
         href="https://techbookfest.org/product/7YEcq5ZEqMrcn7syzVhcdQ?productVariantID=wF6srZpi5e0UeE47fFgKT6"
       />
     </ul>
+    </section>
 
-    <h2 class="section-title">Media</h2>
-    <ul class="youtube-card-grid">
+    <section aria-labelledby="media-heading">
+      <h2 id="media-heading" class="section-title">Media</h2>
+      <ul class="youtube-card-grid" aria-label="メディア掲載一覧">
       <YouTubeCard
         title="【３分で分かるAI】本部長視点のAIエージェント『A-BOSS』（本部長AI）のアーキテクチャーを解説"
         channelName="KDDIofficial"
@@ -154,11 +171,14 @@ import { Icon } from 'astro-icon/components';
         episodeId="2SIdnEJxFzm7LAVHVZs6sI"
       />
     </ul>
+    </section>
 
     <Modal triggerId="open-qr" title="My QR Code">
-      <img class="qr" id="qr-image" src="/qr.png" alt="QR Code" />
+      <img class="qr" id="qr-image" src="/qr.png" alt="QRコード" />
       <p
         id="tap-counter"
+        aria-live="polite"
+        aria-atomic="true"
         style="text-align: center; color: #888; font-size: 0.8em; margin-top: 10px;"
       >
       </p>
@@ -166,17 +186,17 @@ import { Icon } from 'astro-icon/components';
 
     <Modal triggerId="open-contact" title="Contact">
       <a class="cool-button2 download-contact" href="/contact.vcf" download
-        ><Icon class="icon" name="ic:baseline-mail" />Save VFC</a
+        ><Icon class="icon" name="ic:baseline-mail" aria-hidden="true" />Save VFC</a
       >
       <a
         class="cool-button2 download-contact"
         href="mailto:tubo.yyyuuu@outlook.jp?subject=%E5%90%8D%E5%88%BA%E4%BA%A4%E6%8F%9Btubone24&body=%E4%BB%B6%E5%90%8D%E3%83%BB%E6%9C%AC%E6%96%87%E3%81%AF%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E3%81%AB%E3%81%97%E3%81%A6%E3%81%84%E3%81%9F%E3%81%A0%E3%81%8D%E3%83%A1%E3%83%BC%E3%83%AB%E3%82%92%E9%80%81%E4%BF%A1%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82"
-        ><Icon class="icon" name="fa:mail-reply" />Auto reply mail</a
+        ><Icon class="icon" name="fa:mail-reply" aria-hidden="true" />Auto reply mail</a
       >
       <a
         class="cool-button2 download-contact"
         href="https://portfolio.tubone-project24.xyz/#contact"
-        ><Icon class="icon" name="fa:wpforms" />Contact Form</a
+        ><Icon class="icon" name="fa:wpforms" aria-hidden="true" />Contact Form</a
       >
       <a class="download-business-card" href="/business-card.png" download
         ><img class="business-card" src="/business-card.png" alt="Business Card" /></a
@@ -200,11 +220,20 @@ import { Icon } from 'astro-icon/components';
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     const htmlElement = document.documentElement;
 
+    // Update aria-pressed based on current state
+    const updateAriaPressed = () => {
+      const isDark = htmlElement.classList.contains('dark-mode');
+      if (darkModeToggle) {
+        darkModeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+      }
+    };
+
     // LocalStorageから設定を読み込む
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
       htmlElement.classList.add('dark-mode');
     }
+    updateAriaPressed();
 
     // ダークモード切り替えボタンのクリックイベント
     if (darkModeToggle) {
@@ -217,6 +246,9 @@ import { Icon } from 'astro-icon/components';
         } else {
           localStorage.setItem('theme', 'light');
         }
+
+        // Update aria-pressed
+        updateAriaPressed();
       });
     }
 
@@ -338,6 +370,22 @@ import { Icon } from 'astro-icon/components';
 </script>
 
 <style>
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: rgb(var(--accent));
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+    border-radius: 0 0 4px 0;
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+
   main {
     margin: auto;
     padding: 1.5rem;
@@ -523,10 +571,30 @@ import { Icon } from 'astro-icon/components';
     margin-left: 10px;
   }
 
-  .header-container img {
+  .myicon-button {
     width: 20%;
-    object-fit: cover;
+    border: none;
+    background: none;
+    padding: 0;
     cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .myicon-button:hover {
+    transform: scale(1.05);
+  }
+
+  .myicon-button:focus {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 2px;
+    border-radius: 50%;
+  }
+
+  .myicon-button img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
   }
 
   .contact {

@@ -12,7 +12,12 @@ const embedUrl = `https://open.spotify.com/embed/episode/${episodeId}?utm_source
 ---
 
 <li class="spotify-card">
-  <a href={href} target="_blank" rel="noopener noreferrer">
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`${title} - ${showName} (新しいタブで開く)`}
+  >
     <div class="card-content">
       <h3>{title}</h3>
       <p class="show-name">{showName}</p>
@@ -24,8 +29,6 @@ const embedUrl = `https://open.spotify.com/embed/episode/${episodeId}?utm_source
         src={embedUrl}
         width="100%"
         height="180"
-        frameborder="0"
-        allowfullscreen=""
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy"></iframe>
     </div>
@@ -102,6 +105,7 @@ const embedUrl = `https://open.spotify.com/embed/episode/${episodeId}?utm_source
   }
 
   .spotify-player iframe {
+    border: 0;
     border-radius: 8px;
     max-width: 100%;
     display: block;

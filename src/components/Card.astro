@@ -14,9 +14,9 @@ const { href, title, body, icon } = Astro.props;
 <li class="link-card">
   <a href={href}>
     <h2>
-      <Icon class="icon" name={icon} />
+      <Icon class="icon" name={icon} aria-hidden="true" />
       {title}
-      <span>&rarr;</span>
+      <span aria-hidden="true">&rarr;</span>
     </h2>
     <p>
       {body}

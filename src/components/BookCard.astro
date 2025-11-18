@@ -11,9 +11,14 @@ const { title, author, description, image, href } = Astro.props;
 ---
 
 <li class="book-card">
-  <a href={href} target="_blank" rel="noopener noreferrer">
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`${title} - ${author} (新しいタブで開く)`}
+  >
     <div class="book-image-container">
-      <img src={image} alt={title} class="book-image" />
+      <img src={image} alt="" role="presentation" class="book-image" />
     </div>
     <div class="book-content">
       <h3 class="book-title">{title}</h3>

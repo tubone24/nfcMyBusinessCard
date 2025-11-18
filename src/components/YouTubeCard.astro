@@ -12,10 +12,15 @@ const thumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 ---
 
 <li class="youtube-card">
-  <a href={href} target="_blank" rel="noopener noreferrer">
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`${title} - ${channelName} (新しいタブで開く)`}
+  >
     <div class="card-image">
-      <img src={thumbnail} alt={title} />
-      <div class="play-button">
+      <img src={thumbnail} alt="" role="presentation" />
+      <div class="play-button" aria-hidden="true">
         <svg width="68" height="48" viewBox="0 0 68 48">
           <path
             d="M66.52,7.74c-0.78-2.93-3.09-5.23-6.02-6.01C55.17,0.26,34,0.26,34,0.26s-21.17,0-26.5,1.47 c-2.93,0.78-5.24,3.08-6.02,6.01C0,13.07,0,24,0,24s0,10.93,1.48,16.26c0.78,2.93,3.09,5.16,6.02,5.94 C12.83,47.74,34,47.74,34,47.74s21.17,0,26.5-1.54c2.93-0.78,5.24-3.01,6.02-5.94C68,34.93,68,24,68,24S68,13.07,66.52,7.74z"
