@@ -143,3 +143,4 @@ test.describe('Homepage', () => {
     expect(loadTime).toBeLessThan(10000);
   });
 });
+
