@@ -41,15 +41,18 @@ export default defineConfig({
       },
     }),
     process.env.NODE_ENV === 'production' ? serviceWorker() : null,
-    webmanifest({
-      name: 'Yu Otsubo - Business Card Site',
-      icon: 'public/icon.png',
-      short_name: 'Yu Otsubo',
-      description: 'Yu Otsubo - Business Card Site',
-      start_url: 'https://tubone-project24.onrender.com/#testtest',
-      theme_color: '#4bffde',
-      background_color: '#4bffde',
-      display: 'standalone',
-    }),
-  ],
+    // Disable webmanifest in CI environment due to sharp module build issues
+    !process.env.CI
+      ? webmanifest({
+          name: 'Yu Otsubo - Business Card Site',
+          icon: 'public/icon.png',
+          short_name: 'Yu Otsubo',
+          description: 'Yu Otsubo - Business Card Site',
+          start_url: 'https://tubone-project24.onrender.com/#testtest',
+          theme_color: '#4bffde',
+          background_color: '#4bffde',
+          display: 'standalone',
+        })
+      : null,
+  ].filter(Boolean),
 });
