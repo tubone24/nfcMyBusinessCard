@@ -380,4 +380,3 @@ test.describe('Accessibility - Keyboard Navigation', () => {
     await expect(openQRButton).toBeVisible();
   });
 });
-
