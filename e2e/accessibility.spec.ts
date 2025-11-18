@@ -130,9 +130,7 @@ test.describe('Accessibility - WCAG Compliance', () => {
 
   test('sections should have proper ARIA labels', async ({ page }) => {
     // Check Publications section
-    const publicationsSection = page.locator(
-      'section[aria-labelledby="publications-heading"]'
-    );
+    const publicationsSection = page.locator('section[aria-labelledby="publications-heading"]');
     await expect(publicationsSection).toBeAttached();
 
     const publicationsHeading = page.locator('#publications-heading');
@@ -301,9 +299,7 @@ test.describe('Accessibility - WCAG Compliance', () => {
     expect(await metaRefresh.count()).toBe(0);
   });
 
-  test('responsive design should not hide content at different zoom levels', async ({
-    page,
-  }) => {
+  test('responsive design should not hide content at different zoom levels', async ({ page }) => {
     // Test at 200% zoom (simulated by smaller viewport)
     await page.setViewportSize({ width: 640, height: 480 });
     await page.goto('/');
@@ -355,13 +351,10 @@ test.describe('Accessibility - Keyboard Navigation', () => {
     await page.waitForTimeout(100);
 
     // Button should still exist and be focused
-    const stillFocused = await page.evaluate(
-      (id) => {
-        const el = document.activeElement;
-        return el?.id === id || el?.tagName === 'BUTTON';
-      },
-      buttonId || 'dark-mode-toggle'
-    );
+    const stillFocused = await page.evaluate((id) => {
+      const el = document.activeElement;
+      return el?.id === id || el?.tagName === 'BUTTON';
+    }, buttonId || 'dark-mode-toggle');
     expect(stillFocused).toBe(true);
   });
 

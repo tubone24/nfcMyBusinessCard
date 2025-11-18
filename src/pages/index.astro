@@ -22,12 +22,7 @@ import { Icon } from 'astro-icon/components';
     </button>
     <div class="header-container">
       <h1><span class="text-gradient">Yu Otsubo</span></h1>
-      <button
-        class="myicon-button"
-        id="myicon"
-        aria-label="犬のアニメーションを再生"
-        type="button"
-      >
+      <button class="myicon-button" id="myicon" aria-label="犬のアニメーションを再生" type="button">
         <img src="/icon.png" alt="" role="presentation" />
       </button>
     </div>
@@ -44,30 +39,29 @@ import { Icon } from 'astro-icon/components';
       >
       <code
         ><Icon class="icon" name="ic:baseline-mail" aria-hidden="true" /><a
-          href="mailto:yu-ootsubo@kddi-agdc.com">yu-ootsubo@kddi-agdc.com</a
+          href="mailto:yu-ootsubo@kddi-agdc.com"
+          >yu-ootsubo@kddi-agdc.com</a
         ></code
       >
       <code
         ><Icon class="icon" name="ic:baseline-mail" aria-hidden="true" /><a
-          href="mailto:tubo.yyyuuu@gmail.com">tubo.yyyuuu@gmail.com</a
+          href="mailto:tubo.yyyuuu@gmail.com"
+          >tubo.yyyuuu@gmail.com</a
         ></code
       >
     </p>
     <div class="contact">
-      <button class="cool-button" id="open-qr"
-        ><Icon class="icon" name="ic:sharp-qr-code-2" aria-hidden="true" />QR Code</button
-      >
-      <button class="cool-button2" id="open-contact"
-        ><Icon class="icon" name="ic:baseline-mail" aria-hidden="true" />Contact</button
-      >
-      <button class="cool-button3" id="open-nft"
-        ><Icon class="icon" name="fluent:sparkle-16-regular" aria-hidden="true" />NFT</button
-      >
+      <button class="cool-button" id="open-qr">
+        <Icon class="icon" name="ic:sharp-qr-code-2" aria-hidden="true" />QR Code
+      </button>
+      <button class="cool-button2" id="open-contact">
+        <Icon class="icon" name="ic:baseline-mail" aria-hidden="true" />Contact
+      </button>
+      <button class="cool-button3" id="open-nft">
+        <Icon class="icon" name="fluent:sparkle-16-regular" aria-hidden="true" />NFT
+      </button>
     </div>
-    <ul
-      class="link-card-grid"
-      aria-label="ソーシャルメディアとポートフォリオリンク"
-    >
+    <ul class="link-card-grid" aria-label="ソーシャルメディアとポートフォリオリンク">
       <Card
         href="https://tubone-project24.xyz/"
         title="tubone BOYAKI"
@@ -128,52 +122,52 @@ import { Icon } from 'astro-icon/components';
     <section aria-labelledby="publications-heading">
       <h2 id="publications-heading" class="section-title">Publications</h2>
       <ul class="book-card-grid" aria-label="出版物一覧">
-      <BookCard
-        title="やさしいMCP入門"
-        author="御田稔, 大坪悠"
-        description="AIエージェント時代の標準規格MCP(モデル コンテキスト プロトコル)の入門書。大バズりしたスライド「やさしいMCP入門」の著者が新技術の基礎をやさしく解説。"
-        image="/yasasii-mcp.jpg"
-        href="https://www.amazon.co.jp/%E3%82%84%E3%81%95%E3%81%97%E3%81%84MCP%E5%85%A5%E9%96%80-%E5%BE%A1%E7%94%B0%E7%A8%94/dp/4798075736"
-      />
-      <BookCard
-        title="AIエージェント開発 / 運用入門 [生成AI深掘りガイド]"
-        author="御田 稔 (著), 大坪 悠 (著), 塚田 真規 (著)"
-        description="「AIエージェント」の基本・作り方・活用方法が、この一冊でぜんぶ学べる！昨今話題の「AIエージェント」について、基礎の基礎から１つずつ丁寧に、しっかりと解説した本格入門書です。基礎知識はもとより、AIエージェントの作り方や実際の活用事例、さらにはAIエージェントを語るうえで欠かせないLLMについても解説しています。"
-        image="/ai-agent.png"
-        href="https://amzn.asia/d/3fYHwu3"
-      />
-      <BookCard
-        title="KAG Tech Book -Vol1-"
-        author="Tomoya Kitaura / Masayoshi Kishida / Kazunori Morita / Yu Otsubo / Makoto Shinohara / Tomohiro Nakajima"
-        description="本書は、KDDIアジャイル開発センター株式会社（通称KAG：カグと呼ばれます）で日々、システム開発に向き合っているメンバーたちの有志によって執筆されました。それぞれが異なる現場やプロダクトに携わる中で得た経験や知見を持ち寄り、チームとしての実践や学びを一冊にまとめたものです。"
-        image="/kag-tech-book.png"
-        href="https://techbookfest.org/product/7YEcq5ZEqMrcn7syzVhcdQ?productVariantID=wF6srZpi5e0UeE47fFgKT6"
-      />
-    </ul>
+        <BookCard
+          title="やさしいMCP入門"
+          author="御田稔, 大坪悠"
+          description="AIエージェント時代の標準規格MCP(モデル コンテキスト プロトコル)の入門書。大バズりしたスライド「やさしいMCP入門」の著者が新技術の基礎をやさしく解説。"
+          image="/yasasii-mcp.jpg"
+          href="https://www.amazon.co.jp/%E3%82%84%E3%81%95%E3%81%97%E3%81%84MCP%E5%85%A5%E9%96%80-%E5%BE%A1%E7%94%B0%E7%A8%94/dp/4798075736"
+        />
+        <BookCard
+          title="AIエージェント開発 / 運用入門 [生成AI深掘りガイド]"
+          author="御田 稔 (著), 大坪 悠 (著), 塚田 真規 (著)"
+          description="「AIエージェント」の基本・作り方・活用方法が、この一冊でぜんぶ学べる！昨今話題の「AIエージェント」について、基礎の基礎から１つずつ丁寧に、しっかりと解説した本格入門書です。基礎知識はもとより、AIエージェントの作り方や実際の活用事例、さらにはAIエージェントを語るうえで欠かせないLLMについても解説しています。"
+          image="/ai-agent.png"
+          href="https://amzn.asia/d/3fYHwu3"
+        />
+        <BookCard
+          title="KAG Tech Book -Vol1-"
+          author="Tomoya Kitaura / Masayoshi Kishida / Kazunori Morita / Yu Otsubo / Makoto Shinohara / Tomohiro Nakajima"
+          description="本書は、KDDIアジャイル開発センター株式会社（通称KAG：カグと呼ばれます）で日々、システム開発に向き合っているメンバーたちの有志によって執筆されました。それぞれが異なる現場やプロダクトに携わる中で得た経験や知見を持ち寄り、チームとしての実践や学びを一冊にまとめたものです。"
+          image="/kag-tech-book.png"
+          href="https://techbookfest.org/product/7YEcq5ZEqMrcn7syzVhcdQ?productVariantID=wF6srZpi5e0UeE47fFgKT6"
+        />
+      </ul>
     </section>
 
     <section aria-labelledby="media-heading">
       <h2 id="media-heading" class="section-title">Media</h2>
       <ul class="youtube-card-grid" aria-label="メディア掲載一覧">
-      <YouTubeCard
-        title="【３分で分かるAI】本部長視点のAIエージェント『A-BOSS』（本部長AI）のアーキテクチャーを解説"
-        channelName="KDDIofficial"
-        description="AIが本部長の代わりに提案書をレビュー、営業活動のあらゆる場面でサポートしてくれる上司のように頼れるAIエージェントのアーキテクチャーを開発メンバーが解説いたします。"
-        videoId="eotu-iwh-qA"
-      />
-      <YouTubeCard
-        title="【３分で分かるAI】成長するAIエージェント『A-BOSS』（本部長AI）の成長機能の仕組みを解説"
-        channelName="KDDIofficial"
-        description="使えば使うほど賢くなるAIエージェント！A-BOSS（本部長AI）の成長機能の仕組みについて開発メンバーが解説いたします。"
-        videoId="WFh4fQ95gxk"
-      />
-      <SpotifyCard
-        title="#370 書籍執筆にも至る、ものづくりとアウトプットの流儀（ゲスト：大坪さん）"
-        showName="ひまじんプログラマーの週末エンジニアリングレッスン"
-        description="「かいちの勤務先のすごい人呼んでみたシリーズ(仮)」の第四弾として、KDDIアジャイル開発センター株式会社で勤務しており、「やさしいMCP入門」の著者の大坪さんをゲストに迎え、価値観や普段のインプットとアウトプットについてお話しました。技術書展の執筆、登壇、書籍執筆、本業の開発等々をすべてやってしまう大坪さんが普段どのようなことを考え、何をしているのか？を聞くことでな"
-        episodeId="2SIdnEJxFzm7LAVHVZs6sI"
-      />
-    </ul>
+        <YouTubeCard
+          title="【３分で分かるAI】本部長視点のAIエージェント『A-BOSS』（本部長AI）のアーキテクチャーを解説"
+          channelName="KDDIofficial"
+          description="AIが本部長の代わりに提案書をレビュー、営業活動のあらゆる場面でサポートしてくれる上司のように頼れるAIエージェントのアーキテクチャーを開発メンバーが解説いたします。"
+          videoId="eotu-iwh-qA"
+        />
+        <YouTubeCard
+          title="【３分で分かるAI】成長するAIエージェント『A-BOSS』（本部長AI）の成長機能の仕組みを解説"
+          channelName="KDDIofficial"
+          description="使えば使うほど賢くなるAIエージェント！A-BOSS（本部長AI）の成長機能の仕組みについて開発メンバーが解説いたします。"
+          videoId="WFh4fQ95gxk"
+        />
+        <SpotifyCard
+          title="#370 書籍執筆にも至る、ものづくりとアウトプットの流儀（ゲスト：大坪さん）"
+          showName="ひまじんプログラマーの週末エンジニアリングレッスン"
+          description="「かいちの勤務先のすごい人呼んでみたシリーズ(仮)」の第四弾として、KDDIアジャイル開発センター株式会社で勤務しており、「やさしいMCP入門」の著者の大坪さんをゲストに迎え、価値観や普段のインプットとアウトプットについてお話しました。技術書展の執筆、登壇、書籍執筆、本業の開発等々をすべてやってしまう大坪さんが普段どのようなことを考え、何をしているのか？を聞くことでな"
+          episodeId="2SIdnEJxFzm7LAVHVZs6sI"
+        />
+      </ul>
     </section>
 
     <Modal triggerId="open-qr" title="My QR Code">
@@ -182,9 +176,8 @@ import { Icon } from 'astro-icon/components';
         id="tap-counter"
         aria-live="polite"
         aria-atomic="true"
-        style="text-align: center; color: #888; font-size: 0.8em; margin-top: 10px;"
-      >
-      </p>
+        style="text-align: center; color: #888; font-size: 0.8em; margin-top: 10px"
+      ></p>
     </Modal>
 
     <Modal triggerId="open-contact" title="Contact">
@@ -202,8 +195,8 @@ import { Icon } from 'astro-icon/components';
         ><Icon class="icon" name="fa:wpforms" aria-hidden="true" />Contact Form</a
       >
       <a class="download-business-card" href="/business-card.png" download
-        ><img class="business-card" src="/business-card.png" alt="Business Card" /></a
-      >
+        ><img class="business-card" src="/business-card.png" alt="Business Card"
+      /></a>
     </Modal>
 
     <Modal triggerId="open-nft" title="My NFT">
@@ -211,8 +204,9 @@ import { Icon } from 'astro-icon/components';
         class="nft"
         href="https://www.mintrally.xyz/ja/events/380"
         target="_blank"
-        rel="noopener noreferrer"><img class="nft-img" src="/nft.webp" alt="NFT" /></a
-      >
+        rel="noopener noreferrer"
+        ><img class="nft-img" src="/nft.webp" alt="NFT"
+      /></a>
     </Modal>
   </main>
 </Layout>
