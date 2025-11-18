@@ -130,7 +130,9 @@ test.describe('Accessibility - WCAG Compliance', () => {
 
   test('sections should have proper ARIA labels', async ({ page }) => {
     // Check Publications section
-    const publicationsSection = page.locator('section[aria-labelledby="publications-heading"]');
+    const publicationsSection = page.locator(
+      'section[aria-labelledby="publications-heading"]'
+    );
     await expect(publicationsSection).toBeAttached();
 
     const publicationsHeading = page.locator('#publications-heading');

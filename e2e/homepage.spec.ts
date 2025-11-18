@@ -30,11 +30,17 @@ test.describe('Homepage', () => {
     await expect(companyLink).toBeVisible();
   });
 
-  test('should display profile icon', async ({ page }) => {
-    const icon = page.locator('#myicon');
-    await expect(icon).toBeVisible();
-    expect(await icon.getAttribute('src')).toContain('icon.png');
-    expect(await icon.getAttribute('alt')).toBe('my icon');
+  test('should display profile icon button', async ({ page }) => {
+    const iconButton = page.locator('#myicon');
+    await expect(iconButton).toBeVisible();
+
+    // Check it's a button element
+    const tagName = await iconButton.evaluate((el) => el.tagName.toLowerCase());
+    expect(tagName).toBe('button');
+
+    // Check the image inside the button
+    const img = iconButton.locator('img');
+    expect(await img.getAttribute('src')).toContain('icon.png');
   });
 
   test('should display contact buttons', async ({ page }) => {
@@ -93,7 +99,9 @@ test.describe('Homepage', () => {
 
   test('should display all sections', async ({ page }) => {
     // Check for Publications section
-    const publicationsSection = page.locator('h2.section-title').filter({ hasText: 'Publications' });
+    const publicationsSection = page
+      .locator('h2.section-title')
+      .filter({ hasText: 'Publications' });
     await expect(publicationsSection).toBeVisible();
 
     // Check for Media section
