@@ -64,7 +64,10 @@ import { Icon } from 'astro-icon/components';
         ><Icon class="icon" name="fluent:sparkle-16-regular" aria-hidden="true" />NFT</button
       >
     </div>
-    <ul class="link-card-grid" aria-label="ソーシャルメディアとポートフォリオリンク">
+    <ul
+      class="link-card-grid"
+      aria-label="ソーシャルメディアとポートフォリオリンク"
+    >
       <Card
         href="https://tubone-project24.xyz/"
         title="tubone BOYAKI"
@@ -317,21 +320,27 @@ import { Icon } from 'astro-icon/components';
         if (!isMarkerMode) {
           // QR Code Mode: Switch to AR Marker
           if (tapCount < 5) {
-            tapCounter.textContent = `${tapCount}/5 taps - ${5 - tapCount} more to switch to AR marker`;
+            tapCounter.textContent = `${tapCount}/5 taps - ${
+              5 - tapCount
+            } more to switch to AR marker`;
           }
 
           if (tapCount >= 5) {
             qrImage.src = '/ar-marker.png';
             qrImage.style.cursor = 'pointer';
             tapCounter.innerHTML =
-              'Switched to AR marker!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">Launch AR Camera</a>';
+              'Switched to AR marker!<br>' +
+              '<a href="/ar.html" style="color: #4bffde; text-decoration: underline;">' +
+              'Launch AR Camera</a>';
             isMarkerMode = true;
             tapCount = 0;
           }
         } else {
           // AR Marker Mode: Back to QR Code
           if (tapCount < 5) {
-            tapCounter.textContent = `${tapCount}/5 taps - ${5 - tapCount} more to return to QR code`;
+            tapCounter.textContent = `${tapCount}/5 taps - ${
+              5 - tapCount
+            } more to return to QR code`;
           }
 
           if (tapCount >= 5) {
@@ -360,7 +369,9 @@ import { Icon } from 'astro-icon/components';
             } else {
               // Keep AR camera launch link in marker mode
               tapCounter.innerHTML =
-                'Switched to AR marker!<br><a href="/ar.html" style="color: #4bffde; text-decoration: underline;">Launch AR Camera</a>';
+                'Switched to AR marker!<br>' +
+                '<a href="/ar.html" style="color: #4bffde; text-decoration: underline;">' +
+                'Launch AR Camera</a>';
             }
           }
         }, 3000);
@@ -958,3 +969,4 @@ import { Icon } from 'astro-icon/components';
     display: block;
   }
 </style>
+
