@@ -1314,10 +1314,10 @@
   dependencies:
     "@iconify/types" "*"
 
-"@iconify-json/fluent@1.2.34":
-  version "1.2.34"
-  resolved "https://registry.npmjs.org/@iconify-json/fluent/-/fluent-1.2.34.tgz"
-  integrity sha512-TXiotS96YhSf6urBmMBrBPOL2OJJghiv+FhLsd3J0PePZJEq460eg/LrnfVqKqEdLc38C3AesTNJAM8iB4N5UQ==
+"@iconify-json/fluent@1.2.35":
+  version "1.2.35"
+  resolved "https://registry.npmjs.org/@iconify-json/fluent/-/fluent-1.2.35.tgz"
+  integrity sha512-OsbJPrIsEmnlLvgGBSyc6A27C2DvJwyZ+3Jb2NA8GlcixI9J1GEZhOo0MJZoTLf0GBqaSwhejxiMc+OT1f19WA==
   dependencies:
     "@iconify/types" "*"
 
