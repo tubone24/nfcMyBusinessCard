@@ -33,7 +33,7 @@
     "@iconify-json/icomoon-free": "1.2.1",
     "@iconify-json/mdi": "1.2.3",
     "accessible-astro-components": "5.0.3",
-    "astro": "5.16.6",
+    "astro": "5.16.11",
     "astro-icon": "1.1.5",
     "astro-webmanifest": "1.0.0",
     "astrojs-service-worker": "2.0.0"
