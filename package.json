@@ -28,7 +28,7 @@
   "dependencies": {
     "@astrojs/partytown": "2.1.4",
     "@iconify-json/fa": "1.2.2",
-    "@iconify-json/fluent": "1.2.34",
+    "@iconify-json/fluent": "1.2.39",
     "@iconify-json/ic": "1.2.4",
     "@iconify-json/icomoon-free": "1.2.1",
     "@iconify-json/mdi": "1.2.3",
