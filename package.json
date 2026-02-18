@@ -42,7 +42,7 @@
     "@playwright/test": "^1.49.0",
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/addon-interactions": "^8.4.7",
-    "@storybook/addon-links": "^8.4.7",
+    "@storybook/addon-links": "^10.0.0",
     "@storybook/blocks": "^8.4.7",
     "@storybook/test": "^8.4.7",
     "@typescript-eslint/eslint-plugin": "^8.16.0",
@@ -57,7 +57,7 @@
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "serve": "14.2.5",
-    "storybook": "^8.4.7",
+    "storybook": "^10.0.0",
     "typescript": "^5.7.2",
     "vitest": "^4.0.0"
   }
