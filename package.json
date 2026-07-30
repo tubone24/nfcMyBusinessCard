@@ -26,7 +26,7 @@
     "ci": "npm run lint && npm run format:check && npm run typecheck && npm run test:run && npm run build"
   },
   "dependencies": {
-    "@astrojs/partytown": "2.1.4",
+    "@astrojs/partytown": "2.1.7",
     "@iconify-json/fa": "1.2.2",
     "@iconify-json/fluent": "1.2.34",
     "@iconify-json/ic": "1.2.4",
