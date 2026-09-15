@@ -10,6 +10,7 @@ jobs:
   lint:
     name: Lint & Format Check
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
@@ -34,6 +35,7 @@ jobs:
   test:
     name: Unit Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
@@ -52,13 +54,18 @@ jobs:
   e2e:
     name: E2E Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
+      # NOTE: 他ジョブと違い .node-version (26.x) を使わず Node 24 に固定している。
+      # Playwright 1.59 は Node 26 上で `playwright install` が
+      # ブラウザ zip のダウンロード完了直後に固まり、ジョブが 6h でタイムアウトするため。
+      # Playwright 側が Node 26 に対応したら node-version-file に戻すこと。
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
+          node-version: '24.11.1'
           cache: 'npm'
 
       - name: Install dependencies
@@ -81,6 +88,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     needs: [lint, test]
     steps:
       - uses: actions/checkout@v4
