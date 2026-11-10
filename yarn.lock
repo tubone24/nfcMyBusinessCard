@@ -2051,13 +2051,12 @@
     polished "^4.2.2"
     ts-dedent "^2.2.0"
 
-"@storybook/addon-links@^8.4.7":
-  version "8.6.18"
-  resolved "https://registry.npmjs.org/@storybook/addon-links/-/addon-links-8.6.18.tgz"
-  integrity sha512-FFlQcPRTgXoFZr2uawtf7lNc/ceIVRhU13BkJbJZKlil3+C8ORFDO1vnREzHje9JzeOWm/rzI0ay0RVetCcXzg==
+"@storybook/addon-links@^10.0.0":
+  version "10.6.7"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-10.6.7.tgz#2a31c59031f423d1da25b556591046bf8b38e6fb"
+  integrity sha512-0tnawKRBVHxroCHMk8wua/viNy2UJxSNwNIN7GMs6hAAFJzSjUs82rkUTMJjw8st7icjZuVQUoVWvK4Dr4L/eQ==
   dependencies:
     "@storybook/global" "^5.0.0"
-    ts-dedent "^2.0.0"
 
 "@storybook/addon-measure@8.6.14":
   version "8.6.14"
